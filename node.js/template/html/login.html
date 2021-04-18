@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <link rel="stylesheet" href="../css/login.css">
+
+</head>
+<body>
+    <div id ="containter">
+        <div id = "top">
+            <div>
+                <h3>회원가입</h3>
+            </div>
+            <div>
+                <!--state-->
+                <ul id = "list">
+                    <li id = "list_1">기본 정보 입력</li>
+                    <li id = "list_2">이메일 확인</li>
+                    <li id = "list_3">전화번호 확인</li>
+                    <li id = "list_4">회원가입 완료</li>
+                </ul>
+            </div>
+        </div>
+
+        <!--id-->
+        <div>
+            <div>
+                <p class="form_item_name">아이디</p>
+            </div>
+            <div>
+                <input type="text" name="userId" placeholder=" " class="form_input" />
+            </div>
+            <div class="form_text_alert_padding">
+                <div id="alert_id" class="form_text_alert"></div>
+            </div>
+        </div>
+
+        <!--pw-->
+        <div>
+            <div>
+                <p class="form_item_name">비밀번호</p>
+            </div>
+            <div>
+                <input type="password" name="userPassword1"  placeholder=" " class="form_input" />
+            </div>
+            <div class="form_text_alert_padding">
+                <div id="alert_password1" class="form_text_alert"></div>
+            </div>
+        </div>
+       
+        <!--pw check-->
+        <div>
+            <div>
+                <p class="form_item_name">비밀번호 확인</p>
+            </div>
+            <div>
+                <input type="password" name="userPassword2"  placeholder=" " class="form_input" />
+            </div>
+            <div class="form_text_alert_padding">
+                <div id="alert_password2" class="form_text_alert"></div>
+            </div>
+        </div>
+        
+         <!--name-->
+        <div>
+            <div>
+                <p class="form_item_name">이름</p>
+            </div>
+            <div>
+                <input type="text" name="userName" placeholder=" " class="form_input" />
+            </div>
+            <div class="form_text_alert_padding">
+                <div id="alert_name" class="form_text_alert"></div>
+            </div>
+        </div>
+
+         <!--birth-->
+        <div>
+            <div>
+                <p class="form_item_name">생년월일</p>
+            </div>
+            <div >
+                <div class = "birth">
+                    <select name="userYear" id="year" >
+                        <option>년</option>
+                        <option value="volvo">2003</option>
+                        <option value="saab">2004</option>
+                      </select>
+                   </div>
+                   <div class = "birth">
+                    <select name="userMonth" id="month">
+                        <option>월</option>
+                        <option value="volvo">3</option>
+                        <option value="saab">4</option>
+                      </select>
+                   </div>
+                   <div class = "birth">
+                    <select name="userDay" id="day">
+                        <option>일</option>
+                        <option value="volvo">2</option>
+                        <option value="saab">3</option>
+                      </select>
+                   </div>
+                   <div class="form_text_alert_padding">
+                       <div id="alert_birth" class="form_text_alert"></div>
+                   </div>
+                </div>
+            </div>
+
+         <!--next button-->
+        <div>
+            <button id = "nextButton"> Next >></button>
+        </div>
+    </div>
+</body>
+</html>
