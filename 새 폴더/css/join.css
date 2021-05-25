@@ -1,0 +1,45 @@
+body{
+    padding: 0;
+    margin: 0 auto;
+}
+
+div{
+    border: solid red 1px;
+}
+
+#container{
+    width: 500px; 
+    margin: 0 auto;
+}
+
+.title{
+    text-align: center;
+}
+
+#list_div{ 
+    background-color: blue;
+}
+
+#list{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    justify-content: space-around;
+}
+
+#list li{
+    display: block;
+    text-align: center;
+
+}
+
+.form_item_name{
+    
+}
+
+
+.birth{
+    display: inline;
+}

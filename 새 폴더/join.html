@@ -4,24 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-
-    <link rel="stylesheet" href="../css/join.css">
+    <title>Join</title>
+    <link rel="stylesheet" href="css/join.css">
+ <!--
+    static: 기본 값,  
+    relative:원래 있는 item에서 옮겨감
+    absolute: 내가 담겨있는 상자안에서
+    fixed: 페이지 상에서 
+    sticky: 원래있는 자리에있지만 스크롤하면 sticky
+ -->
 
 </head>
 <body>
-    <div id ="containter">
+    <div id ="container">
         <div id = "top">
             <div>
-                <h3>회원가입</h3>
+                <h3 class="title">회원가입</h3>
             </div>
-            <div>
+            <div id = "list_div">
                 <!--state-->
                 <ul id = "list">
-                    <li id = "list_1">기본 정보 입력</li>
-                    <li id = "list_2">이메일 확인</li>
-                    <li id = "list_3">전화번호 확인</li>
-                    <li id = "list_4">회원가입 완료</li>
+                    <li id = "list_1"><div>기본 정보<br>입력</div></li>
+                    <li id = "list_2"><div>이메일<br>확인</div></li>
+                    <li id = "list_3"><div>전화번호<br>확인</div></li>
+                    <li id = "list_4"><div>회원가입<br>완료</div></li>
                 </ul>
             </div>
         </div>
