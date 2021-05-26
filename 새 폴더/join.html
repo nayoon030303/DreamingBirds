@@ -31,92 +31,78 @@
                 </ul>
             </div>
         </div>
-
-        <!--id-->
-        <div class="item_div">
-            <div class="form_item_name">
-                <p >아이디</p>
-            </div>
-            <div>
-                <input type="text" name="userId" placeholder=" " class="form_input" />
-            </div>
-            <div class="form_text_alert_padding">
-                <div id="alert_id" class="form_text_alert"></div>
-            </div>
-        </div>
-
-        <!--pw-->
-        <div class="item_div">
-            <div class="form_item_name">
-                <p>비밀번호</p>
-            </div>
-            <div>
-                <input type="password" name="userPassword1"  placeholder=" " class="form_input" />
-            </div>
-            <div class="form_text_alert_padding">
-                <div id="alert_password1" class="form_text_alert"></div>
-            </div>
-        </div>
-       
-        <!--pw check-->
-        <div class="item_div">
-            <div class="form_item_name">
-                <p>비밀번호 확인</p>
-            </div>
-            <div>
-                <input type="password" name="userPassword2"  placeholder=" " class="form_input" />
-            </div>
-            <div class="form_text_alert_padding">
-                <div id="alert_password2" class="form_text_alert"></div>
-            </div>
-        </div>
-        
-         <!--name-->
-         <div class="item_div">
-            <div class="form_item_name">
-                <p>이름</p>
-            </div>
-            <div>
-                <input type="text" name="userName" placeholder=" " class="form_input" />
-            </div>
-            <div class="form_text_alert_padding">
-                <div id="alert_name" class="form_text_alert"></div>
-            </div>
-        </div>
-
-         <!--birth-->
-         <div class="item_div">
-            <div class="form_item_name">
-                <p>생년월일</p>
-            </div>
-            <div id ="birth_div">
-                <div class = "birth">
-                    <select name="userYear" id="year" >
-                        <option>년</option>
-                        <option value="volvo">2003</option>
-                        <option value="saab">2004</option>
-                      </select>
-                   </div>
-                   <div class = "birth">
-                    <select name="userMonth" id="month">
-                        <option>월</option>
-                        <option value="volvo">3</option>
-                        <option value="saab">4</option>
-                      </select>
-                   </div>
-                   <div class = "birth">
-                    <select name="userDay" id="day">
-                        <option>일</option>
-                        <option value="volvo">2</option>
-                        <option value="saab">3</option>
-                      </select>
-                   </div>
+        <form name="join_form" action="" method="GET">
+            <!--id-->
+            <div class="item_div">
+                <div class="form_item_name">
+                    <p >아이디</p>
+                </div>
+                <div>
+                    <input type="text" name="userId" placeholder=" " class="form_input" />
+                </div>
+                <div class="form_text_alert_padding">
+                    <div id="alert_id" class="form_text_alert"></div>
                 </div>
             </div>
-            <div class="form_text_alert_padding">
-                <div id="alert_birth" class="form_text_alert"></div>
+
+            <!--pw-->
+            <div class="item_div">
+                <div class="form_item_name">
+                    <p>비밀번호</p>
+                </div>
+                <div>
+                    <input type="password" name="userPassword"  placeholder=" " class="form_input" />
+                </div>
+                <div class="form_text_alert_padding">
+                    <div id="alert_password" class="form_text_alert"></div>
+                </div>
+            </div>
+        
+            <!--pw check-->
+            <div class="item_div">
+                <div class="form_item_name">
+                    <p>비밀번호 확인</p>
+                </div>
+                <div>
+                    <input type="password" name="userRepassword"  placeholder=" " class="form_input" />
+                </div>
+                <div class="form_text_alert_padding">
+                    <div id="alert_repassword" class="form_text_alert"></div>
+                </div>
+            </div>
+            
+            <!--name-->
+            <div class="item_div">
+                <div class="form_item_name">
+                    <p>이름</p>
+                </div>
+                <div>
+                    <input type="text" name="userName" placeholder=" " class="form_input" />
+                </div>
+                <div class="form_text_alert_padding">
+                    <div id="alert_name" class="form_text_alert"></div>
+                </div>
             </div>
 
+            <!--birth-->
+            <div class="item_div">
+                <div class="form_item_name">
+                    <p>생년월일</p>
+                </div>
+                <div id ="birth_div">
+                    <input type="text" name="year" id = "year" placeholder="년"/>
+                    <select name="userMonth" id="month">
+                        <option>월</option>
+                    </select>
+                    <select name="userDay" id="day">
+                        <option>일</option>
+                    </select>
+                </div>
+            </div>
+                <div class="form_text_alert_padding">
+                    <div id="alert_birth" class="form_text_alert"></div>
+                </div>
+        </form>
          <!--next button-->
         <div id="nextButton_div">
             <button id = "nextButton"> Next >></button>
