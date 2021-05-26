@@ -8,7 +8,15 @@ div{
 }
 
 input{
+    padding:0px;
+    margin: 0px;
     border: 1px solid ;
+    border-color: rgb(172, 172, 172);
+    border-radius: 5px;
+}
+
+select{
+    border-radius: 5px;
     border-color: rgb(172, 172, 172);
 }
 
@@ -18,12 +26,12 @@ input{
 }
 
 .title{
-    margin:50px 0px 30px 0px;
+    margin:100px 0px 50px 0px;
     text-align: center;
 }
 
 #list_div{
-    margin: 60px 0px 20px 0px;
+    margin: 60px 0px 100px 0px;
     font-size: 13px;
 }
 
@@ -41,6 +49,10 @@ input{
     text-align: center;
 }
 
+.current_css{
+    color: black;
+}
+
 .form_item_name{
    margin: 1px;
    font-size: 18px;
@@ -48,46 +60,18 @@ input{
 
 .form_item_name p{
     margin: 0;
-    padding: 0;
+    padding: 0; 
     padding-top: 40px;
     padding-bottom: 5px;
 }
 
 .form_input{
-    width: 380px;
+    width: 388px;
     height: 42px;
-    border-radius: 5px;
+  
     font-size: 15px;
     padding-left: 10px;
 }
-
-#year,#month,#day {
-    border-color: rgb(156, 156, 156);
-    font-size: 15px;
-}
-
-
-#birth_div{
-    width: 400px;
-    display: flex;
-    justify-content: space-between;
-}
-
-#year{
-    width: 170px;
-    
-}
-
-#month{
-    width: 97px;
-    height: 40px; 
-}
-
-#day{
-    width: 97px;
-    height: 40px; 
-}
-
 
 #nextButton_div{
     margin: 50px 0px 50px 0px;
@@ -106,8 +90,45 @@ input{
     font-size: 5px;
 }
 
-.current_css{
-    
-    color: black;
+/*join1*/
+
+#year,#month,#day {
+    border-color: rgb(156, 156, 156);
+    font-size: 15px;
 }
 
+#birth_div{
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#year{
+    width: 170px;
+}
+
+#month{
+    width: 97px;
+    height: 46px; 
+}
+
+#day{
+    width: 97px;
+    height: 46px; 
+}
+
+/* join2 */
+
+#userInfo{
+    display: flex;
+    justify-content: space-between;
+}
+
+#input-email{
+    width: 250px;
+}
+
+#email{
+    width: 120px;
+    height: 46px;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <link rel="stylesheet" href="css/join.css">
+
+</head>
+<body>
+    <div id ="container">
+        <div id = "top">
+        </div>
+        <form name="join_form" action="" method="GET">
+            <!--email-->
+            <div class="item_div">
+                <div class="form_item_name">
+                    <p >이메일</p>
+                </div>
+                <div id="userInfo">
+                    <input type="text" name="userEmail" placeholder=" " class="form_input" id="input-email"/>
+                    <select name="userEmailAddress" id="email">
+                        <option>직접입력</option>
+                    </select>
+                </div>
+                <div class="form_text_alert_padding">
+                    <div id="alert_email" class="form_text_alert"></div>
+                </div>
+            </div>
+
+            <!--certificationNumber-->
+            <div class="item_div">
+                <div class="form_item_name">
+                    <p>인증번호</p>
+                </div>
+                <div>
+                    <input type="text" name="certificationNumber"  placeholder=" " class="form_input" />
+                </div>
+                <div class="form_text_alert_padding">
+                    <div id="alert_certificationNumber" class="form_text_alert"></div>
+                </div>
+            </div>
+        </form>
+         <!--next button-->
+        <div id="nextButton_div">
+            <button id = "nextButton"> Next >></button>
+        </div>
+    </div>
+    <script src="js/list.js"></script>
+    <script src="js/join2.js"></script>
+</body>
+</html>

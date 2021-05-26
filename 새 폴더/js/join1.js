@@ -4,6 +4,22 @@ function currentList(){
     current_list.classList.add(CURRENT);
 }
 
+function addItems(){
+    const month = document.querySelector("#month");
+    for(let i=1; i<=12; i++){
+        let option = document.createElement('option');
+        option.innerText = i;
+        month.append(option);
+    }
+
+    const day = document.querySelector("#day");
+    for(let i=1; i<=31; i++){
+        let option = document.createElement('option');
+        option.innerText = i;
+        day.append(option);
+    }
+}
+
 function checkUserId(form){
     if(form.userId.value ==""){
         document.querySelector("#alert_id").innerHTML = "필수 정보입니다.";
@@ -45,7 +61,6 @@ function checkuserYear(form){
 }
 
 function checkuserMonth(form){
-    console.log(form.userMonth.value);
     if(form.userMonth.value =="월"){
         document.querySelector("#alert_birth").innerHTML = "태어난 월을 선택하세요.";
         return false
@@ -63,8 +78,6 @@ function checkuserDay(form){
 }
  
 function nextClick(){
-
-    
 
     const form = document.join_form;
     const userId = checkUserId(form);
@@ -97,23 +110,7 @@ function nextClick(){
 
 function init(){
     currentList();
-
-    const month = document.querySelector("#month");
-    for(let i=1; i<=12; i++){
-        let option = document.createElement('option');
-        option.innerText = i;
-        month.append(option);
-    }
-
-    const day = document.querySelector("#day");
-    for(let i=1; i<=31; i++){
-        let option = document.createElement('option');
-        option.innerText = i;
-        day.append(option);
-    }
-
-
-
+    addItems();
 
     const nextBtn = document.querySelector("#nextButton");
     nextBtn.addEventListener("click",nextClick);

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Join</title>
+    <title>회원가입</title>
     <link rel="stylesheet" href="css/join.css">
  <!--
     static: 기본 값,  
@@ -18,34 +18,20 @@
 <body>
     <div id ="container">
         <div id = "top">
-            <div>
-                <h3 class="title">회원가입</h3>
-            </div>
-            <div id = "list_div">
-                <!--state-->
-                <ul id = "list">
-                    <li id = "list_1"><div>기본 정보<br>입력</div></li>
-                    <li id = "list_2"><div>이메일<br>확인</div></li>
-                    <li id = "list_3"><div>전화번호<br>확인</div></li>
-                    <li id = "list_4"><div>회원가입<br>완료</div></li>
-                </ul>
-            </div>
         </div>
         <form name="join_form" action="" method="GET">
-            <!--id-->
+            <!--email-->
             <div class="item_div">
                 <div class="form_item_name">
                     <p >아이디</p>
                 </div>
-                <div>
-                    <input type="text" name="userId" placeholder=" " class="form_input" />
-                </div>
+                <input type="text" name="userId" placeholder=" " class="form_input" />
                 <div class="form_text_alert_padding">
                     <div id="alert_id" class="form_text_alert"></div>
                 </div>
             </div>
 
-            <!--pw-->
+            <!--인증번호 확인-->
             <div class="item_div">
                 <div class="form_item_name">
                     <p>비밀번호</p>
@@ -108,6 +94,7 @@
             <button id = "nextButton"> Next >></button>
         </div>
     </div>
-    <script src="js/join.js"></script>
+    <script src="js/list.js"></script>
+    <script src="js/join1.js"></script>
 </body>
 </html>
