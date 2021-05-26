@@ -103,6 +103,7 @@ input{
 .form_text_alert_padding{
     margin-top: 5px;
     color: red;
+    font-size: 5px;
 }
 
 .current_css{
