@@ -33,9 +33,9 @@
         </div>
 
         <!--id-->
-        <div>
-            <div>
-                <p class="form_item_name">아이디</p>
+        <div class="item_div">
+            <div class="form_item_name">
+                <p >아이디</p>
             </div>
             <div>
                 <input type="text" name="userId" placeholder=" " class="form_input" />
@@ -46,9 +46,9 @@
         </div>
 
         <!--pw-->
-        <div>
-            <div>
-                <p class="form_item_name">비밀번호</p>
+        <div class="item_div">
+            <div class="form_item_name">
+                <p>비밀번호</p>
             </div>
             <div>
                 <input type="password" name="userPassword1"  placeholder=" " class="form_input" />
@@ -59,9 +59,9 @@
         </div>
        
         <!--pw check-->
-        <div>
-            <div>
-                <p class="form_item_name">비밀번호 확인</p>
+        <div class="item_div">
+            <div class="form_item_name">
+                <p>비밀번호 확인</p>
             </div>
             <div>
                 <input type="password" name="userPassword2"  placeholder=" " class="form_input" />
@@ -72,9 +72,9 @@
         </div>
         
          <!--name-->
-        <div>
-            <div>
-                <p class="form_item_name">이름</p>
+         <div class="item_div">
+            <div class="form_item_name">
+                <p>이름</p>
             </div>
             <div>
                 <input type="text" name="userName" placeholder=" " class="form_input" />
@@ -85,11 +85,11 @@
         </div>
 
          <!--birth-->
-        <div>
-            <div>
-                <p class="form_item_name">생년월일</p>
+         <div class="item_div">
+            <div class="form_item_name">
+                <p>생년월일</p>
             </div>
-            <div >
+            <div id ="birth_div">
                 <div class = "birth">
                     <select name="userYear" id="year" >
                         <option>년</option>
@@ -111,16 +111,17 @@
                         <option value="saab">3</option>
                       </select>
                    </div>
-                   <div class="form_text_alert_padding">
-                       <div id="alert_birth" class="form_text_alert"></div>
-                   </div>
                 </div>
+            </div>
+            <div class="form_text_alert_padding">
+                <div id="alert_birth" class="form_text_alert"></div>
             </div>
 
          <!--next button-->
-        <div>
+        <div id="nextButton_div">
             <button id = "nextButton"> Next >></button>
         </div>
     </div>
+    <script src="js/join.js"></script>
 </body>
 </html>
