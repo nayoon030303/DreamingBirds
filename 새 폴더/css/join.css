@@ -124,11 +124,10 @@ select{
     justify-content: space-between;
 }
 
-#input-email{
-    width: 250px;
+#input-phone{
+    width: 270px;
 }
 
-#email{
-    width: 120px;
-    height: 46px;
+#btn-phone{
+    width: ;
 }
