@@ -6,21 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <meta name="google-signin-client_id" content="1082331252373-fig6mnbrks48bcd3l9nt2bu74gmk7inf.apps.googleusercontent.com">
+    <!-- <meta name="google-signin-client_id" content="1082331252373-fig6mnbrks48bcd3l9nt2bu74gmk7inf.apps.googleusercontent.com"> -->
 
 </head>
 <body>
-    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    <!-- <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
+    
     <script>
+    function init() {
+        gapi.load('auth2', function() {
+            console.log("auth2");
+            let gauth = gapi.auth2.init({
+                client_id: '1082331252373-fig6mnbrks48bcd3l9nt2bu74gmk7inf.apps.googleusercontent.com'
+            });
+            gauth.then(function(){
+                console.log("googleAuth success");
+            }, function(){
+                console.log("googleAuth fail");
+            })
+        });
+    }
 
-    function onSignIn(googleUser) {
-	    var profile = googleUser.getBasicProfile();
-        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-        console.log('Name: ' + profile.getName());
-        console.log('Image URL: ' + profile.getImageUrl());
-        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-	}
-
+    // function onSignIn(googleUser) {
+	//     var profile = googleUser.getBasicProfile();
+    //     console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+    //     console.log('Name: ' + profile.getName());
+    //     console.log('Image URL: ' + profile.getImageUrl());
+    //     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+	// }
     </script>
+    <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
 </body>
 </html>
