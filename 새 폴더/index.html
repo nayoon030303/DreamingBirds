@@ -6,35 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <!-- <meta name="google-signin-client_id" content="1082331252373-fig6mnbrks48bcd3l9nt2bu74gmk7inf.apps.googleusercontent.com"> -->
-
+    <script>
+        function checkLoginStatus(){
+            const loginBtn = document.querySelector("#loginBtn");
+           if(gauth.isSignedIn.get()){ //로그인되어있는지?
+                console.log("logined");
+                loginBtn.value = "Logout";
+            }else{
+                console.log("logouted");
+                loginBtn.value = "Login";
+            }
+        }
+        function init() {
+            gapi.load('auth2', function() {
+                console.log("auth2");
+                window.gauth = gapi.auth2.init({
+                    client_id: '1082331252373-fig6mnbrks48bcd3l9nt2bu74gmk7inf.apps.googleusercontent.com'
+                });
+                gauth.then(function(){
+                    console.log("googleAuth success");
+                    checkLoginStatus();
+                }
+                ,function(){
+                    console.log("googleAuth fail");
+                })
+            });
+        }
+    
+        </script>
 </head>
 <body>
-    <!-- <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
-    
-    <script>
-    function init() {
-        gapi.load('auth2', function() {
-            console.log("auth2");
-            let gauth = gapi.auth2.init({
-                client_id: '1082331252373-fig6mnbrks48bcd3l9nt2bu74gmk7inf.apps.googleusercontent.com'
-            });
-            gauth.then(function(){
-                console.log("googleAuth success");
-            }, function(){
-                console.log("googleAuth fail");
-            })
+    <input type="button" id="loginBtn" value="checking..." onclick="
+    if(this.value === 'Login'){
+        gauth.signIn().then(function(){
+            console.log('gauth.signIn()');
+            checkLoginStatus();
         });
-    }
+    }else{
+        gauth.signOut().then(function(){
+            console.log('gauth.signOut()');
+            checkLoginStatus();
+        });
+    }">
 
-    // function onSignIn(googleUser) {
-	//     var profile = googleUser.getBasicProfile();
-    //     console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-    //     console.log('Name: ' + profile.getName());
-    //     console.log('Image URL: ' + profile.getImageUrl());
-    //     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-	// }
-    </script>
     <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
 </body>
 </html>
