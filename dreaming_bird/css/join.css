@@ -37,6 +37,7 @@ html, body {
     align-items: center;
     flex: 1 1 0%;
     background-color: rgb(47, 109, 127);
+   
 }
 
 .left img{
@@ -49,8 +50,8 @@ html, body {
    
     display: flex;
     align-items: center; /*수직축 정렬*/
-    background-color:rgb(240, 241, 243)
-
+    background-color:rgb(240, 241, 243);
+   
 }
 
 .right-div-center{
@@ -62,6 +63,7 @@ html, body {
 .right-div-center-div h2{
     margin: 0px;
     padding: 0px;
+    color: rgb(14, 48, 71);;
 }
 
 .right-div-center-div{
@@ -112,6 +114,7 @@ html, body {
     align-items: center;
     border: 1px solid;
     border-radius: 0.25rem;
+    cursor: pointer;
 }
 
 .google-btn{

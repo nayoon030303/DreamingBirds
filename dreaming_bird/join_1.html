@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
+    <title>Dreaming Birds account</title>
     <link rel="stylesheet" href="css/join.css" type="text/css">
-    
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
 <body>
     <div class="root">
@@ -29,10 +28,12 @@
                                 <img src="https://elice-front-door-cdn.azureedge.net/accounts/static/media/google.91a0e3a9.svg" alt="google" class="img">
                                 <div class="google-txt" style="user-select: auto;">구글로 간단하게 가입하기</div>
                             </button>
+
                             <button type="button" aria-busy="false" aria-label="google" aria-disabled="false" class="kakao-btn basic-btn">
                                 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAhFBMVEUAAAA+JCQ8JCQ5Hh84Hx84Hh84Hh85Hh84HyA4Hh84Hh84HyA4Hh85Hx85HyA4Hx84HyA5HiA5ICA7ICA8HyU/HyNMJiY4Hh84HyA5Hh85Hh85HiA5HiA5ICA5HyA4HyA4Hh85HiA5HiA5HyA4HiA5HyA7IiJEIiI4HyA4HyA5ICA4Hh8eOH+PAAAAK3RSTlMAFRu56Pbe8/Hs4tfEda+jlWZcPyIQBsu+s5JuUify2dKwqoiCYjQPwJ5IFR5CPQAAARlJREFUSMfF1NlSg0AUBNAehi0QCJBA9pg9av///6moqVAQuPfB8rxT9PRMNf7BNZnYeeR50dxOkiv63dZ2x4adXd/wzDYL2CHItujipHwqddCSh+wR5mgyCw5YmEacmIPih1gznwL+7J4nokj0myqlUIpaQbGiDhRSLDQAEiokAHwq+MCUKlNkVFlhTJUxXKq48KjiIdB+4Csj6Q990tb6rr24StVrDOCsfXxmRLGRwacLxTaoWQpN8K18oYhf3mcmInXD5Aj+sTd4YJYcsCzRtA56+yzQ4rz11GPQ1Fvv6OSgU+WxzT1eKnR6GBx7GMeuu18cs3yLHuefBBsIzfnlYCBU1mtbQGxD0jqQWzHIobF8nUGlwt/4AN/z8JTGbf/cAAAAAElFTkSuQmCC" alt="kakao" class="img">
                                 <div class="google-txt" style="user-select: auto;">카카오로 간단하게 가입하기</div>
                             </button>
+
                             <button type="button" aria-busy="false" aria-label="google" aria-disabled="false" class="naver-btn basic-btn">
                                 <img src="https://m.tonglife.com/_wg/img/imgs/naver_logo.png" alt="naver" class="img">
                                 <div class="google-txt" style="user-select: auto;">네이버로 간단하게 가입하기</div>
@@ -44,12 +45,15 @@
                             <div>
                                 <a href="">로그인하기</a>
                             </div>
+                            <input type="button" id="loginBtn" value="checking..."/>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-   
+    <script src="js/join.js"></script>
+    <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
+    
 </body>
 </html>

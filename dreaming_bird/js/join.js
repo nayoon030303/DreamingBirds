@@ -1,18 +1,31 @@
 function checkLoginStatus(){
-    const nameTxt = document.querySelector("#name");
     const loginBtn = document.querySelector("#loginBtn");
-   if(gauth.isSignedIn.get()){ //로그인되어있는지?
+    if(gauth.isSignedIn.get()){ //로그인되어있는지?
         console.log("logined");
         loginBtn.value = "Logout";
         const profile = gauth.currentUser.get().getBasicProfile();
-        console.log(profile.getName());
-        nameTxt.innerHTML = 'Welcome <strong>'+profile.getName()+'</strong>';
+        console.log(profile);
     }else{
         console.log("logouted");
         loginBtn.value = "Login";
-        nameTxt.innerHTML = '';
     }
 }
+
+function clickGoogleBtn(){
+    const loginBtn = document.querySelector("#loginBtn");
+    if(loginBtn.value === 'Login'){
+        gauth.signIn().then(function(){
+            console.log('gauth.signIn()');
+            checkLoginStatus();
+        });
+    }else{
+        gauth.signOut().then(function(){
+            console.log('gauth.signOut()');
+            checkLoginStatus();
+        });
+    }
+}
+
 
 function init() {
     gapi.load('auth2', function() {
@@ -28,4 +41,9 @@ function init() {
             console.log("googleAuth fail");
         })
     });
+
+    const googleBtn = document.querySelector(".google-btn");
+    const loginBtn = document.querySelector('#loginBtn');
+    loginBtn.addEventListener('click',clickGoogleBtn);
+    googleBtn.addEventListener('click',clickGoogleBtn);
 }
