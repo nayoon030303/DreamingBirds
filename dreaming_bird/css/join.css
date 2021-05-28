@@ -27,29 +27,36 @@ html, body {
     padding: 0px;
     width: 100%;
     height: 100%;
-
-    background-color: tomato;
+    font-size: 16px;
+    /* background-color: tomato; */
 }
 
 .left{
-    width: 100%;
-    height: 100%;
-    background-color: yellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1 1 0%;
+    background-color: rgb(47, 109, 127);
+}
+
+.left img{
+    /* background-color: rgb(240, 241, 243); */
+    width: 500px;
 }
 
 .right{
-    width: 100%;
-    height: 100%;
+    flex: 1 1 0%;
+   
     display: flex;
     align-items: center; /*수직축 정렬*/
-    background-color: violet;
+    background-color:rgb(240, 241, 243)
 
 }
 
 .right-div-center{
     width: 100%;
     height: auto;
-    background-color: royalblue;
+    /* background-color: royalblue; */
 }
 
 .right-div-center-div h2{
@@ -63,21 +70,20 @@ html, body {
     margin-left: auto;
     margin-right: auto;
     
-    background-color: pink;
+    /* background-color: pink; */
 }
 
 .right-div-h2{
     display: flex;
     justify-content: center; /*수평축 정렬*/
     margin-bottom: 2rem;
-    background-color: coral;
+    /* background-color: coral; */
 }
 
 .div-buttons{
     width: 100%;
     display: flex;
     flex-direction: column;
-    background-color: blueviolet;
 }
 
 .div-buttons button{
@@ -94,22 +100,45 @@ html, body {
 .right-div-add-info{
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     margin-top: 4rem;
     margin-bottom: 6rem;
-    background-color: cyan;
+    /* background-color: cyan; */
+}
+
+.basic-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid;
+    border-radius: 0.25rem;
 }
 
 .google-btn{
     border-color: rgb(255, 255, 255); 
     background-color: rgb(255, 255, 255);
-
-    
 }
-.google-img{
-    
+
+.kakao-btn{
+    border-color: rgb(250, 225, 0);
+    background-color: rgb(250, 225, 0);
+}
+
+.naver-btn{
+    border-color: rgb(30, 200, 0);
+    background-color: rgb(30, 200, 0);
+    color: rgb(255, 255, 255);
+}
+
+.img{
+    width: 1.375rem;
+    height: 1.375rem;
+    pointer-events: none;
+    flex: 0 1 0%;
+    /* background-color: magenta; */
 }
 .google-txt{
-   
-   
+    flex: 1 1 0%;
+    /* background-color: teal; */
+    justify-content: center;
 }
