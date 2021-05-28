@@ -1,3 +1,10 @@
+
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800');
+
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800');
+
+@import url('https://fonts.googleapis.com/css?family=Song+Myung:400');
+
 html, body {
     margin: 0;
     height: 100%;
@@ -5,6 +12,7 @@ html, body {
 }
 
 .root{
+    font-family: 'Nanum Gothic', sans-serif;
     width: 100%;
     height: 100%;
     margin: 0;
@@ -62,7 +70,6 @@ html, body {
     display: flex;
     justify-content: center; /*수평축 정렬*/
     margin-bottom: 2rem;
-
     background-color: coral;
 }
 
@@ -81,12 +88,28 @@ html, body {
     font-size: 1rem;
     line-height: 2.875rem;
     margin-bottom: 0.5rem;
+    font-weight: bolder;
 }
 
 .right-div-add-info{
     width: 100%;
     display: flex;
     justify-content: center;
-
+    margin-top: 4rem;
+    margin-bottom: 6rem;
     background-color: cyan;
+}
+
+.google-btn{
+    border-color: rgb(255, 255, 255); 
+    background-color: rgb(255, 255, 255);
+
+    
+}
+.google-img{
+    
+}
+.google-txt{
+   
+   
 }
