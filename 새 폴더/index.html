@@ -8,15 +8,21 @@
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script>
         function checkLoginStatus(){
+            const nameTxt = document.querySelector("#name");
             const loginBtn = document.querySelector("#loginBtn");
            if(gauth.isSignedIn.get()){ //로그인되어있는지?
                 console.log("logined");
                 loginBtn.value = "Logout";
+                const profile = gauth.currentUser.get().getBasicProfile();
+                console.log(profile.getName());
+                nameTxt.innerHTML = 'Welcome <strong>'+profile.getName()+'</strong>';
             }else{
                 console.log("logouted");
                 loginBtn.value = "Login";
+                nameTxt.innerHTML = '';
             }
         }
+
         function init() {
             gapi.load('auth2', function() {
                 console.log("auth2");
@@ -36,6 +42,7 @@
         </script>
 </head>
 <body>
+    <span id="name"></span>
     <input type="button" id="loginBtn" value="checking..." onclick="
     if(this.value === 'Login'){
         gauth.signIn().then(function(){

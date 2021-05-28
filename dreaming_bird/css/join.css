@@ -1,0 +1,92 @@
+html, body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+.root{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    position: relative;
+    display: flex;
+    flex-direction: row; /*주측: 가로 방향*/
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+
+    background-color: tomato;
+}
+
+.left{
+    width: 100%;
+    height: 100%;
+    background-color: yellow;
+}
+
+.right{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center; /*수직축 정렬*/
+    background-color: violet;
+
+}
+
+.right-div-center{
+    width: 100%;
+    height: auto;
+    background-color: royalblue;
+}
+
+.right-div-center-div h2{
+    margin: 0px;
+    padding: 0px;
+}
+
+.right-div-center-div{
+    width: 100%;
+    max-width: 21.4375rem;
+    margin-left: auto;
+    margin-right: auto;
+    
+    background-color: pink;
+}
+
+.right-div-h2{
+    display: flex;
+    justify-content: center; /*수평축 정렬*/
+    margin-bottom: 2rem;
+
+    background-color: coral;
+}
+
+.div-buttons{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: blueviolet;
+}
+
+.div-buttons button{
+    border-radius: 3px;
+    padding: 0 1.5rem;
+    height: 3rem;
+    min-width: 8rem;
+    font-size: 1rem;
+    line-height: 2.875rem;
+    margin-bottom: 0.5rem;
+}
+
+.right-div-add-info{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    background-color: cyan;
+}
