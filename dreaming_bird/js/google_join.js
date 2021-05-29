@@ -11,7 +11,7 @@ function checkLoginStatus(){
     }
 }
 
-function clickGoogleBtn(){
+function clickGoogleLogin(){
     const loginBtn = document.querySelector("#google_state");
     if(loginBtn.value === 'Login'){
         gauth.signIn().then(function(){
@@ -45,6 +45,6 @@ function init() {
 
     const googleBtn = document.querySelector(".google-btn");
     const loginBtn = document.querySelector('#google_state');
-    loginBtn.addEventListener('click',clickGoogleBtn);
-    googleBtn.addEventListener('click',clickGoogleBtn);
+    loginBtn.addEventListener('click',clickGoogleLogin);
+    googleBtn.addEventListener('click',clickGoogleLogin);
 }
