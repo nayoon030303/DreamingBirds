@@ -5,17 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dreaming Birds account</title>
-    <link rel="stylesheet" href="css/join.css" type="text/css">
+    <link rel="stylesheet" href="../css/join.css" type="text/css">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <!-- <script src="https://developers.kakao.com/sdk/js/kakao.js"></script> -->
 </head>
 <body>
     <div class="root">
         <div class="container">
-            <div class="left">
+            <!-- <div class="left">
                 <div>
                     <img src="img/dreamingBirds.png" alt="dreaming-birds">
                 </div>
-            </div>
+            </div> -->
             <div class="right">
                 <div class="right-div-center">
                     <div class="right-div-center-div">
@@ -45,15 +46,19 @@
                             <div>
                                 <a href="">로그인하기</a>
                             </div>
-                            <input type="button" id="loginBtn" value="checking..."/>
                         </div>
                     </div>
                 </div>
+                google<input type="button" id="google_state" value="checking..."/>
+                kakao<input type="button" id="loginBtn" value="checking..."/>
+                naver<input type="button" id="loginaBtn" value="checking..."/>
             </div>
         </div>
+        
     </div>
-    <script src="js/join.js"></script>
+    <script src="../js/google_join.js"></script>
     <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
+    <!-- <script src="../js/kakao_join.js"></script> -->
     
 </body>
 </html>

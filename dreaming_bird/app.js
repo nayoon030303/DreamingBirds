@@ -11,7 +11,7 @@ var bodyParser = require('body-parser')
 var app = express();
 
 //기본 속성 성질
-app.set('port',process.env.PORT||8000);
+app.set('port',process.env.PORT||3000);
 
 //body-parser를 이용해 application/x-www-form-urlencoded파싱
 app.use(bodyParser.urlencoded({extends:false}))

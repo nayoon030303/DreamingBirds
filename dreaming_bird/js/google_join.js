@@ -1,5 +1,5 @@
 function checkLoginStatus(){
-    const loginBtn = document.querySelector("#loginBtn");
+    const loginBtn = document.querySelector("#google_state");
     if(gauth.isSignedIn.get()){ //로그인되어있는지?
         console.log("logined");
         loginBtn.value = "Logout";
@@ -12,7 +12,7 @@ function checkLoginStatus(){
 }
 
 function clickGoogleBtn(){
-    const loginBtn = document.querySelector("#loginBtn");
+    const loginBtn = document.querySelector("#google_state");
     if(loginBtn.value === 'Login'){
         gauth.signIn().then(function(){
             console.log('gauth.signIn()');
@@ -37,13 +37,14 @@ function init() {
             console.log("googleAuth success");
             checkLoginStatus();
         }
-        ,function(){
+        ,function(error){
+            console.log(error);
             console.log("googleAuth fail");
         })
     });
 
     const googleBtn = document.querySelector(".google-btn");
-    const loginBtn = document.querySelector('#loginBtn');
+    const loginBtn = document.querySelector('#google_state');
     loginBtn.addEventListener('click',clickGoogleBtn);
     googleBtn.addEventListener('click',clickGoogleBtn);
 }
