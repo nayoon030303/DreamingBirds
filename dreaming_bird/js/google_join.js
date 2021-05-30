@@ -1,4 +1,4 @@
-function checkLoginStatus(){
+function google_checkLoginStatus(){
     const loginBtn = document.querySelector("#google_state");
     if(gauth.isSignedIn.get()){ //로그인되어있는지?
         console.log("logined");
@@ -15,7 +15,7 @@ function signOut(){
     let auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function(){
         console.log(gauth.signOut());
-        checkLoginStatus();
+        google_checkLoginStatus();
     });
     auth2.disconnect();
 }
@@ -25,7 +25,7 @@ function clickGoogleLogin(){
     if(loginBtn.value === 'Login'){
         gauth.signIn().then(function(){
             console.log('gauth.signIn()');
-            checkLoginStatus();
+            google_checkLoginStatus();
         });
     }else{
         signOut();
@@ -34,7 +34,7 @@ function clickGoogleLogin(){
 }
 
 
-function init() {
+function google_init() {
     gapi.load('auth2', function() {
         console.log("auth2");
         window.gauth = gapi.auth2.init({
@@ -42,7 +42,7 @@ function init() {
         });
         gauth.then(function(){
             console.log("googleAuth success");
-            checkLoginStatus();
+            google_checkLoginStatus();
         }
         ,function(error){
             console.log(error);

@@ -1,4 +1,4 @@
-function checkLoginStatus(){
+function kakaocheckLoginStatus(){
     const kakao_state = document.querySelector("#kakao_state");
     if(Kakao.Auth.getAccessToken()){
         console.log("kakao logined");
@@ -23,7 +23,7 @@ function clickkakaoLogin(){
                     success:res=>{
                         const kakao_account = res.kakao_account;
                         console.log(kakao_account);
-                        checkLoginStatus();
+                        kakaocheckLoginStatus();
                     },
                     fail: function(error){
                         console.log(error);
@@ -40,7 +40,7 @@ function clickkakaoLogin(){
               url: '/v1/user/unlink',
               success: function (response) {
                   console.log(response);
-                  checkLoginStatus();
+                  kakaocheckLoginStatus();
               },
               fail: function (error) {
                 console.log(error);
@@ -52,13 +52,13 @@ function clickkakaoLogin(){
     
 }
 
-function init(){
+function kakao_init(){
     window.Kakao.init('1c81cb135bf38850013ab9f5bb469de5');
     Kakao.isInitialized(); 
-    checkLoginStatus();
+    kakaocheckLoginStatus();
     
     const kakaoBtn = document.querySelector(".kakao-btn");
     kakaoBtn.addEventListener('click',clickkakaoLogin);
 }
 
-window.addEventListener('load',init);
+window.addEventListener('load',kakao_init);
