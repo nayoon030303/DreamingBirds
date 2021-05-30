@@ -11,6 +11,15 @@ function checkLoginStatus(){
     }
 }
 
+function signOut(){
+    let auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function(){
+        console.log(gauth.signOut());
+        checkLoginStatus();
+    });
+    auth2.disconnect();
+}
+
 function clickGoogleLogin(){
     const loginBtn = document.querySelector("#google_state");
     if(loginBtn.value === 'Login'){
@@ -19,10 +28,8 @@ function clickGoogleLogin(){
             checkLoginStatus();
         });
     }else{
-        gauth.signOut().then(function(){
-            console.log('gauth.signOut()');
-            checkLoginStatus();
-        });
+        signOut();
+        
     }
 }
 
