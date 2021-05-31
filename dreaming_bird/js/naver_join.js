@@ -1,0 +1,3 @@
+function naver_init(){
+    
+}

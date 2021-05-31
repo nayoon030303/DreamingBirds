@@ -1,5 +1,8 @@
-function kakaocheckLoginStatus(){
+function kakao_checkLoginStatus(){
     const kakao_state = document.querySelector("#kakao_state");
+    window.Kakao.init('1c81cb135bf38850013ab9f5bb469de5');
+    Kakao.isInitialized(); 
+    Kakao.init(k)
     if(Kakao.Auth.getAccessToken()){
         console.log("kakao logined");
         kakao_state.value = "Logout";
@@ -9,6 +12,23 @@ function kakaocheckLoginStatus(){
         kakao_state.value = "Login";
         
     }
+}
+
+
+function clickKakaoLogout(){
+    if (Kakao.Auth.getAccessToken()) {
+        Kakao.API.request({
+          url: '/v1/user/unlink',
+          success: function (response) {
+              console.log(response);
+              kakao_checkLoginStatus();
+          },
+          fail: function (error) {
+            console.log(error);
+          },
+        })
+        Kakao.Auth.setAccessToken(undefined)
+      }
 }
 
 function clickkakaoLogin(){
@@ -23,31 +43,21 @@ function clickkakaoLogin(){
                     success:res=>{
                         const kakao_account = res.kakao_account;
                         console.log(kakao_account);
-                        kakaocheckLoginStatus();
+                        kakao_checkLoginStatus();
                     },
                     fail: function(error){
+                        console.log("동의 내역을 가져오지 못했습니다.");
                         console.log(error);
                     }
                 });
             },
             fail: function(error){
+                console.log("동의 하지 않았습니다.");
                 console.log(error);
             }
         });
     }else{
-        if (Kakao.Auth.getAccessToken()) {
-            Kakao.API.request({
-              url: '/v1/user/unlink',
-              success: function (response) {
-                  console.log(response);
-                  kakaocheckLoginStatus();
-              },
-              fail: function (error) {
-                console.log(error);
-              },
-            })
-            Kakao.Auth.setAccessToken(undefined)
-          }
+        clickKakaoLogout();
     }
     
 }
@@ -55,7 +65,7 @@ function clickkakaoLogin(){
 function kakao_init(){
     window.Kakao.init('1c81cb135bf38850013ab9f5bb469de5');
     Kakao.isInitialized(); 
-    kakaocheckLoginStatus();
+    kakao_checkLoginStatus();
     
     const kakaoBtn = document.querySelector(".kakao-btn");
     kakaoBtn.addEventListener('click',clickkakaoLogin);

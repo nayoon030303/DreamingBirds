@@ -11,7 +11,7 @@ function google_checkLoginStatus(){
     }
 }
 
-function signOut(){
+function clickGoogleLogout(){
     let auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function(){
         console.log(gauth.signOut());
@@ -28,7 +28,7 @@ function clickGoogleLogin(){
             google_checkLoginStatus();
         });
     }else{
-        signOut();
+        clickGoogleLogout();
         
     }
 }
