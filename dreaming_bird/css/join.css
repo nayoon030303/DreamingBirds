@@ -10,7 +10,9 @@ html, body {
     height: 100%;
     overflow: hidden;
 }
-
+a{
+    text-decoration: none;
+}
 .root{
     font-family: 'Nanum Gothic', sans-serif;
     width: 100%;
@@ -107,14 +109,19 @@ html, body {
     margin-bottom: 6rem;
     /* background-color: cyan; */
 }
+.naver_id_login{
+    width: 343px;
+}
 
 .basic-btn{
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     border: 1px solid;
     border-radius: 0.25rem;
     cursor: pointer;
+    background-color: blueviolet;
 }
 
 .google-btn{
@@ -145,3 +152,4 @@ html, body {
     /* background-color: teal; */
     justify-content: center;
 }
+

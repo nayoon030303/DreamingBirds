@@ -1,8 +1,5 @@
 function kakao_checkLoginStatus(){
     const kakao_state = document.querySelector("#kakao_state");
-    window.Kakao.init('1c81cb135bf38850013ab9f5bb469de5');
-    Kakao.isInitialized(); 
-    Kakao.init(k)
     if(Kakao.Auth.getAccessToken()){
         console.log("kakao logined");
         kakao_state.value = "Logout";
