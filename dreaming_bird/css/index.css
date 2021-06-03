@@ -67,7 +67,7 @@
 			margin-top: 100px;
 		}
 		#content #intro1 {
-			background-image: url("image/main/intro1.jpg");
+			background-image: url("../img/index/intro1.jpg");
 			background-size: cover;
 		}
 		#content #intro1 p {
@@ -95,7 +95,7 @@
 			color: white;
 		}
 		#content #intro3 {
-			background-image: url("image/main/intro3.jpg");
+			background-image: url("../img/index/intro3.jpg");
 			background-size: cover;
 			color: white;
 			text-align: center;
