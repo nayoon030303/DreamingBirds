@@ -10,7 +10,7 @@ let user = {
     gender = 'F',
     age_group = '10~20',
 
-    /* */
+    /*전공 과목*/
     major_subjects = [{
         id = '1',
         name = 'Java',
@@ -29,6 +29,7 @@ let user = {
         time = '1:12',
     }],
 
+     /*인문 과목*/
     humanities_subjects = [{
         id = '1',
         name = '국어',
@@ -43,6 +44,7 @@ let user = {
         time = '1:05' 
     }]
 }
+
 
 let subjects = {
 
