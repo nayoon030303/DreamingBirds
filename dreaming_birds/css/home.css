@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800');
+
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800');
+
+@import url('https://fonts.googleapis.com/css?family=Song+Myung:400');
+
+html, body {
+   
+    width: 100%;
+    overflow: hidden;
+    height: auto;
+    margin: 0;
+    font-size: 5px;
+}
+
+.root{
+    width: 100%;
+    overflow: hidden;
+    height: auto;
+    font-family: 'Nanum Gothic', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    width: 100%;
+    overflow: hidden;
+    height: auto;
+    
+    position: relative;
+    display: flex;
+    flex-direction: row; /*주측: 가로 방향*/
+    margin: 0px;
+    padding: 0px;
+    font-size: 16px;
+    background-color: tomato;
+}
+
+ .menu{
+    width: 18%;
+    background-color: magenta;
+}
+
+.main{
+    width: 64%;
+    display: flex;
+    justify-content: center;
+
+    background-color: mediumaquamarine;
+}
+
+.infor{
+    width: 18%;
+    background-color: mediumpurple;
+}
+
+.center{
+    width: 800px;
+    background-color: mediumvioletred;
+}
+
+.calendar{
+    margin-top: 60px;
+    width: 100%;
+    height: auto;
+    background-color: skyblue;
+}
+
+.header{
+    display: flex;
+    justify-content: center;
+    background-color: slateblue;
+}
+
+.year-month{
+    font-size: 7rem;
+}
+
+.days{
+    margin-top: 40px;
+    display: flex;
+    font-size:5rem;
+    /* border: 1px solid black; */
+}
+
+.day{
+    width: calc(100% / 7 - 1px);
+    text-align: center;
+}
+
+.dates{
+    margin-top: 60px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-items: start;
+    /* background-color: blue; */
+}
+
+.date{
+    width: calc(100% / 7 - 1px);
+    height: 100px;
+    text-align: right;
+    border-bottom: 1px solid #636363;
+    border-left: 1px solid #636363;
+    /* background-color: blueviolet; */
+} 
