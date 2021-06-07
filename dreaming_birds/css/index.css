@@ -1,170 +1,210 @@
-		/*드래그 금지*/
-		.no-drag {-ms-user-select: none; -moz-user-select: -moz-none; -webkit-user-select: none; -khtml-user-select: none; user-select:none;}
-		* { 
-			margin: 0; padding: 0; 
-			box-sizing: border-box;
-		}
-		header {
-			width: 100%;
-			height: 100px;
-			background-color: white;
-			position: fixed;
-			top: 0;
-			left: 0;
-			z-index: 99999;
-		}
-		header #logo {
-			height: 60px;
-			margin: 5px 0 5px 10px;
-			float: left;
-		}
-		header #member_name {
-			height: 60px;
-			line-height: 60px;
-			margin: 5px 0 5px 5px;
-			float: right;
-			font-size: 20px;
-		}
-		header #member_profile {
-			height: 60px;
-			margin: 5px 10px 5px 10px;
-			overflow: hidden;
-			float: right;
-			border-radius: 50%;
-			border: 1px solid black;
-		}
-		header #member_profile img {
-			height: 100%;
-		}
-		header hr {
-			clear: both;
-			background-color: #100A5B;
-			border: 0px;
-			height: 1px;
-		}
-		header #menu {
-			width: 360px;
-			height: 29px;
-			margin-left: 250px;
-		}
-		header #menu ul li {
-			list-style: none;
-			text-align: center;
-			float: left;
-		}
-		header #menu ul li a {
-			text-decoration: none;
-			color: black;
-			display: block;
-			width: 90px;
+@font-face {
+    font-family: 'Handletter';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/naverfont_05@1.0/Handletter.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
-		}
-		header #menu ul li a:hover {
-			color: #100A5B;
-		}
+/*드래그 금지*/
+.no-drag {-ms-user-select: none; -moz-user-select: -moz-none; -webkit-user-select: none; -khtml-user-select: none; user-select:none;}
 
-		#content {
-			margin-top: 100px;
-		}
-		#content #intro1 {
-			background-image: url("../img/index/intro1.jpg");
-			background-size: cover;
-		}
-		#content #intro1 p {
-			color: white;
-			font-size: 50px;
-			text-align: center;
-		}
-		#content #intro1 #start_study {
-			text-align: center;
-		}
-		#content #intro1 #start_study button {
-			width: 175px;
-			height: 50px;
-			background-color: #100A5B;
-			border: none;
-			color: white;
-			border-radius: 5px;
-			margin-top: 2%;
-		}
-		#content #intro2 {
-			background-color: #100A5B;
-			padding: 3%;
-			text-align: center;
-			font-size: 30px;
-			color: white;
-		}
-		#content #intro3 {
-			background-image: url("../img/index/intro3.jpg");
-			background-size: cover;
-			color: white;
-			text-align: center;
-		}
-		#content #intro3 #intro3_p1 {
-			font-size: 50px;
-		}
-		#content #intro3 #intro3_p2 {
-			margin-top: 5%;
-			font-size: 30px;
-		}
-		#content #intro4 {
-			padding: 5%;
-			background-color: white;
-			text-align: center;
-			overflow: hidden;
-		}
-		#content #intro4 img {
-			width: 10%;
-			float: left;
-			margin-left: 20%;
-		}
-		#content #intro4 p {
-			height: 100%;
-			width: 50%;
-			float: left;
-			padding: 2%;
-			font-size: 22px;
-		}
-		#content #intro5 {
-			background-color: black;
-			color: white;
-		}
-		#content #intro5 h1 {
-			text-align: center;
-			padding: 5%;
-		}
-		#content #intro5 .team_member {
-			width: 70%;
-			margin: auto;
-			overflow: hidden;
-			padding: 3%;
-		}
-		#content #intro5 .team_member img {
-			width: 33%;
-			float: left;
-		}
-		#content #intro5 .team_member .team_member_profile {
-			width: 66%;
-			padding: 5%;
-			float: right;
-		}
-		#content #intro5 .team_member .team_member_profile p:not(:first-child) {
-			margin-top: 10px;
-		}
+* { 
+	margin: 0; padding: 0; 
+	box-sizing: border-box;
+}
+a { text-decoration: none; }
+a:visited { text-decoration: none; color: white; }
+
+#header {
+	width: 100%;
+	height: 75px;
+	background-color: white;
+	position: fixed;
+    top: 0px;
+    right: 0px;
+    z-index: 70;
+}
+#header #logo {
+	height: 60px;
+	margin: 7.5px 0 0 7.5px;
+	float: left;
+}
+#header #member {
+	width: 60px;
+	height: 60px;
+	margin: 7.5px 7.5px 0 0;
+	float: right;
+	border-radius: 50%;
+	overflow: hidden;
+	border: 1px solid black;
+}
+#header #member img {
+	height: 100%;
+}
+
+#intro1 {
+	background-color: #001929;
+	color: white;
+	text-align: center;
+}
+#intro1 #intro_sentence {
+	font-size: 50px;
+	word-break: keep-all;
+	margin: 5% 0;
+}
+#intro1 .dream_time {
+	font-size: 35px;
+	word-break: keep-all;
+}
+#intro1 #start {
+	font-size: 30px;
+	margin-top: 5%;
+	display: inline-block;
+}
+#intro1 #start #arrow {
+	transition:  0.4s;
+	display: inline-block;
+	font-family: Cambria;
+}
+#intro1 #start:hover #arrow {
+	transform: translateX(25px);
+}
+
+#intro2 {
+	background-image: url("../img/index/intro3.jpg");
+	background-size: cover;
+	color: white;
+}
+#intro2 #intro2_p {
+	width: 50%;
+	margin: auto;
+	text-align: left;
+	word-break: keep-all;
+}
+#intro2 #intro2_p #intro2_p1 {
+	font-size: 45px;
+	line-height: 50px;
+}
+#intro2 #intro2_p #intro2_p2 {
+	font-size: 25px;
+	line-height: 120px;
+}
+
+#intro3 {
+	text-align: center;
+	font-size: 45px;
+	font-family: 'Seaweed Script', cursive;
+}
+#intro3 img {
+	width: 13%;
+}
+#intro3 .famous_saying {
+	position: relative;
+	overflow: hidden;
+}
+#intro3 .famous_saying:before, 
+#intro3 .famous_saying:after {
+	position: absolute;
+	width: 100%;
+	content: "Regretfor wasted time is more wasted time \A -Mason Cooley-";
+	white-space:pre;
+}
+#intro3 .famous_saying:before {
+	top: 0;
+	left: 0;
+	transition: 0.3s;
+}
+#intro3 .famous_saying:hover:before {
+	top: -100%;
+}
+#intro3 .famous_saying:after {
+	top: 100%;
+	left: 0;
+	transition: 0.3s;
+	content: "낭비한 시간에 대한 후회는 더 큰 시간 낭비다. \A -메이슨 쿨리-";
+	white-space:pre;
+	font-family: "Nanum Brush Script";
+	/* font-family: "Handletter"; */
+}
+#intro3 .famous_saying:hover:after {
+	top: 0;
+}
 
 
-		footer {
-			height: 200px;
-			background: white;
-			color: #929292;
-			position: relative;
-		}
-		footer #info {
-			padding: 3% 2%;
-		}
-		footer #corp {
-			width: 100%;
-			text-align: center;
-			position: absolute;
-			bottom: 5px;
-		}
+#intro4 {
+	background-color: black;
+}
+#intro4 .team_member {
+	list-style: none;
+}
+#intro4 .team_member li {
+	position: relative;
+	float: left;
+	overflow: hidden;
+	width: 15%;
+}
+#intro4 .team_member li:nth-child(1) { margin-left: 12.5%; }
+#intro4 .team_member li:nth-child(n + 2) { margin-left: 5%; }
+#intro4 .team_member .profile {
+	float: left;
+	z-index: 5;
+	width: 100%;
+}
+#intro4 .team_member .caption {
+	position: absolute;
+	top: 200px;
+	width: 100%; height: 100%;
+	padding-top: 20px;
+	background: rgba(0, 0, 0, 0.7);
+	opacity: 0;
+	-moz-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+	z-index: 10;
+	text-align: center;
+	color: white;
+}
+#intro4 .team_member li:hover .caption {
+	opacity: 1;
+	-moz-transform: translateY(-200px);
+	-ms-transform: translateY(-200px);
+	-o-transform: translateY(-200px);
+	-webkit-transform: translateY(-200px);
+	transform: translateY(-200px);
+}
+#intro4 .team_member li .caption h1, p{
+	margin-top: 10%;
+}
+#intro4 .team_member li .caption_link {
+	position: absolute;
+	bottom: 15px;
+	width: 100%;
+	height: 10%;
+}
+#intro4 .team_member .caption img {
+	height: 100%;
+}
+
+#intro5 {
+	background-color: #001929;
+	color: white;
+	text-align: center;
+}
+#intro5 #intro5_sentence {
+	font-size: 50px;
+	word-break: keep-all;
+}
+#intro5 #go_top {
+	font-size: 30px;
+	margin-top: 100px;
+}
+#intro5 #corp {
+	width: 100%;
+	font-size: 12px;
+	text-align: center;
+	position: absolute;
+	left: 0px;
+	bottom: 5px;
+}
+
