@@ -36,11 +36,6 @@ html, body {
     background-color: tomato;
 }
 
- .menu{
-    width: 18%;
-    background-color: magenta;
-}
-
 .main{
     width: 64%;
     display: flex;
