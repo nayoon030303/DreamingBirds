@@ -43,7 +43,7 @@ member_info.style.position = "absolute";
 member_info.style.top = "60px";
 member_info.style.right = "15px";
 member_info.style.width = "200px";
-member_info.style.display = "inline";
+member_info.style.display = "none";
 member_info.style.textAlign = "center";
 member_info.style.fontSize = "15px";
 header.appendChild(member_info);
@@ -78,6 +78,7 @@ member_email.className = "member_email";
 member_email.textContent = "s2019s09@e-mirim.hs.kr";
 member_email.style.width = "200px";
 member_email.style.fontSize = "15px";
+member_email.style.marginBottom = "20px";
 member_info.appendChild(member_email);
 
 
