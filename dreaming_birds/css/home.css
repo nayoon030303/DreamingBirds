@@ -33,30 +33,31 @@ html, body {
     margin: 0px;
     padding: 0px;
     font-size: 16px;
-    background-color: tomato;
+    
 }
 
 .main{
     width: 64%;
     display: flex;
     justify-content: center;
-
-    background-color: mediumaquamarine;
+    
 }
 
 .infor{
     width: 18%;
-    background-color: mediumpurple;
+    
 }
 
 .center{
     width: 800px;
-    background-color: mediumvioletred;
+    display: flex;
+    justify-content: center;
+    background-color: mediumaquamarine;
 }
 
 .calendar{
     margin-top: 60px;
-    width: 100%;
+    width: 90%;
     height: auto;
     background-color: skyblue;
 }
@@ -64,7 +65,7 @@ html, body {
 .header{
     display: flex;
     justify-content: center;
-    background-color: slateblue;
+ 
 }
 
 .year-month{
@@ -75,27 +76,38 @@ html, body {
     margin-top: 40px;
     display: flex;
     font-size:5rem;
+    /* background-color: violet; */
     /* border: 1px solid black; */
 }
 
 .day{
-    width: calc(100% / 7 - 1px);
-    text-align: center;
+    width: calc(100% / 7 );
+    display: flex;
+    justify-content: center;
 }
 
 .dates{
-    margin-top: 60px;
+    margin-top: 10px;
     display: flex;
     flex-flow: row wrap;
-    justify-items: start;
+
     /* background-color: blue; */
 }
 
 .date{
-    width: calc(100% / 7 - 1px);
-    height: 100px;
-    text-align: right;
-    border-bottom: 1px solid #636363;
-    border-left: 1px solid #636363;
+    width: calc(100% / 7 );
+    height: 90px;
+    text-align: center;
+    border-top: 1px solid #636363;
+    padding-top: 10px;
+    /* border-left: 1px solid #636363; */
     /* background-color: blueviolet; */
 } 
+
+.sunday{
+    color: red;
+}
+
+.saturday{
+    color: blue;
+}

@@ -1,4 +1,5 @@
 function MakeCalendar(){
+
     const date = new Date();
 
     const viewYear = date.getFullYear();
@@ -39,10 +40,28 @@ function MakeCalendar(){
     })
 
     document.querySelector('.dates').innerHTML = dates.join('');
+
+   console.log(prevDates);
+    
+}
+
+function paintCalendar(){
+    const SUNDAY = 'sunday';
+    const SATURDAY = 'saturday';
+    const dates = document.querySelectorAll('.date');
+
+    dates.forEach((date,i)=>{
+        if(i%7===0){
+            dates[i].classList.add(SUNDAY);
+        }else if(i%7===6){
+            dates[i].classList.add(SATURDAY);
+        }
+    });
 }
 
 function home_init(){
     MakeCalendar();
+    paintCalendar();
 }
 
 window.addEventListener('load',home_init);
