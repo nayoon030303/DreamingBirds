@@ -52,14 +52,14 @@ html, body {
     width: 800px;
     display: flex;
     justify-content: center;
-    background-color: mediumaquamarine;
+    /* background-color: mediumaquamarine; */
 }
 
 .calendar{
     margin-top: 60px;
     width: 90%;
     height: auto;
-    background-color: skyblue;
+    /* background-color: skyblue; */
 }
 
 .header{
@@ -110,4 +110,8 @@ html, body {
 
 .saturday{
     color: blue;
+}
+
+.other{
+    opacity: .3;
 }

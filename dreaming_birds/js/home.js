@@ -28,20 +28,21 @@ function MakeCalendar(){
             prevDates.unshift(PLDate-i);
         }
     }
-
     for(let i=1; i<7-TLDay; i++){
         nextDates.push(i);
     }
 
-    const dates = prevDates.concat(thisDates,nextDates);
+    const dates = prevDates.concat(thisDates,nextDates);//배열 붙이기
+    const firstDateIndex = dates.indexOf(1); //1이 시작 index
+    const lastDateIndex = dates.lastIndexOf(TLDate); //마지막날의 index
 
     dates.forEach((date,i)=>{
-        dates[i] = `<div class = "date">${date}</div>`;
+        const condition = i>=firstDateIndex && i<=lastDateIndex ? 'this':'other';
+        dates[i] = `<div class = "date"><span class=${condition}>${date}</span></div>`;
     })
 
     document.querySelector('.dates').innerHTML = dates.join('');
 
-   console.log(prevDates);
     
 }
 
