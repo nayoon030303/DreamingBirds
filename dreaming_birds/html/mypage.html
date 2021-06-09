@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="../img/icon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dreaming Birds</title>
+    <link rel="stylesheet" href="../css/mypage.css" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+    <div class="root">
+        <div id="header"></div>
+        <div class="container">
+            <div id="menu"></div>
+            <div class="main">
+                <div class="box">
+                    <p class="title">기본정보</p>
+                    <div class="content">
+                        <div id="profile">
+                            <img src="../img/study/cam_ex.png">
+                            <a href="#">프로필 사진 변경</a>
+                        </div>
+                        <div id="basic-info">
+                            <table>
+                                <tr>
+                                    <th>닉네임</th>
+                                    <td><input type="text" id="nickname" placeholder="닉네임을 입력하세요"></td>
+                                </tr>
+                                <tr>
+                                    <th>한줄소개</th>
+                                    <td><textarea rows="2" id="introduction" placeholder="당신의 한줄소개를 입력하세요"></textarea>
+                                    </td>
+                                </tr>
+                            </table>
+                            <button>수정</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <p class="title">당신이 꿈을 꾼 시간</p>
+                    <div class="content">
+                        <div id="dream-content">
+                            <h1 id="dream-time">100일 22시간 25분 16초</h1>
+                            <button id="dream-info">
+                                ?
+                                <div id="tooltip">
+                                    <div id="tooltip-header">
+                                        <img src="../img/icon/info.png">
+                                        <span><b>&nbsp;꿈을 꾼 시간이란?</b></span>
+                                    </div>
+                                    <div id="tooltip-content">
+                                        당신이 꿈을 이루기 위해 노력한 시간
+                                    </div>
+                                </div>
+                            </button>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <p class="title">과목 관리</p>
+                    <div class="content">
+                        <div id="subject-content">
+                            <div id="whole-subject">
+                                <span>전체 과목 수 </span>
+                                <span id="subject-number">20</span>
+                            </div>
+                            <div id="subject-list">
+                                <div class="subject-box">
+                                    <span>커뮤니케이션 문학</span>
+                                    <button>×</button>
+                                </div>
+                                <div class="subject-box">
+                                    <span>커뮤니케이션 문학</span>
+                                    <button>×</button>
+                                </div>
+                                <div class="subject-box">
+                                    <span>커뮤니케이션 문학</span>
+                                    <button>×</button>
+                                </div>
+                                <div class="subject-box">
+                                    <span>커뮤니케이션 문학</span>
+                                    <button>×</button>
+                                </div>
+                                <div class="subject-box">
+                                    <span>커뮤니케이션 문학</span>
+                                    <button>×</button>
+                                </div>
+                            </div>
+                            <div id="subject-add">
+                                <button> + 추가하기 </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="../js/header.js"></script>
+    <script type="text/javascript" src="../js/menu.js"></script>
+</body>
+
+</html>
