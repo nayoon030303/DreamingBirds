@@ -2,6 +2,8 @@ const OTHER = 'otherMonth';
 const PREV = 'prev-date';
 const NEXT = 'next-date;'
 const CHECK = 'userCheck';
+const userName = '김이름';
+
 
 function MakeCalendar(){
 
@@ -59,7 +61,13 @@ function MakeCalendar(){
 
     document.querySelector('.dates').innerHTML = dates.join('');
 
+    changeClickDate(currentYear,currentMonth,currentDate);
     
+}
+
+function changeClickDate(year,month,date){
+    let clickDate = `<span>${year}.${month}.${date} ${userName}님의 학습 통계 입니다.</span>`
+    document.querySelector('.clickDate').innerHTML = clickDate;
 }
 
 function dateClick(event){
@@ -79,10 +87,7 @@ function dateClick(event){
         viewMonth = currentMonth;
     }
    
-
-    console.log(viewYear);
-    console.log(viewMonth);
-    console.log(viewDate);
+    changeClickDate(viewYear,viewMonth,viewDate);
 
    
 }

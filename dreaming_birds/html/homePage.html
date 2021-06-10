@@ -16,12 +16,10 @@
             <div class="main">
                 <div class="center">
                     <div class="calendar">
-                        <div class="header">
-                            <button class="left-btn calendar-btn"><</button>
-                            <!-- <div class="left-btn"><</div> -->
+                        <div class="currentDate">
+                            <button class="left-btn calendar-btn">&lt;</button>      
                             <div class="year-month"></div>
-                            <!-- <div class="right-btn">></div> -->
-                            <button class="right-btn calendar-btn">></button>
+                            <button class="right-btn calendar-btn">&gt;</button>
                         </div>
                         <div class="days">
                             <div class="day">일</div>
@@ -34,16 +32,20 @@
                         </div>
                         <div class="dates"></div>
                     </div>
-                    <div class="chart">
-                        <div class="click-date"></div>
+                    <div class="filter">
+                        <button>일간</button>
+                        <button>주간</button>
+                        <button>월간</button>
                     </div>
+                    <div class="clickDate"></div>
+                    <div class="chart"></div>
                 </div>
             </div>
             <div class="infor"></div>
         </div>
     </div>
     <script src="../js/home.js"></script>
-    <!-- <script type="text/javascript" src="../js/header.js"></script> -->
+    <script type="text/javascript" src="../js/header.js"></script>
     <script type="text/javascript" src="../js/menu.js"></script>
 </body>
 </html>
