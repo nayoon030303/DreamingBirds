@@ -66,7 +66,7 @@ function MakeCalendar(){
 }
 
 function changeClickDate(year,month,date){
-    let clickDate = `${year}.${month}.${date} ${userName}님의 학습 통계 입니다.`
+    let clickDate = `<span>${year}.${month}.${date} ${userName}님의 학습 통계 입니다.</span>`
     document.querySelector('.clickDate').innerHTML = clickDate;
 }
 
