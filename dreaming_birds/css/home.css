@@ -131,3 +131,7 @@ html, body {
     height: 100px;
     background-color: magenta;
 }
+
+.clickDate{
+    font-size: 5rem;
+}
