@@ -1,9 +1,10 @@
 const OTHER = 'otherMonth';
 const PREV = 'prev-date';
 const NEXT = 'next-date;'
-const CHECK = 'userCheck';
+const CHECK_DATE = 'userCheck';
 const CURRENT_DATES = 'current_dates';
 const userName = '김이름';
+const CHECK_FILTER = 'userClickFilter';
 
 
 function MakeCalendar(year,month,date){
@@ -59,6 +60,7 @@ function MakeCalendar(year,month,date){
 
     ChangekDate(viewYear,viewMonth,viewDate);
     paintCalendar();
+    
 }
 
 function ChangekDate(year,month,date){
@@ -66,7 +68,7 @@ function ChangekDate(year,month,date){
         date = '0'+date;
     }
     let userClickDate = `<span>${year}.${month}.${date} ${userName}님의 학습 통계 입니다.</span>`
-    document.querySelector('.clickDate').innerHTML = userClickDate;
+    document.querySelector('.write-date').innerHTML = userClickDate;
 }
 
 function checkCorrectkDate(){
@@ -92,16 +94,16 @@ function paintDate(){
 
     dates.forEach((date,i)=>{
         if(date == target || date.firstChild == target){
-            date.classList.add(CHECK);
+            date.classList.add(CHECK_DATE);
         }
     });
 }
 
 function clickDate(event){
 
-    let prev_target = document.querySelector(`.${CHECK}`);
+    let prev_target = document.querySelector(`.${CHECK_DATE}`);
     let isPrev = !prev_target.classList.contains(CURRENT_DATES);
-    prev_target.classList.remove(CHECK);
+    prev_target.classList.remove(CHECK_DATE);
     
     
     
@@ -167,9 +169,19 @@ function initDate(number){
     let initdates = document.querySelectorAll(`.${CURRENT_DATES}`);
     initdates.forEach((d,i)=>{
         if(i+1 == number){
-            d.classList.add(CHECK);
+            d.classList.add(CHECK_DATE);
         }
     });
+}
+
+function clickToday(event){
+     
+    MakeCalendar(currentYear,currentMonth,currentDate);
+    initDate(currentDate);
+}
+function clickFilter(event){
+    document.querySelector(`.${CHECK_FILTER}`).classList.remove(CHECK_FILTER);
+    event.target.classList.add(CHECK_FILTER);
 }
 
 function home_init(){
@@ -182,6 +194,11 @@ function home_init(){
 
     document.querySelector('.left-btn').addEventListener('click',clickLeftBtn);
     document.querySelector('.right-btn').addEventListener('click',clickRightBtn);
+    document.querySelector('.today-btn').addEventListener('click',clickToday);
+
+    document.querySelectorAll('.filter-btn').forEach((d,i)=>{
+        d.addEventListener('click',clickFilter);
+    })
 }
 
 window.addEventListener('load',home_init);

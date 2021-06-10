@@ -21,6 +21,8 @@
                             <div class="year-month"></div>
                             <button class="right-btn calendar-btn">&gt;</button>
                         </div>
+                        <button class="today-btn">today</button>
+                      
                         <div class="days">
                             <div class="day">일</div>
                             <div class="day">월</div>
@@ -33,12 +35,47 @@
                         <div class="dates"></div>
                     </div>
                     <div class="filter">
-                        <button>일간</button>
-                        <button>주간</button>
-                        <button>월간</button>
+                        <button class="filter-btn userClickFilter">일간</button>
+                        <button class="filter-btn">주간</button>
+                        <button class="filter-btn">월간</button>
                     </div>
-                    <div class="clickDate"></div>
-                    <div class="chart"></div>
+                    <div class="write-date"></div>
+                    <div class="chart">
+                        <div class="stime-chart">
+                            <div class="stime-contain">
+                                <div class="stime-div">
+                                    <span class="stime-text">총 학습시간</span>
+                                    <span class="stime-value all-stime">:</span>
+                                </div>
+                                <div class="stime-div">
+                                    <span class="stime-text">최대 집중 시간</span>
+                                    <span class="stime-value max-contime">:</span>
+                                </div>
+                                <div class="stime-div">
+                                    <span class="stime-text">최다 학습 과목</span>
+                                    <span class="stime-value max-subject">:</span>
+                                </div>
+                                <div class="stime-div a">
+                                    <span class="stime-text">최저 학습 과목</span>
+                                    <span class="stime-value min-subject">:</span>
+                                </div>
+                            </div>
+                            <div class="stime-graph"></div>
+                            <!-- <button>자세히 보기</button> -->
+                        </div>
+
+                        <div class="rs-contain">
+                            <div class="rs-rate">
+                                공부 휴식 비율
+                            </div>
+                        </div>
+                        <div class="tl-contain">
+                            <div class="time-line">
+                                타임라인
+                            </div>
+                        </div>
+                        
+                    </div>
                 </div>
             </div>
             <div class="infor"></div>
@@ -47,5 +84,6 @@
     <script src="../js/home.js"></script>
     <script type="text/javascript" src="../js/header.js"></script>
     <script type="text/javascript" src="../js/menu.js"></script>
+    <script type="text/javascript" src="../js/chart.js"></script>
 </body>
 </html>
