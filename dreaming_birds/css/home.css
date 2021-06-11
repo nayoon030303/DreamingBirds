@@ -329,11 +329,31 @@ html, body {
 }
 
 /* rs rate*/
+
+.subscribe{
+    background-color: skyblue;
+
+}
+.sub-text{
+    font-size: 3.5rem;
+
+}
+
+.sub-study{
+    color: rgb(255,224,130);
+}
+.sub-rest{
+    color: rgb(165,214,167);
+}
+.sub-other{
+    color: rgba(135, 165, 186, 0.726);
+}
+
 .rs-rate{
   display:inline-block;
   position:relative;
   width: 300px;
   height: 300px;
-  background: conic-gradient(#8b22ff 0% 44%, #ffc33b 0% 56%, #21f3d6 0% 100%);
+  background: conic-gradient(rgb(255,224,130) 0% 44%, rgb(165,214,167) 0% 56%, rgba(135, 165, 186, 0.726) 0% 100%);
   border-radius: 50%;
 }
