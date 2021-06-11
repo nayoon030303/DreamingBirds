@@ -31,7 +31,9 @@ header.appendChild(member);
 let member_img = document.createElement("img");
 member_img.className = 'member_img';
 member_img.setAttribute("src", "../img/study/cam_ex.png");
-member_img.style.height = '100%';
+member_img.style.width = '42px';
+member_img.style.height = '42px';
+member_img.style.objectFit = 'cover';
 member.appendChild(member_img);
 
 let member_info = document.createElement("div");
@@ -98,5 +100,8 @@ $(document).ready(function () {
             }
         }
         // console.log(e.target.className);
+    });
+    $(".logo").on("click", function (e) {
+        console.log(e.target.className);
     });
 });
