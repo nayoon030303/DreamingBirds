@@ -102,6 +102,7 @@ $(document).ready(function () {
         // console.log(e.target.className);
     });
     $(".logo").on("click", function (e) {
+        location.href = "/";
         console.log(e.target.className);
     });
 });
