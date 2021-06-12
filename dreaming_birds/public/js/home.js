@@ -67,7 +67,7 @@ function ChangekDate(year,month,date){
     if(date<10){
         date = '0'+date;
     }
-    let userClickDate = `<span>${year}.${month}.${date} ${userName}님의 학습 통계 입니다.</span>`
+    let userClickDate = `<h2>${year}.${month}.${date} ${userName}님의 학습 통계 입니다.</h2>`
     document.querySelector('.write-date').innerHTML = userClickDate;
 }
 
