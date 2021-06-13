@@ -366,32 +366,30 @@ h2{
     
     display: flex;
     justify-content: center;
+
+    --spacing: 40px;
 }
 
-.timeline{
-  
-}
 
 .timeline{
-    background-color: rgb(255, 194, 194);
+    /* background-color: rgb(255, 194, 194); */
     border-left: 2px solid black;
     list-style-type: none;
     border-bottom-right-radius: 4px;
     border-top-right-radius: 4px;  
-    margin: 40px auto;    
     letter-spacing: 0.5px;      
     line-height: 1.4em;
     font-size: 1.03em;    
     text-align: left;  
     font-weight: 100;  
-    padding: 50px ;
+    padding: var(--spacing);
 
 }
 
 .content{
     position: relative;
-    background-color: yellow;
-    
+    /* background-color: yellow;
+     */
 }
 
 .content:last-of-type{
@@ -401,13 +399,14 @@ h2{
 
 .content::after{
 
-    background-color: blue;
+    --size: 15px;
+
+    background-color: rgb(64, 64, 167);
     content: '';
     position: absolute;
-    width: 15px;
-    height: 15px;
+    width: var(--size);
+    height:  var(--size);
     border-radius: 50%;
     top:5px;
-    left:calc((50+7.5+5)*-1px)
-  
+    left: calc((var(--spacing) + var(--size) / 2) * -1);
 }
