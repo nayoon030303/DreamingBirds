@@ -1,134 +1,64 @@
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800');
+
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800');
+
+@import url('https://fonts.googleapis.com/css?family=Song+Myung:400');
+
 .no-drag {-ms-user-select: none; -moz-user-select: -moz-none; -webkit-user-select: none; -khtml-user-select: none; user-select:none;}
-* { 
-    margin: 0; padding: 0; 
-    box-sizing: border-box;
-}
-.container {
-    width: 100vw;
-    height: 100vh;
-    background: pink;
-}
 a{
     color:#000;
     text-decoration: none;
 }
-header {
-    position: relative;
-    height: 8vh;
-    background-color: white;
-    box-shadow : 2px 2px 5px #999;
+
+html, body {
+    width: 100%;
+    height: auto;
+    margin: 0;
 }
-header .shadow {
-    box-shadow : 2px 2px 5px #999;
+.root {
+    width: 100%;
+    height: auto;
+    font-family: 'Nanum Gothic', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    width: 100%;
+    height: 92vh;
+    position: relative;
+    display: flex;
+    flex-direction: row; /*주측: 가로 방향*/
+    margin: 0px;
+    padding: 0px;
+    font-size: 16px;
+    background-color: #F5F5F5;
+    margin-top: 60px;
 }
 
-header #logo {
-    height: 60px;
-    margin: 5px 0 5px 10px;
-    float: left;
-}
-header #member_name {
-    height: 60px;
-    line-height: 60px;
-    margin: 5px 0 5px 5px;
-    float: right;
-    font-size: 20px;
-}
-header #member_profile {
-    height: 60px;
-    margin: 5px 10px 5px 10px;
-    overflow: hidden;
-    float: right;
-    border-radius: 50%;
-    border: 1px solid black;
-}
-header #member_profile img {
-    height: 100%;
-}
-header #menu {
-    width: 360px;
-    height: 29px;
-    margin-left: 250px;
-}
-header #menu ul li {
-    list-style: none;
-    text-align: center;
-    float: left;
-}
-header #menu ul li a {
-    text-decoration: none;
-    color: black;
-    display: block;
-    width: 90px;
-}
-header #menu ul li a:hover {
-    color: #100A5B;
-}
 .content {
     display: flex;
     flex-direction: row;
-    width:100vw;
-    height:92vh;
-}
-
-.content .menu-bar {
-    width:20%;
-    background-color: #F9F9F9;
-    border-right: 1px solid #E8E8E8;
-}
-
-.content .menu-bar .menu {
-    margin-top:30px;
-    margin-left :30px;
-    width: 160px;
-    height: 300px;
-    display:flex;
-    flex-direction: column;    
-    justify-content:space-between;
-}
-
-.content .menu-bar .menu .menu-content{
-    height:40px;
-}
-
-.menu-img{
-    float:left;
-    width : 40px;
-    height: 40px;
-    border-radius: 50%;
-}
-
-.menu-img img{
-    width : 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 1px solid black;
-}
-
-.menu-name {
-    margin-left: 70px;
-    display: flex;
-    align-items: center;
-    height:100%;
+    width:85%;
+    height:93%;
 }
 
 /* main */
 .content .main {
-    width:60%;
+    width:80%;
     height:100%;
     display:flex;
     background-color: #F5F5F5;
     justify-content: center;
     align-items: center;
+    padding: 1.5%;
 }
 
 .content .main .mode {
     display:flex;
     flex-direction: column; 
     justify-content:space-between;
-    width:60%;
+    width:80%;
     height:95%;
-    
 }
 
 /* main-top */
@@ -220,16 +150,37 @@ header #menu ul li a:hover {
 
 /* main-mid */
 .content .main .mid {
-    height:70%;
-    border: #CFCFCF
-    1px solid;
+    width:100%;
+    height:80%;
+    display :flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.content .main .mid .left{
+    width:70%;
+    height:100%;
+    margin-right : 15px;
+    border: #CFCFCF 1px solid;
     border-radius: 30px;
     background-color: #fff;
     display :flex;
     flex-direction: column;
     align-items: center;
 }
-.content .main .mid .cam {
+
+.content .main .mid .right{
+    width: 30%;
+    height:100%;
+    display :flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;  
+}
+
+
+
+.content .main .mid .left .cam {
     width:100%;
     height: 40%;
     margin-top : 5%;
@@ -238,12 +189,12 @@ header #menu ul li a:hover {
     justify-content: center;
 }
 
-.content .main .mid .cam .excam{
+.content .main .mid .left .cam .excam{
     width : 50%;
     height:80%;
 }
 
-.content .main .mid .timer {
+.content .main .mid .left .timer {
     width:100%;
     height:30%;
     display: flex;
@@ -252,7 +203,7 @@ header #menu ul li a:hover {
     justify-content: space-evenly;
 }
 
-.content .main .mid .timer .all-focus-time{
+.content .main .mid .left .timer .all-focus-time{
     width:50%;
     height:40%;
     background: #FFFFFF;
@@ -261,7 +212,7 @@ header #menu ul li a:hover {
     text-align: center;
 }
 
-.content .main .mid .timer .detail-time{
+.content .main .mid .left .timer .detail-time{
     width:50%;
     height:40%;
     display: flex;
@@ -271,7 +222,7 @@ header #menu ul li a:hover {
     line-height: 21px;
 }
 
-.content .main .mid .timer .detail-time .inner-timer{
+.content .main .mid .left .timer .detail-time .inner-timer{
     width:45%;
     height:100%;
     border : 1px solid #C6C6C6;
@@ -284,7 +235,7 @@ header #menu ul li a:hover {
 }
 
 
-.content .main .mid .timer-controll{
+.content .main .mid .left .timer-controll{
     width:100%;
     height:30%;
     display: flex;
@@ -294,7 +245,7 @@ header #menu ul li a:hover {
     margin-bottom: 5%;
 }
 
-.content .main .mid .timer-controll  button{
+.content .main .mid .left .timer-controll  button{
     width : 25%;
     height: 22%;
     background: #FFFFFF;
@@ -302,6 +253,75 @@ header #menu ul li a:hover {
     border-radius: 10px;
     font-size: 18px;
 }
+
+.content .main .mid .right .level{
+    width:100%;
+    height:50%;
+    border: #CFCFCF
+    1px solid;
+    border-radius: 30px;
+    background-color: #fff;
+    margin-bottom : 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+     
+}
+
+.content .main .mid .right .level .level-img {
+    width:40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+    margin-bottom: 20px;
+}
+
+.content .main .mid .right .level .level-img img{
+    width: 90px;
+    height:90px;
+}
+
+.content .main .mid .right .level .level-content{
+    width:80%;
+    text-align: center;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.content .main .mid .right .level .level-content .level-name{
+    font-size: 18px;
+    font-weight: bold;
+
+}
+
+.content .main .mid .right .level .level-content .level-info{
+    font-size: 15px;
+}
+
+.content .main .mid .right .checklist{
+    width:100%;
+    height:50%;
+    border: #CFCFCF
+    1px solid;
+    border-radius: 30px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;  
+}
+
+.content .main .mid .right .checklist .check-name{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.content .main .mid .right .checklist .check-add{
+    color : gray;
+}
+
 
 /* main-bot */
 .content .main .bot{
@@ -402,14 +422,14 @@ header #menu ul li a:hover {
 
 /* ranking */
 .content .ranking{
-    width:20%;
+    width:20%; 
     background-color: #F9F9F9;
     border-left: 1px solid #E8E8E8;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding-top: 30px;
+    padding: 30px 1.5% 1% 1.5%;
 }
 
 .content .ranking .user{
