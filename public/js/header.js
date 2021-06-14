@@ -26,22 +26,26 @@ let member_more = document.createElement("button");
 let member = document.createElement("div");
 let member_img = document.createElement("img");
 
-// 로그인?
-if (true) {
-    join.className = "join";
-    join.textContent = "회원가입";
-    join.href = "#";
-    join.style.marginTop = '20px';
-    join.style.marginRight = '20px';
-    join.style.float = "right";
-    join.style.fontSize = "15px";
-    join.style.color = "black";
-    join.style.textDecoration = "none";
-    header.appendChild(join);
+let member_info = document.createElement("div");
+let member_profile = document.createElement("img");
+let member_name = document.createElement("p");
+let member_email_title = document.createElement("p");
+let member_email = document.createElement("p");
+let mypage_btn = document.createElement("button");
+let logout_btn = document.createElement("button");
 
+let user = $("#header").data("user");
+if(user) {
+    user += '\"}';
+    user = JSON.parse(user);
+}
+// console.log(user);
+
+// 로그인?
+if (!user) {
     login.className = "login";
     login.textContent = "로그인";
-    login.href = "#";
+    login.href = "/googlelogin";
     login.style.marginTop = '20px';
     login.style.marginRight = '20px';
     login.style.float = "right";
@@ -76,86 +80,80 @@ if (true) {
     header.appendChild(member);
 
     member_img.className = 'member_img';
-    member_img.setAttribute("src", "../img/study/cam_ex.png");
+    member_img.setAttribute("src", user.picture);
     member_img.style.width = '42px';
     member_img.style.height = '42px';
     member_img.style.objectFit = 'cover';
     member.appendChild(member_img);
+
+    // 회원 사진 클릭 시 보일 회원 정보
+    member_info.className = "member_info";
+    member_info.style.border = '1px solid #CFCFCF';
+    member_info.style.background = '#FBFBFB';
+    member_info.style.color = "#6A6A6A";
+    member_info.style.position = "absolute";
+    member_info.style.top = "60px";
+    member_info.style.right = "15px";
+    member_info.style.width = "200px";
+    member_info.style.display = "none";
+    member_info.style.textAlign = "center";
+    member_info.style.fontSize = "15px";
+    header.appendChild(member_info);
+
+    member_profile.className = "member_profile";
+    member_profile.setAttribute("src", user.picture);
+    member_profile.style.borderRadius = '50%';
+    member_profile.style.height = '80px';
+    member_profile.style.width = '80px';
+    member_profile.style.objectFit = 'cover';
+    member_profile.style.marginTop = "30px";
+    member_profile.style.border = "1px solid #CFCFCF";
+    member_info.appendChild(member_profile);
+
+    member_name.className = "member_name";
+    member_name.textContent = user.displayName;
+    member_name.style.borderBottom = "1px solid #CFCFCF";
+    member_name.style.paddingBottom = "20px";
+    member_info.appendChild(member_name);
+
+    member_email_title.className = "member_email_title";
+    member_email_title.textContent = "이메일";
+    member_email_title.style.textAlign = "left";
+    member_email_title.style.marginLeft = "15px";
+    member_info.appendChild(member_email_title);
+
+    member_email.className = "member_email";
+    member_email.textContent = "s2019s09@e-mirim.hs.kr";
+    member_email.style.width = "200px";
+    member_email.style.fontSize = "15px";
+    member_email.style.borderBottom = "1px solid #CFCFCF";
+    member_email.style.paddingBottom = "20px";
+    member_email.style.margin = "0px";
+    member_info.appendChild(member_email);
+
+    mypage_btn.className = "mypage_btn";
+    mypage_btn.textContent = "마이페이지";
+    mypage_btn.style.width = "100%";
+    mypage_btn.style.height = "100%";
+    mypage_btn.style.background = "white";
+    mypage_btn.style.color = "#6A6A6A";
+    mypage_btn.style.border = "none";
+    mypage_btn.style.borderBottom = "1px solid #CFCFCF";
+    mypage_btn.style.padding = "10px 0";
+    member_info.appendChild(mypage_btn);
+
+    logout_btn.className = "logout_btn";
+    logout_btn.textContent = "로그아웃";
+    logout_btn.style.width = "100%";
+    logout_btn.style.height = "100%";
+    logout_btn.style.background = "white";
+    logout_btn.style.color = "#6A6A6A";
+    logout_btn.style.border = "none";
+    logout_btn.style.borderBottom = "1px solid #CFCFCF";
+    logout_btn.style.padding = "10px 0";
+    member_info.appendChild(logout_btn);
 }
 
-// 회원 사진 클릭 시 보일 회원 정보
-let member_info = document.createElement("div");
-member_info.className = "member_info";
-member_info.style.border = '1px solid #CFCFCF';
-member_info.style.background = '#FBFBFB';
-member_info.style.color = "#6A6A6A";
-member_info.style.position = "absolute";
-member_info.style.top = "60px";
-member_info.style.right = "15px";
-member_info.style.width = "200px";
-member_info.style.display = "none";
-member_info.style.textAlign = "center";
-member_info.style.fontSize = "15px";
-header.appendChild(member_info);
-
-let member_profile = document.createElement("img");
-member_profile.className = "member_profile";
-member_profile.setAttribute("src", "../img/study/cam_ex.png");
-member_profile.style.borderRadius = '50%';
-member_profile.style.height = '80px';
-member_profile.style.width = '80px';
-member_profile.style.objectFit = 'cover';
-member_profile.style.marginTop = "30px";
-member_profile.style.border = "1px solid #CFCFCF";
-member_info.appendChild(member_profile);
-
-let member_name = document.createElement("p");
-member_name.className = "member_name";
-member_name.textContent = "김이름";
-member_name.style.borderBottom = "1px solid #CFCFCF";
-member_name.style.paddingBottom = "20px";
-member_info.appendChild(member_name);
-
-let member_email_title = document.createElement("p");
-member_email_title.className = "member_email_title";
-member_email_title.textContent = "이메일";
-member_email_title.style.textAlign = "left";
-member_email_title.style.marginLeft = "15px";
-member_info.appendChild(member_email_title);
-
-let member_email = document.createElement("p");
-member_email.className = "member_email";
-member_email.textContent = "s2019s09@e-mirim.hs.kr";
-member_email.style.width = "200px";
-member_email.style.fontSize = "15px";
-member_email.style.borderBottom = "1px solid #CFCFCF";
-member_email.style.paddingBottom = "20px";
-member_email.style.margin = "0px";
-member_info.appendChild(member_email);
-
-let mypage_btn = document.createElement("button");
-mypage_btn.className = "mypage_btn";
-mypage_btn.textContent = "마이페이지";
-mypage_btn.style.width = "100%";
-mypage_btn.style.height = "100%";
-mypage_btn.style.background = "white";
-mypage_btn.style.color = "#6A6A6A";
-mypage_btn.style.border = "none";
-mypage_btn.style.borderBottom = "1px solid #CFCFCF";
-mypage_btn.style.padding = "10px 0";
-member_info.appendChild(mypage_btn);
-
-let logout_btn = document.createElement("button");
-logout_btn.className = "logout_btn";
-logout_btn.textContent = "로그아웃";
-logout_btn.style.width = "100%";
-logout_btn.style.height = "100%";
-logout_btn.style.background = "white";
-logout_btn.style.color = "#6A6A6A";
-logout_btn.style.border = "none";
-logout_btn.style.borderBottom = "1px solid #CFCFCF";
-logout_btn.style.padding = "10px 0";
-member_info.appendChild(logout_btn);
 
 
 // 회원 사진 클릭 하면 회원 정보가 보이게 
@@ -192,6 +190,9 @@ $(document).ready(function () {
     });
     $(".mypage_btn").on("click", function (e) {
         location.href = "/my";
+    });
+    $(".logout_btn").on("click", function (e) {
+        location.href = "/googlelogin";
     });
 
     // 버튼들 마우스오버시 색이 회색으로 바뀌게

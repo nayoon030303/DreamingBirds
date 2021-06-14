@@ -17,20 +17,21 @@
 // }
 
 var express = require('express');
+const { session } = require('passport');
 var router = express.Router();
 
 router.get('/', function (req, res) {
   if (req && req.session && req.session.count) {
     // 세션이 존재하는 경우
     req.session.count = req.session.count + 1;
-    console.log("세션이 존재합니다.")
+    console.log("세션이 존재합니다.");
   } else {
     // 세션이 존재하지 않는 경우
     req.session.count = 1;
     console.log("세션이 존재하지 않습니다.")
   }
   console.log(req.session.count);
-  res.render('index');
+  res.render('index', { user: JSON.stringify(req.user) });
 });
 
 router.get('/study', function (req, res) {
@@ -38,6 +39,9 @@ router.get('/study', function (req, res) {
 });
 router.get('/home', function (req, res) {
   res.render('homePage');
+});
+router.get('/my', function (req, res) {
+  res.render('mypage');
 });
 router.get('/googlelogin', function (req, res) {
   res.render('main', { user: req.user });
