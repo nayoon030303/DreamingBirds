@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dreaming Birds</title>
+    <link rel="stylesheet" href="../css/home.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+    <div class="root">
+        <div id="header"></div>
+        <div class="container">
+            <div id="menu"></div>
+            <div class="main">
+                <div class="center">
+                    <div class="calendar">
+                        <div class="currentDate">
+                            <button class="left-btn calendar-btn">&lt;</button>
+                            <div class="year-month"></div>
+                            <button class="right-btn calendar-btn">&gt;</button>
+                        </div>
+                        <button class="today-btn">today</button>
+
+                        <div class="days">
+                            <div class="day">일</div>
+                            <div class="day">월</div>
+                            <div class="day">화</div>
+                            <div class="day">수</div>
+                            <div class="day">목</div>
+                            <div class="day">금</div>
+                            <div class="day">토</div>
+                        </div>
+                        <div class="dates"></div>
+                    </div>
+                    <div class="filter">
+                        <button class="filter-btn userClickFilter">일간</button>
+                        <button class="filter-btn">주간</button>
+                        <button class="filter-btn">월간</button>
+                    </div>
+                    <div class="write-date"></div>
+                    <div class="chart">
+                        <div class="stime-chart">
+                            <div class="stime-contain">
+                                <div class="stime-div">
+                                    <span class="stime-text">총 학습시간</span>
+                                    <span class="stime-value all-stime">:</span>
+                                </div>
+                                <div class="stime-div">
+                                    <span class="stime-text">최대 집중 시간</span>
+                                    <span class="stime-value max-contime">:</span>
+                                </div>
+                                <div class="stime-div">
+                                    <span class="stime-text">최다 학습 과목</span>
+                                    <span class="stime-value max-subject">:</span>
+                                </div>
+                                <div class="stime-div a">
+                                    <span class="stime-text">최저 학습 과목</span>
+                                    <span class="stime-value min-subject">:</span>
+                                </div>
+                            </div>
+                            <div class="border-px"></div>
+                            <div class="title">
+                                <h2>과목별 공부량</h2>
+                            </div>
+                            <!--가로 그래프-->
+                            <div class="stime-graph">
+                                <div class="zt-skill-bar">
+                                    <div data-width="88" style="">쇼핑몰<span>88%</span></div>
+                                </div>
+                                <div class="zt-skill-bar">
+                                    <div data-width="92" style="">웹사이트/모바일<span>92%</span></div>
+                                </div>
+                                <div class="zt-skill-bar">
+                                    <div data-width="82" style="">패키지<span>82%</span></div>
+                                </div>
+                                <div class="zt-skill-bar">
+                                    <div data-width="85" style="">C.I/B.I/네이밍<span>85%</span></div>
+                                </div>
+                                <div class="zt-skill-bar">
+                                    <div data-width="60" style="">HTML5/CSS3<span>60%</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border-px"></div>
+                    <div class="title">
+                        <h2>과목별 공부량</h2>
+                    </div>
+                    <!--원형 그래프-->
+                    <div class="subscribe">
+                        <div class="sub-text sub-study">공부</div>
+                        <div class="sub-text sub-rest">휴식</div>
+                        <div class="sub-text sub-other">그 외</div>
+                    </div>
+                    <div class="rs-contain">
+                        <div class="rs-rate"></div>
+                    </div>
+
+                    <!--타임라인-->
+                    <div class="border-px"></div>
+                    <div class="title">
+                        <h2>타임라인</h2>
+                    </div>
+                    <div class="tl-contain">
+                        <div class="time-line">
+                            <ul class="timeline">
+                                <li class="content">
+                                    <h3>Test1</h3>
+                                    <p>시작시간:끝난시간</p>
+                                    <p>n시간xx초</p>
+                                </li>
+                                <li class="content">
+                                    <h3>Test1</h3>
+                                    <p>시작시간:끝난시간</p>
+                                    <p>n시간xx초</p>
+                                </li>
+                                <li class="content">
+                                    <h3>Test1</h3>
+                                    <p>시작시간:끝난시간</p>
+                                    <p>n시간xx초</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="infor"></div>
+    </div>
+    </div>
+    <script src="../js/home.js"> </script>
+    <script type="text/javascript" src="../js/header.js"></script>
+    <script type="text/javascript" src="../js/menu.js"></script>
+    <script type="text/javascript" src="../js/chart.js"></script>
+</body>
+
+</html>

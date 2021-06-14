@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/study.css">
+	<link rel="shortcut icon" href="../img/icon.ico">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <title>Dreaming Birds</title>
+</head>
+
+<body>
+    <div class="root">
+        <div id="header"> </div>
+        <div class="container">
+            <div id="menu"> </div>
+            <div class="content">
+                <div class="main">
+                    <div class="mode">
+                        <div class="top">
+                            <div class="left-btn">
+                                <button> &lt; </button>
+                            </div>
+                            <div class="right-btn">
+                                <button> &gt; </button>
+                            </div>
+                            <div class="group-content">
+                                <div class="group-name">고양이가 세상을 지배한다</div>
+                                <div class="group-now">18/95</div>
+                            </div>
+                            <div class="entrance-btn">
+                                <button>입장하기</button>
+                            </div>
+                        </div>
+                        <div class="mid">
+                            <div class="left">
+                                <div class="cam">
+                                    <!-- <img class="excam" src="../img/study/cam_ex.png"> -->
+                                    <div id="webcam-container"></div>
+                                    <div id="label-container"></div>
+                                </div>
+                                <div class="timer">
+                                    <div class="all-focus-time">00:00:00:00</div>
+                                    <div class="detail-time">
+                                        <div class="inner-timer sub-timer">
+                                            <div class="sub-name">수학</div>
+                                            <div class="sub-time">00:00:00</div>
+                                        </div>
+                                        <div class="inner-timer now-focus-timer">
+                                            <div class="now-focus-ment">현재 집중 시간</div>
+                                            <div class="now-focus-time">00:00:00</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class=timer-controll>
+                                    <button class="rest-btn">휴식</button>
+                                    <button class="change-sub">과목 변경</button>
+                                    <button class="finish">종료</button>
+                                </div>
+                            </div>
+                            <div class="right">
+                                <div class="level">
+                                    <div class="level-img">
+                                        <img src="../img/birds/chick.png">
+                                    </div>
+                                    <div class="level-content">
+                                        <div class="level-name">1단계 새알</div>
+                                        <div class="level-info">01:43:25</div>
+                                    </div>
+                                </div>
+                                <div class="checklist">
+                                    <div class="check-name">오늘의 꿈</div>
+                                    <ul class="js-toDoList">
+                                    </ul>
+                                    <div class="check-add">추가하기</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="company-info">ⓒ 2021 by Team Dreaming Birds</div>
+                    </div>
+                </div>
+                <div class="ranking">
+                    <div class="user">
+                        <div class="user-info">
+                            <div class="user-profile"><img src="../img/main/unknown.png"></div>
+
+                            <div class="user-name">이연지</div>
+                            <div class="user-time">13:26</div>
+                        </div>
+                        <div class="user-bird"><img src="../img/study/bird.png"></div>
+                    </div>
+                    <div class="user">
+                        <div class="user-info">
+                            <div class="user-profile"><img src="../img/main/unknown.png"></div>
+
+                            <div class="user-name">이연지</div>
+                            <div class="user-time">13:26</div>
+                        </div>
+                        <div class="user-bird"><img src="../img/study/bird.png"></div>
+                    </div>
+                    <div class="user">
+                        <div class="user-info">
+                            <div class="user-profile"><img src="../img/main/unknown.png"></div>
+
+                            <div class="user-name">이연지</div>
+                            <div class="user-time">13:26</div>
+                        </div>
+                        <div class="user-bird"><img src="../img/study/bird.png"></div>
+                    </div>
+                </div>
+            </div>
+            <!--end of content-->
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript" src="../js/header.js"></script>
+<script type="text/javascript" src="../js/menu.js"></script>
+
+<!-- teachable machine -->
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+<script type="text/javascript" src="../js/study.js"></script>
+</html>
