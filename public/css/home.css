@@ -154,6 +154,8 @@ h2{
    margin-top: 20px;
    font-size: 5rem;
    margin-top: 100px;
+   margin: 100px 0px 50px 0px;
+   /* background-color: red; */
 }
 
 /* filter */
@@ -196,7 +198,7 @@ h2{
     flex-direction: column;
     width: 100%;
     margin: auto;
-    margin-top: 10px;
+  
    
 } 
 
@@ -280,7 +282,7 @@ h2{
 }
 
 .zt-skill-bar * {
-    webkit-transition: all 0.5s ease;
+    --webkit-transition: all 0.5s ease;
       -moz-transition: all 0.5s ease;
        -ms-transition: all 0.5s ease;
         -o-transition: all 0.5s ease;
@@ -331,7 +333,9 @@ h2{
 }
 
 /* rs rate*/
-
+.circle-chart{
+    margin-top: 50px;
+}
 .subscribe{
     margin-left: 100px;
     /* background-color: skyblue; */
@@ -352,13 +356,20 @@ h2{
     color: rgba(135, 165, 186, 0.726);
 }
 
+.rs-contain{
+    position: relative;
+    /* background-color: red; */
+}
+
 .rs-rate{
-  display:inline-block;
-  position:relative;
-  width: 300px;
-  height: 300px;
-  background: conic-gradient(rgb(255,224,130) 0% 44%, rgb(165,214,167) 0% 56%, rgba(135, 165, 186, 0.726) 0% 100%);
-  border-radius: 50%;
+   
+    top:-30px;
+    display:inline-block;
+    position:relative;
+    width: 300px;
+    height: 300px;
+    background: conic-gradient(rgb(255,224,130) 0% 44%, rgb(165,214,167) 0% 56%, rgba(135, 165, 186, 0.726) 0% 100%);
+    border-radius: 50%;
 }
 
 /*tile line*/
@@ -410,3 +421,12 @@ h2{
     top:5px;
     left: calc((var(--spacing) + var(--size) / 2) * -1);
 }
+
+/* .element{
+    background-color: red;
+} */
+
+.none{
+    display: none;   
+}
+
