@@ -17,7 +17,8 @@
             <div id="menu"></div>
             <div class="main">
                 <div class="center">
-                    <div class="calendar">
+                    <!--calendar-->
+                    <div class="calendar ">
                         <div class="currentDate">
                             <button class="left-btn calendar-btn">&lt;</button>
                             <div class="year-month"></div>
@@ -36,13 +37,19 @@
                         </div>
                         <div class="dates"></div>
                     </div>
+
+                     <!--filter-->
                     <div class="filter">
-                        <button class="filter-btn userClickFilter">일간</button>
-                        <button class="filter-btn">주간</button>
-                        <button class="filter-btn">월간</button>
+                        <button class="filter-btn userClickFilter daily">일간</button>
+                        <button class="filter-btn weekly">주간</button>
+                        <button class="filter-btn montly">월간</button>
                     </div>
+
+                    <!--write-date-->
                     <div class="write-date"></div>
-                    <div class="chart">
+
+                    <!--stime-chart-->
+                    <div class="chart element">
                         <div class="stime-chart">
                             <div class="stime-contain">
                                 <div class="stime-div">
@@ -69,74 +76,83 @@
                             <!--가로 그래프-->
                             <div class="stime-graph">
                                 <div class="zt-skill-bar">
-                                    <div data-width="88" style="">쇼핑몰<span>88%</span></div>
+                                    <div data-width="88" >쇼핑몰<span>88%</span></div>
                                 </div>
                                 <div class="zt-skill-bar">
-                                    <div data-width="92" style="">웹사이트/모바일<span>92%</span></div>
+                                    <div data-width="92" >웹사이트/모바일<span>92%</span></div>
                                 </div>
                                 <div class="zt-skill-bar">
-                                    <div data-width="82" style="">패키지<span>82%</span></div>
+                                    <div data-width="82" >패키지<span>82%</span></div>
                                 </div>
                                 <div class="zt-skill-bar">
-                                    <div data-width="85" style="">C.I/B.I/네이밍<span>85%</span></div>
+                                    <div data-width="85">C.I/B.I/네이밍<span>85%</span></div>
                                 </div>
                                 <div class="zt-skill-bar">
-                                    <div data-width="60" style="">HTML5/CSS3<span>60%</span></div>
+                                    <div data-width="60">HTML5/CSS3<span>60%</span></div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="border-px"></div>
-                    <div class="title">
-                        <h2>과목별 공부량</h2>
-                    </div>
-                    <!--원형 그래프-->
-                    <div class="subscribe">
-                        <div class="sub-text sub-study">공부</div>
-                        <div class="sub-text sub-rest">휴식</div>
-                        <div class="sub-text sub-other">그 외</div>
-                    </div>
-                    <div class="rs-contain">
-                        <div class="rs-rate"></div>
+                        <div class="border-px"></div>
                     </div>
 
-                    <!--타임라인-->
-                    <div class="border-px"></div>
-                    <div class="title">
-                        <h2>타임라인</h2>
-                    </div>
-                    <div class="tl-contain">
-                        <div class="time-line">
-                            <ul class="timeline">
-                                <li class="content">
-                                    <h3>Test1</h3>
-                                    <p>시작시간:끝난시간</p>
-                                    <p>n시간xx초</p>
-                                </li>
-                                <li class="content">
-                                    <h3>Test1</h3>
-                                    <p>시작시간:끝난시간</p>
-                                    <p>n시간xx초</p>
-                                </li>
-                                <li class="content">
-                                    <h3>Test1</h3>
-                                    <p>시작시간:끝난시간</p>
-                                    <p>n시간xx초</p>
-                                </li>
-                            </ul>
+
+                    <!--원형 그래프-->
+                    <div class="circle-chart element">
+                       
+                        <div class="title">
+                            <h2>과목별 공부량</h2>
+                        </div>
+                        
+                        <div class="subscribe ">
+                            <div class="sub-text sub-study">공부</div>
+                            <div class="sub-text sub-rest">휴식</div>
+                            <div class="sub-text sub-other">그 외</div>
+                        </div>
+                        <div class="rs-contain ">
+                            <div class="rs-rate"></div>
                         </div>
                     </div>
+                        
 
+                    <!--타임라인-->
+                    <div class="time-chart element">
+                        <div class="border-px"></div>
+                        <div class="title">
+                            <h2>타임라인</h2>
+                        </div>
+                        <div class="tl-contain ">
+                            <div class="time-line">
+                                <ul class="timeline">
+                                    <li class="content">
+                                        <h3>Test1</h3>
+                                        <p>시작시간:끝난시간</p>
+                                        <p>n시간xx초</p>
+                                    </li>
+                                    <li class="content">
+                                        <h3>Test1</h3>
+                                        <p>시작시간:끝난시간</p>
+                                        <p>n시간xx초</p>
+                                    </li>
+                                    <li class="content">
+                                        <h3>Test1</h3>
+                                        <p>시작시간:끝난시간</p>
+                                        <p>n시간xx초</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                 
                 </div>
             </div>
         </div>
         <div class="infor"></div>
     </div>
     </div>
-    <script src="../js/home.js"> </script>
     <script type="text/javascript" src="../js/header.js"></script>
     <script type="text/javascript" src="../js/menu.js"></script>
-    <script type="text/javascript" src="../js/chart.js"></script>
+    <script src="../js/home.js"> </script>
+    <script type="text/javascript" src="../js/chartData.js"></script>
 </body>
 
 </html>
