@@ -18,6 +18,18 @@
 
 var express = require('express');
 const { session } = require('passport');
+const path = require('path');
+const multer = require('multer');
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, './public/uploads')
+  },
+  filename: (req, file, cb) => {
+    console.log(file);
+    cb(null, Date.now() + path.extname(file.originalname))
+  }
+});
+const upload = multer({storage: storage});
 var router = express.Router();
 const { User } = require('../models/User')
 
@@ -84,11 +96,22 @@ router.get('/my/:id', function (req, res) {
     res.render('main', { user: req.user });
   }
 });
-router.post('/my/:id', function (req, res) {
-  const data = {
-    nickname: req.body.nickname,
-    intro: req.body.intro
-  };
+router.post('/my/:id', upload.single('image'), function (req, res) {
+  console.log(req.file);
+  let data;
+  if(req.file) {
+    data = {
+      nickname: req.body.nickname,
+      intro: req.body.intro,
+      profile_src: "../uploads/" + req.file.filename
+    };
+  } else {
+    data = {
+      nickname: req.body.nickname,
+      intro: req.body.intro
+    };
+  }
+  
   User.findOneAndUpdate({ id: req.user.id }, data, function (err) {
     res.redirect('/my/' + req.params.id);
   });

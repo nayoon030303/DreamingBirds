@@ -20,10 +20,10 @@
                 <div class="box">
                     <p class="title">기본정보</p>
                     <div class="content">
-                        <form method="post">
+                        <form method="post" enctype="multipart/form-data">
                             <div id="profile">
-                                <img src="<%= user.profile_src %>" name="profile_src">
-                                <a href="#">프로필 사진 변경</a>
+                                <img src="<%= user.profile_src %>" name="profile_src" id="profile_img">
+                                <input type="file" name="image" id="upload_img" accept="image/*">
                             </div>
                             <div id="basic-info">
                                 <table>
@@ -109,21 +109,14 @@
     <script type="text/javascript" src="../js/menu.js"></script>
 </body>
 <script>
-    const button = document.getElementById('update_btn');
-    button.addEventListener('click', function (e) {
-        console.log('button was clicked');
-
-        fetch('/update_btn', { method: 'POST' })
-            .then(function (response) {
-                if (response.ok) {
-                    console.log('click was recorded');
-                    return;
-                }
-                throw new Error('Request failed.');
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
+    document.getElementById("upload_img").addEventListener("change", function (e) {
+        if (this.files && this.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#profile_img').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(this.files[0]);
+        }
     });
 </script>
 

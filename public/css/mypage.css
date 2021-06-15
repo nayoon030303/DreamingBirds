@@ -68,7 +68,7 @@ html, body {
     border-radius: 50%;
     margin-bottom: 10px;
 }
-#profile a {
+#profile input {
     font-size: 10px;
     color: #959595;
     text-decoration: none;
