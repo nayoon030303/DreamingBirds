@@ -35,11 +35,13 @@ let mypage_btn = document.createElement("button");
 let logout_btn = document.createElement("button");
 
 let user = $("#header").data("user");
-console.log(user);
 if(user) {
+    user = user.replaceAll('\\', '');
     user += '\"}';
     user = JSON.parse(user);
 }
+// console.log(user);
+
 
 // 로그인?
 if (!user) {

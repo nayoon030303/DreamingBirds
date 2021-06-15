@@ -26,26 +26,26 @@ router.get('/', function (req, res) {
   } else {
     console.log("세션이 유효하지 않습니다.");
   }
-  res.render('index', { user: JSON.stringify(req.user) });
+  res.render('index', { user: req.user });
 });
 
 router.get('/study', function (req, res) {
   if (req.isAuthenticated()) {
-    res.render('studyPage', { user: JSON.stringify(req.user) });
+    res.render('studyPage', { user: req.user });
   } else {
     res.render('main', { user: req.user });
   }
 });
 router.get('/home', function (req, res) {
   if (req.isAuthenticated()) {
-    res.render('homePage', { user: JSON.stringify(req.user) });
+    res.render('homePage', { user: req.user });
   } else {
     res.render('main', { user: req.user });
   }
 });
 router.get('/my', function (req, res) {
   if (req.isAuthenticated()) {
-    res.render('mypage', { user: JSON.stringify(req.user) });
+    res.render('mypage', { user: req.user });
   } else {
     res.render('main', { user: req.user });
   }

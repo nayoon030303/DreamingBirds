@@ -12,7 +12,7 @@
 </head>
 <body>
     <div class="root">
-        <div id="header" data-user=<%=user %>> </div>
+        <div id="header" data-user=<%= JSON.stringify(user) %>> </div>
         <div class="container">
             <div id="menu"></div>
             <div class="main">
@@ -20,7 +20,7 @@
                     <p class="title">기본정보</p>
                     <div class="content">
                         <div id="profile">
-                            <img src="../img/study/cam_ex.png">
+                            <img src= "<%= user.picture %>">
                             <a href="#">프로필 사진 변경</a>
                         </div>
                         <div id="basic-info">
