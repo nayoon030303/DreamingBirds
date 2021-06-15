@@ -5,3 +5,5 @@ config/jwt.js
 .env
 
 node_modules
+
+key

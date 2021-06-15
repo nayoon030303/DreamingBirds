@@ -35,16 +35,23 @@ router.get('/', function (req, res) {
 });
 
 router.get('/study', function (req, res) {
-  res.render('studyPage');
+  res.render('studyPage', { user: JSON.stringify(req.user) });
 });
 router.get('/home', function (req, res) {
-  res.render('homePage');
+  res.render('homePage', { user: JSON.stringify(req.user) });
 });
 router.get('/my', function (req, res) {
-  res.render('mypage');
+  res.render('mypage', { user: JSON.stringify(req.user) });
 });
 router.get('/googlelogin', function (req, res) {
   res.render('main', { user: req.user });
 });
+// router.get('/logout', function(req, res) {
+//   req.logout();
+//   req.session.save(function(){
+//     console.log('계정이 로그아웃 되었습니다');
+//     res.redirect('/');
+//   })
+// });
 
 module.exports = router;
