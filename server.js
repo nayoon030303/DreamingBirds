@@ -12,7 +12,6 @@ app.use(session({
     resave: false,
     saveUninitialized: true
 }));
-  
 
 // var router = require('./routes/auth')(app);     // 라우터 모듈인 main.js 를 불러와서 app 에 전달
 
@@ -38,32 +37,6 @@ app.use(passport.session());
 app.use('/', require('./routes/main'));
 app.use('/auth', require('./routes/auth'));
 
-app.post('/api/users/register', (req, res) => {
-
-    //회원 가입 할떄 필요한 정보들을  client에서 가져오면 
-    //그것들을  데이터 베이스에 넣어준다. 
-    const user = new User(req.body)
-  
-    user.save((err, userInfo) => {
-      if (err) return res.json({ success: false, err })
-      return res.status(200).json({
-        success: true
-      })
-    })
-  })
-
-app.post('/api/users/login', (req, res) => {
-    user.generateToken((err, user) => {
-        if (err) return res.status(400).send(err);
-
-        // 토큰을 저장한다.  어디에 ?  쿠키 , 로컳스토리지 
-        res.cookie("x_auth", user.token)
-          .status(200)
-          .json({ loginSuccess: true, userId: user._id })
-      })
-})
-  
-  
 var server = app.listen(3000, function(){
     console.log("Express server has started on port 3000")
 });
