@@ -215,15 +215,15 @@ var naver_id_login = function (client_id,redirect_uri)
 		}
 		if (this.button_type == BUTTON_TYPE)
 		{
-            naver_id_login_contents="<a href='"+naver_id_login_url+"' "+naver_id_popup_option+" id='naver_id_login_anchor'><button type='button' aria-busy='false' aria-disabled='false' class='naver-btn basic-btn'> <img src='https://m.tonglife.com/_wg/img/imgs/naver_logo.png' alt='naver' class='img'><div class='google-txt' style='user-select: auto;'>네이버로 간단하게 가입하기</div></button></a>";   
+            naver_id_login_contents="<a href='"+naver_id_login_url+"' "+naver_id_popup_option+" id='naver_id_login_anchor'><button type='button' aria-busy='false' aria-disabled='false' class='naver-btn basic-btn'> <img src='https://m.tonglife.com/_wg/img/imgs/naver_logo.png' alt='naver' class='img'><div class='google-txt' style='user-select: auto;'>네이버로 간단하게 로그인</div></button></a>";   
 		}
 		else if (this.button_type == BANNER_SMALL_TYPE)
 		{
-            naver_id_login_contents="<a href='"+naver_id_login_url+"' "+naver_id_popup_option+" id='naver_id_login_anchor'><button type='button' aria-busy='false' aria-disabled='false' class='naver-btn basic-btn'> <img src='https://m.tonglife.com/_wg/img/imgs/naver_logo.png' alt='naver' class='img'><div class='google-txt' style='user-select: auto;'>네이버로 간단하게 가입하기</div></button></a>";
+            naver_id_login_contents="<a href='"+naver_id_login_url+"' "+naver_id_popup_option+" id='naver_id_login_anchor'><button type='button' aria-busy='false' aria-disabled='false' class='naver-btn basic-btn'> <img src='https://m.tonglife.com/_wg/img/imgs/naver_logo.png' alt='naver' class='img'><div class='google-txt' style='user-select: auto;'>네이버로 간단하게 로그인</div></button></a>";
 		}
 		else 
 		{
-            naver_id_login_contents="<a href='"+naver_id_login_url+"' "+naver_id_popup_option+" id='naver_id_login_anchor'><button type='button' aria-busy='false' aria-disabled='false' class='naver-btn basic-btn'> <img src='https://m.tonglife.com/_wg/img/imgs/naver_logo.png' alt='naver' class='img'><div class='google-txt' style='user-select: auto;'>네이버로 간단하게 가입하기</div></button></a>";
+            naver_id_login_contents="<a href='"+naver_id_login_url+"' "+naver_id_popup_option+" id='naver_id_login_anchor'><button type='button' aria-busy='false' aria-disabled='false' class='naver-btn basic-btn'> <img src='https://m.tonglife.com/_wg/img/imgs/naver_logo.png' alt='naver' class='img'><div class='google-txt' style='user-select: auto;'>네이버로 간단하게 로그인</div></button></a>";
 		}
 		naver_id_login.innerHTML=naver_id_login_contents;
 		if (this.is_callback)
