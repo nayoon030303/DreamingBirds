@@ -1,21 +1,3 @@
-// module.exports = function (app) {
-//     app.get('/', function (req, res) {
-//         res.render('index.html');
-//     });
-//     app.get('/select', function (req, res) {
-//         res.render('selectSubjectPage.html');
-//     });
-//     app.get('/home', function (req, res) {
-//         res.render('homePage.html');
-//     });
-//     app.get('/my', function (req, res) {
-//         res.render('mypage.html');
-//     });
-//     app.get('/study', function (req, res) {
-//         res.render('studyPage.html');
-//     });
-// }
-
 var express = require('express');
 const { session } = require('passport');
 const path = require('path');
@@ -97,17 +79,16 @@ router.get('/my/:id', function (req, res) {
   }
 });
 router.post('/my/:id', upload.single('image'), function (req, res) {
-  console.log(req.file);
   let data;
   if(req.file) {
     data = {
-      nickname: req.body.nickname,
+      nickname: req.body.nickname.trim() != '' ? req.body.nickname : req.user.displayName,
       intro: req.body.intro,
       profile_src: "../uploads/" + req.file.filename
     };
   } else {
     data = {
-      nickname: req.body.nickname,
+      nickname: req.body.nickname.trim() != '' ? req.body.nickname : req.user.displayName,
       intro: req.body.intro
     };
   }
@@ -119,6 +100,10 @@ router.post('/my/:id', upload.single('image'), function (req, res) {
 
 router.get('/googlelogin', function (req, res) {
   res.render('main', { user: req.user });
+});
+
+router.get('/login', function(req, res) {
+  res.render('login')
 });
 
 module.exports = router;
