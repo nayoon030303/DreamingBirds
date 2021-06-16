@@ -43,9 +43,13 @@ router.get('/home', function (req, res) {
 router.get('/my', function (req, res) {
   res.render('mypage', { user: JSON.stringify(req.user) });
 });
+router.get('/selectSubject', function (req, res) {
+  res.render('selectSubjectPage', { user: JSON.stringify(req.user) });
+});
 router.get('/googlelogin', function (req, res) {
   res.render('main', { user: req.user });
 });
+
 // router.get('/logout', function(req, res) {
 //   req.logout();
 //   req.session.save(function(){
