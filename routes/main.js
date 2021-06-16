@@ -98,12 +98,27 @@ router.post('/my/:id', upload.single('image'), function (req, res) {
   });
 });
 
+router.get('/selectSubject', function (req, res) {
+  res.render('selectSubjectPage', { user: JSON.stringify(req.user) });
+});
+
+
 router.get('/googlelogin', function (req, res) {
   res.render('main', { user: req.user });
 });
 
+
+// router.get('/logout', function(req, res) {
+//   req.logout();
+//   req.session.save(function(){
+//     console.log('계정이 로그아웃 되었습니다');
+//     res.redirect('/');
+//   })
+// });
+
 router.get('/login', function(req, res) {
   res.render('login')
 });
+
 
 module.exports = router;
