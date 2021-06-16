@@ -21,7 +21,7 @@ nav.style.width = '15%';
 menu.appendChild(nav);
 
 let contents = [];
-contents.push(new MenuContent('이연지', '../img/study/cam_ex.png', '/my'));
+contents.push(new MenuContent(user.nickname, user.profile_src, ('/my/' + user.id)));
 contents.push(new MenuContent('소개', '../img/icon/intro.png', '/'));
 contents.push(new MenuContent('홈', '../img/icon/home.png', '/home'));
 contents.push(new MenuContent('체크리스트', '../img/icon/checklist.png', '#'));

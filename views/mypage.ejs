@@ -10,33 +10,39 @@
     <link rel="stylesheet" href="../css/mypage.css" type="text/css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
+
 <body>
     <div class="root">
-        <div id="header" data-user=<%=user %>> </div>
+        <div id="header" data-user=<%=JSON.stringify(user) %>> </div>
         <div class="container">
             <div id="menu"></div>
             <div class="main">
                 <div class="box">
                     <p class="title">기본정보</p>
                     <div class="content">
-                        <div id="profile">
-                            <img src="../img/study/cam_ex.png">
-                            <a href="#">프로필 사진 변경</a>
-                        </div>
-                        <div id="basic-info">
-                            <table>
-                                <tr>
-                                    <th>닉네임</th>
-                                    <td><input type="text" id="nickname" placeholder="닉네임을 입력하세요"></td>
-                                </tr>
-                                <tr>
-                                    <th>한줄소개</th>
-                                    <td><textarea rows="2" id="introduction" placeholder="당신의 한줄소개를 입력하세요"></textarea>
-                                    </td>
-                                </tr>
-                            </table>
-                            <button>수정</button>
-                        </div>
+                        <form method="post" enctype="multipart/form-data">
+                            <div id="profile">
+                                <img src="<%= user.profile_src %>" name="profile_src" id="profile_img">
+                                <input type="file" name="image" id="upload_img" accept="image/*">
+                            </div>
+                            <div id="basic-info">
+                                <table>
+                                    <tr>
+                                        <th>닉네임</th>
+                                        <td><input type="text" value="<%= user.nickname %>" id="nickname"
+                                                name="nickname" placeholder="닉네임을 입력하세요"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>한줄소개</th>
+                                        <td>
+                                            <textarea rows="2" id="intro" name="intro"
+                                                placeholder="당신의 한줄소개를 입력하세요"><%= user.intro %></textarea>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <input id="update_btn" value="수정" type="submit" />
+                            </div>
+                        </form>
                     </div>
                 </div>
                 <div class="box">
@@ -56,7 +62,7 @@
                                     </div>
                                 </div>
                             </button>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -102,5 +108,16 @@
     <script type="text/javascript" src="../js/header.js"></script>
     <script type="text/javascript" src="../js/menu.js"></script>
 </body>
+<script>
+    document.getElementById("upload_img").addEventListener("change", function (e) {
+        if (this.files && this.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#profile_img').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(this.files[0]);
+        }
+    });
+</script>
 
 </html>

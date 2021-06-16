@@ -35,11 +35,13 @@ let mypage_btn = document.createElement("button");
 let logout_btn = document.createElement("button");
 
 let user = $("#header").data("user");
-console.log(user);
-if(user) {
-    user += '\"}';
-    user = JSON.parse(user);
-}
+// if(user) {
+//     user = user.replaceAll('\\', '');
+//     user += '\"}';
+//     user = JSON.parse(user);
+// }
+// console.log(user);
+// console.log(typeof(user));
 
 // 로그인?
 if (!user) {
@@ -80,7 +82,7 @@ if (!user) {
     header.appendChild(member);
 
     member_img.className = 'member_img';
-    member_img.setAttribute("src", user.picture);
+    member_img.setAttribute("src", user.profile_src);
     member_img.style.width = '42px';
     member_img.style.height = '42px';
     member_img.style.objectFit = 'cover';
@@ -101,7 +103,7 @@ if (!user) {
     header.appendChild(member_info);
 
     member_profile.className = "member_profile";
-    member_profile.setAttribute("src", user.picture);
+    member_profile.setAttribute("src", user.profile_src);
     member_profile.style.borderRadius = '50%';
     member_profile.style.height = '80px';
     member_profile.style.width = '80px';
@@ -111,7 +113,7 @@ if (!user) {
     member_info.appendChild(member_profile);
 
     member_name.className = "member_name";
-    member_name.textContent = user.displayName;
+    member_name.textContent = user.nickname;
     member_name.style.borderBottom = "1px solid #CFCFCF";
     member_name.style.paddingBottom = "20px";
     member_info.appendChild(member_name);
@@ -189,7 +191,7 @@ $(document).ready(function () {
         location.href = "/";
     });
     $(".mypage_btn").on("click", function (e) {
-        location.href = "/my";
+        location.href = "/my/" + user.id;
     });
     $(".logout_btn").on("click", function (e) {
         location.href = "/googlelogin";
