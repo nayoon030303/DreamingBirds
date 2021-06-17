@@ -72,29 +72,10 @@
                         <div id="subject-content">
                             <div id="whole-subject">
                                 <span>전체 과목 수 </span>
-                                <span id="subject-number">20</span>
+                                <span id="subject-number"></span>
                             </div>
                             <div id="subject-list">
-                                <div class="subject-box">
-                                    <span>커뮤니케이션 문학</span>
-                                    <button>×</button>
-                                </div>
-                                <div class="subject-box">
-                                    <span>커뮤니케이션 문학</span>
-                                    <button>×</button>
-                                </div>
-                                <div class="subject-box">
-                                    <span>커뮤니케이션 문학</span>
-                                    <button>×</button>
-                                </div>
-                                <div class="subject-box">
-                                    <span>커뮤니케이션 문학</span>
-                                    <button>×</button>
-                                </div>
-                                <div class="subject-box">
-                                    <span>커뮤니케이션 문학</span>
-                                    <button>×</button>
-                                </div>
+                                
                             </div>
                             <div id="subject-add">
                                 <button> + 추가하기 </button>
@@ -107,17 +88,6 @@
     </div>
     <script type="text/javascript" src="../js/header.js"></script>
     <script type="text/javascript" src="../js/menu.js"></script>
+    <script type="text/javascript" src="../js/mypage.js"></script>
 </body>
-<script>
-    document.getElementById("upload_img").addEventListener("change", function (e) {
-        if (this.files && this.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                $('#profile_img').attr('src', e.target.result);
-            }
-            reader.readAsDataURL(this.files[0]);
-        }
-    });
-</script>
-
 </html>
