@@ -1,6 +1,9 @@
 body{
     margin:0px;
     padding:0px;
+    
+    --maincolr:#516B7D;
+    --graycolor:#cccc;
 }
 
 .line{
@@ -23,7 +26,7 @@ body{
 }
 
 .main{
-    width: 1000px;
+    width: 900px;
     height: 650px;
     margin: auto;
     z-index: 2001;
@@ -45,7 +48,6 @@ body{
 
 .head{
     width: 100%;
-    background-color: rgb(255, 174, 174);
     display: flex;
     flex-direction: row-reverse;
 
@@ -59,23 +61,63 @@ body{
 
 .x-btn{
     width: 20px;
+    cursor: pointer;
 }
 
-.title{
+.title{ 
     display: flex;
     justify-content: center;
-    background-color: magenta;
+    padding-bottom: 10px;
+    font-size: 15px;
+    /* background-color: magenta; */
 }
 
 .select{    
     margin: 10px auto 0px auto;
     width: 90%;
-    height: 70%    ;
-    background-color: magenta;
+    height: 65%;   
+    overflow: auto; 
+    /* background-color: magenta; */
 }
 
 .content{
-    width: 100%;
+    margin-bottom: 20px;
+    border: 2px solid var(--maincolr);
+    width: 99%;
     height: calc(100%/5);
-    background-color: skyblue;
+    cursor: pointer;
+    /* background-color: skyblue; */
+}
+
+.content:last-child{
+    margin-bottom: 0px;
+}
+
+.bottom{
+    margin-top: 10px;
+    width: 100%;
+    height: 100px;
+    /* background-color: skyblue; */
+
+    display: flex;
+    align-items: center;
+}
+.x{
+    width: 15px;
+}
+.add-btn{
+    color: #516B7D;
+    margin: auto;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.select::-webkit-scrollbar {
+    width: 10px;
+}
+.select::-webkit-scrollbar-thumb {
+    background-color: var(--maincolr);
+}
+.select::-webkit-scrollbar-track {
+    background-color: var(--graycolor);
 }
