@@ -10,12 +10,18 @@
 </head>
 <body>
 	<div class="root">
-		<div id="header"data-user=<%=user %>> </div>
+		<div id="header" data-user=<%= JSON.stringify(user) %>> </div>
 		<div class="line"></div>
 		<div class="container">
-			<div class="select">
+			<div class="main">
+				<div class="head">
+					<img class="x-btn" src="../img/icon/x-button.png">
+				</div>
 				<div class="title">
 					<h2>어떤 과목을 학습하시겠습니까?</h2>
+				</div>
+				<div class="select">
+					<div class="content"></div>
 				</div>
 			</div>
 		</div>
