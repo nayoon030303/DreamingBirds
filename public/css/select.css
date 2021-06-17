@@ -72,13 +72,7 @@ body{
     /* background-color: magenta; */
 }
 
-.select{    
-    margin: 10px auto 0px auto;
-    width: 90%;
-    height: 65%;   
-    overflow: auto; 
-    /* background-color: magenta; */
-}
+
 
 .content{
     margin-bottom: 20px;
@@ -112,6 +106,15 @@ body{
     cursor: pointer;
 }
 
+.select{    
+    margin: 10px auto 0px auto;
+    width: 90%;
+    height: 65%;   
+    overflow: auto; 
+    
+    /* background-color: magenta; */
+}
+
 .select::-webkit-scrollbar {
     width: 10px;
 }
@@ -120,4 +123,19 @@ body{
 }
 .select::-webkit-scrollbar-track {
     background-color: var(--graycolor);
+}
+
+.content{
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+.name{
+    flex-grow: 1.2;
+    margin-left: 50px;
+    /* background-color: hotpink; */
+}
+
+.time{
+    margin-right: 70px;
 }
