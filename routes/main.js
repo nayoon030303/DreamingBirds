@@ -99,8 +99,24 @@ router.post('/my/:id', upload.single('image'), function (req, res) {
 });
 
 router.get('/selectSubject', function (req, res) {
-  res.render('selectSubjectPage', { user: JSON.stringify(req.user) });
+  if (req.isAuthenticated()) {
+    User.findOne({ id: req.user.id }, function (err, user) {
+      if (err) {
+        console.log(err);
+        res.redirect('/');
+      } else {
+        res.render('selectSubjectPage', { user: user });
+      }
+    });
+  } else {
+    res.render('main', { user: req.user });
+  }
 });
+
+
+
+
+
 
 
 router.get('/googlelogin', function (req, res) {
