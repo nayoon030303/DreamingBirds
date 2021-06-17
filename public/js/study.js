@@ -37,7 +37,9 @@ async function init() {
     webcam = new tmImage.Webcam(200, 200, flip); // width, height, flip
     await webcam.setup(); // request access to the webcam
     await webcam.play();
+    document.getElementById("loader-wrapper").style.display = "none";
     window.requestAnimationFrame(loop);
+
 
     // append elements to the DOM
     document.getElementById("webcam-container").appendChild(webcam.canvas);
@@ -71,13 +73,13 @@ async function predict() {
         pose_status = pose_prediction[3].className;
     }
 
-    if(sleep_prediction[0].probability >= 0.85) {
+    if (sleep_prediction[0].probability >= 0.85) {
         sleep_status = sleep_prediction[0].className;
-    } else if(sleep_prediction[1].probability >= 0.85) {
+    } else if (sleep_prediction[1].probability >= 0.85) {
         sleep_status = sleep_prediction[1].className;
-    } else if(sleep_prediction[2].probability >= 0.85) {
+    } else if (sleep_prediction[2].probability >= 0.85) {
         sleep_status = sleep_prediction[2].className;
-    } else if(sleep_prediction[3].probability >= 0.85) {
+    } else if (sleep_prediction[3].probability >= 0.85) {
         sleep_status = sleep_prediction[3].className;
     }
 
@@ -89,7 +91,7 @@ function timer() {
     let status;
 
     time = setInterval(function () {
-        if((pose_status == "focus_out" || pose_status == "phone" || pose_status == "leave") || 
+        if ((pose_status == "focus_out" || pose_status == "phone" || pose_status == "leave") ||
             (sleep_status == "close" || sleep_status == "neck" || sleep_status == "top")) {
             second++;
         } else {
@@ -99,14 +101,14 @@ function timer() {
         // document.getElementById("stopwatch").innerHTML = "딴 짓을 한 시간 : " + (second % 5) + "초";
         // console.log(second);
 
-        if((second % 5) + 1 >= 5) {
-            if(pose_status == "focus_out") {
+        if ((second % 5) + 1 >= 5) {
+            if (pose_status == "focus_out") {
                 document.getElementsByClassName("group-name")[0].innerHTML = "한 눈 팔다 먹이가 도망가도 전 몰라요!";
-            } else if(pose_status == "phone") {
+            } else if (pose_status == "phone") {
                 document.getElementsByClassName("group-name")[0].innerHTML = "짹짹!! 네? 못알아듣겠다고요? 지금 놀고있냐 물었어요!!";
-            } else if(pose_status == "leave") {
+            } else if (pose_status == "leave") {
                 document.getElementsByClassName("group-name")[0].innerHTML = "제 눈에는 의자밖에 안보이는거같은데 기분탓인가요?";
-            } else if(sleep_status == "close" || sleep_status == "neck" || sleep_status == "top") {
+            } else if (sleep_status == "close" || sleep_status == "neck" || sleep_status == "top") {
                 document.getElementsByClassName("group-name")[0].innerHTML = "지금 자면 꿈을 꿀수있지만 꿈처럼 환상적인 먹이는 못먹어요!";
             }
 
@@ -128,3 +130,6 @@ function beep() {
 
 init();
 // 로딩페이지 넣을 예정
+
+var cam = document.getElementById('webcam-container');
+
