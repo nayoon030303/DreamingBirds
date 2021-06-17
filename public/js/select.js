@@ -34,6 +34,7 @@ const subject_data = [{
 
 
 const select = document.querySelector('.select');
+const addBtn = document.querySelectorAll('.add-btn');
 
 function getDatas(){
 
@@ -54,15 +55,17 @@ function getDatas(){
         content.append(name);
         content.append(time);
 
-        
     })
 
+}
 
+function clickAddBtn(event){
+    
 }
 
 function drawView(){
     if(subject_data.length<=0){
-
+        //no data
     }else{
         getDatas();
     }
@@ -71,7 +74,7 @@ function drawView(){
 
 function init(){
     drawView();
-
+    addBtn.addEventListener('click',clickAddBtn);
 }
 
 window.addEventListener('load',init);
