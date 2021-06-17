@@ -40,7 +40,7 @@ let user = $("#header").data("user");
 //     user += '\"}';
 //     user = JSON.parse(user);
 // }
-// console.log(user);
+console.log(user);
 // console.log(typeof(user));
 
 // 로그인?
