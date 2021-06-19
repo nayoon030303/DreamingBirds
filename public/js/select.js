@@ -34,10 +34,8 @@ const subject_data = [{
 
 
 const select = document.querySelector('.select');
-const addBtn = document.querySelectorAll('.add-btn');
 
-function getDatas(){
-
+function createSubject(){
     subject_data.forEach((data,i)=>{
         const content = document.createElement('div');
         content.classList.add('content');
@@ -59,22 +57,54 @@ function getDatas(){
 
 }
 
+function clickXBtn(event){
+    //이전 페이지로 이동
+}
+
 function clickAddBtn(event){
-    
+    //추가하기 페이지로 이동
+   
 }
 
 function drawView(){
+    //if(subject_data.length<=0){
     if(subject_data.length<=0){
-        //no data
+
+        select.classList.add('nodata');
+        select.classList.remove('select');
+
+        const pleaseAdd = document.createElement('h1');
+        pleaseAdd.innerText = '학습하실 과목을 추가해주세요';
+        pleaseAdd.classList.add('add-title');
+
+        const img = document.createElement('img');
+        img.src = '../img/birds/chick.png';
+        img.width = 230;
+        img.classList.add('add-img');
+
+        select.appendChild(pleaseAdd);
+        select.appendChild(img);
+        
     }else{
-        getDatas();
+        select.classList.remove('nodata');
+        select.classList.add('select');
+        const title = document.querySelector('.title');
+        const h1 = document.createElement('h1');
+        h1.innerText = '어떤 과목을 학습하시겠습니까?'
+        title.appendChild(h1);
+
+        createSubject();
     }
 
 }
 
 function init(){
+    const addBtn = document.querySelector('.add-btn');
+    const xBtn = document.querySelector('.x-btn');
+
     drawView();
     addBtn.addEventListener('click',clickAddBtn);
+    xBtn.addEventListener('click',clickXBtn);
 }
 
 window.addEventListener('load',init);

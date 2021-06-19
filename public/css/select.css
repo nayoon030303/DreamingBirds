@@ -106,13 +106,25 @@ body{
     cursor: pointer;
 }
 
-.select{    
+.select{
+    
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
     margin: 10px auto 0px auto;
     width: 90%;
     height: 65%;   
     overflow: auto; 
-    
+    /* margin-top: 50px; */
     /* background-color: magenta; */
+}
+
+.add-title{
+
+}
+
+.add-img{
+    margin-top: 5px;
 }
 
 .select::-webkit-scrollbar {
