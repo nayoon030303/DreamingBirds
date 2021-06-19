@@ -10,7 +10,7 @@
 
 <body>
     <div class = "root">
-        <div id="header" data-user=<%= JSON.stringify(user) %>> </div>
+		<div id="header" data-user=<%= JSON.stringify(user).replaceAll(" ", "&nbsp;") %>> </div>
         <div class="container">
             <div id="menu"> </div>
             <div class = "content">
@@ -19,11 +19,11 @@
                     <div class = "checklist">
                         <div class = "checklist-date">
                             <div class ="left-btn">
-                                <button><</button>
+                                <button>&lt;</button>
                             </div>
                             <div id="calDate" class = "todo-title"></div>
                             <div class ="right-btn">
-                                <button>></button>
+                                <button>&gt;</button>
                             </div>
                         </div>
                         <form name = "todoForm" class="js-toDoForm item" action='/checklist/<%= user.id %>' method="post">

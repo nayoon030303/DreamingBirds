@@ -1,8 +1,8 @@
 .no-drag {-ms-user-select: none; -moz-user-select: -moz-none; -webkit-user-select: none; -khtml-user-select: none; user-select:none;}
 * { 
     margin: 0; padding: 0; 
-    box-sizing: border-box;
 }
+
 .root {
     width: 100%;
     height: auto;
