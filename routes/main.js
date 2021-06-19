@@ -113,6 +113,22 @@ router.get('/selectSubject', function (req, res) {
   }
 });
 
+router.get('/addSubject', function (req, res) {
+  if (req.isAuthenticated()) {
+    User.findOne({ id: req.user.id }, function (err, user) {
+      if (err) {
+        console.log(err);
+        res.redirect('/');
+      } else {
+        res.render('addSubjectPage', { user: user });
+      }
+    });
+  } else {
+    res.render('main', { user: req.user });
+  }
+});
+
+
 
 
 

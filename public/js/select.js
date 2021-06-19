@@ -36,6 +36,7 @@ const subject_data = [{
 const select = document.querySelector('.select');
 
 function createSubject(){
+
     subject_data.forEach((data,i)=>{
         const content = document.createElement('div');
         content.classList.add('content');
@@ -48,17 +49,27 @@ function createSubject(){
         time.innerText = data.time;
         time.classList.add('time');
 
-
         select.append(content);
         content.append(name);
         content.append(time);
+        content.id = data.id;
+
+        content.addEventListener('click',function(){clickSubject(event,content.id)});
 
     })
 
 }
 
+
+function clickSubject(event,id){
+    //학습하기로 이동
+    console.log('click Subject');
+    console.log(id);
+}
+
 function clickXBtn(event){
     //이전 페이지로 이동
+    
 }
 
 function clickAddBtn(event){
