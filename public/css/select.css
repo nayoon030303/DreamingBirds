@@ -1,4 +1,141 @@
 body{
     margin:0px;
     padding:0px;
+    
+    --maincolr:#516B7D;
+    --graycolor:#cccc;
+}
+
+.line{
+    width: 100%;
+    height: 61px;
+    background-color: rgb(51, 51, 51);
+} 
+
+.container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;   
+    z-index: 2000;
+    /* background-color: skyblue; */
+
+    display: flex;
+    align-items: center;
+}
+
+.main{
+    width: 900px;
+    height: 650px;
+    margin: auto;
+    z-index: 2001;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+}
+
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: black;
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+}
+
+.head{
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+
+
+}
+
+.head img{
+    margin: 20px 20px 0px 20px;
+    /* background-color: red; */
+}
+
+.x-btn{
+    width: 20px;
+    cursor: pointer;
+}
+
+.title{ 
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
+    font-size: 15px;
+    /* background-color: magenta; */
+}
+
+
+
+.content{
+    margin-bottom: 20px;
+    border: 2px solid var(--maincolr);
+    width: 99%;
+    height: calc(100%/5);
+    cursor: pointer;
+    /* background-color: skyblue; */
+}
+
+.content:last-child{
+    margin-bottom: 0px;
+}
+
+.bottom{
+    margin-top: 10px;
+    width: 100%;
+    height: 100px;
+    /* background-color: skyblue; */
+
+    display: flex;
+    align-items: center;
+}
+.x{
+    width: 15px;
+}
+.add-btn{
+    color: #516B7D;
+    margin: auto;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.select{    
+    margin: 10px auto 0px auto;
+    width: 90%;
+    height: 65%;   
+    overflow: auto; 
+    
+    /* background-color: magenta; */
+}
+
+.select::-webkit-scrollbar {
+    width: 10px;
+}
+.select::-webkit-scrollbar-thumb {
+    background-color: var(--maincolr);
+}
+.select::-webkit-scrollbar-track {
+    background-color: var(--graycolor);
+}
+
+.content{
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+.name{
+    flex-grow: 1.2;
+    margin-left: 50px;
+    /* background-color: hotpink; */
+}
+
+.time{
+    margin-right: 70px;
 }

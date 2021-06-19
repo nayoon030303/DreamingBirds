@@ -7,6 +7,7 @@ header.style.position = 'fixed';
 header.style.top = '0px';
 header.style.right = '0px';
 header.style.zIndex = '99';
+header.style.boxShadow = "0 1px 3px 1px #D2D2D2";
 
 // 로고
 let logo = document.createElement("img");
@@ -40,7 +41,7 @@ let user = $("#header").data("user");
 //     user += '\"}';
 //     user = JSON.parse(user);
 // }
-// console.log(user);
+console.log(user);
 // console.log(typeof(user));
 
 // 로그인?

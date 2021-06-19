@@ -68,10 +68,19 @@ html, body {
     border-radius: 50%;
     margin-bottom: 10px;
 }
+#profile label {
+    padding: 1% 2%;
+    background: white;
+    color: #959595;
+    text-align: center;
+    font-size: 12px;
+}
 #profile input {
     font-size: 10px;
     color: #959595;
     text-decoration: none;
+    visibility: hidden;
+    position: absolute;
 }
 #basic-info {
     width: 75%;
