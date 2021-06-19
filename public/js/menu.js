@@ -24,12 +24,8 @@ let contents = [];
 contents.push(new MenuContent(user.nickname.replaceAll("&nbsp;", " "), user.profile_src, ('/my/' + user.id)));
 contents.push(new MenuContent('소개', '../img/icon/intro.png', '/'));
 contents.push(new MenuContent('홈', '../img/icon/home.png', '/home'));
-<<<<<<< Updated upstream
 contents.push(new MenuContent('스터디', '../img/icon/book.png', '/study'));
-contents.push(new MenuContent('체크리스트', '../img/icon/checklist.png', '#'));
-=======
 contents.push(new MenuContent('체크리스트', '../img/icon/checklist.png', '/checklist/'+user.id));
->>>>>>> Stashed changes
 
 for (let i = 0; i < contents.length; i++) {
     let menu_content = document.createElement("div");
