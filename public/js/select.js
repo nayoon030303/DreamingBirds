@@ -67,10 +67,7 @@ function clickSubject(event,id){
     console.log(id);
 }
 
-function clickXBtn(event){
-    //이전 페이지로 이동
-    
-}
+
 
 function clickAddBtn(event){
     //추가하기 페이지로 이동
@@ -111,11 +108,11 @@ function drawView(){
 
 function init(){
     const addBtn = document.querySelector('.add-btn');
-    const xBtn = document.querySelector('.x-btn');
+    const xBtn = document.querySelector('.x-btnA');
 
     drawView();
-    addBtn.addEventListener('click',clickAddBtn);
-    xBtn.addEventListener('click',clickXBtn);
+    // addBtn.addEventListener('click',clickAddBtn);
+    // xBtn.addEventListener('click',clickXBtn);
 }
 
 window.addEventListener('load',init);

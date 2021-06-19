@@ -72,13 +72,17 @@ body{
     font-size: 15px;
     /* background-color: magenta; */
 }
-
-.back-btn{
+.back-btnA{
     position: absolute;
-    margin-top: 65px;
+    margin-top: 73px;
     margin-left: 30px;
     width: 25px;
     cursor: pointer;
+}
+.back-btn{
+    
+    width: 25px;
+    
 }
 
 .add-div{
@@ -118,7 +122,10 @@ body{
     background-color: #ADBFCC;
     color:white
 }
-
+.itemClick{
+    background-color: var(--maincolr);
+    color: white;
+}
 .search{
     margin-top: 20px;
 }
@@ -182,10 +189,12 @@ input:focus {outline:none;}
     background-color: #516B7D;
 }
 .noclear-btn{
+    pointer-events: none;
     background-color: #ADBFCC;
 }
 
 .c-btn span{
-    margin: auto;
-    
+    margin: auto;   
 }
+
+a { text-decoration:none } 

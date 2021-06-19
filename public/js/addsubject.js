@@ -14,7 +14,7 @@ function createRecommend(){
 }
 
 function clickSubject(event,data){
-
+    
     const input = document.querySelector('.input-direct');
     input.value = data;
     checkInput();
@@ -23,6 +23,7 @@ function clickSubject(event,data){
 function checkInput(){
     const next_btn = document.querySelector('.c-btn');
     const input = document.querySelector('.input-direct');
+
     if(input.value!=''){
         next_btn.classList.remove('noclear-btn');
         next_btn.classList.add('clear-btn');
@@ -32,10 +33,17 @@ function checkInput(){
     }
 
 }
+
+
+
 function init(){
     createRecommend();
     const input = document.querySelector('.input-direct');
+    const xbtn = document.querySelector('.x-btn');
+    const backbtn = document.querySelector('.back-btn');
+
     input.addEventListener('keyup', checkInput);
+    
 }
 
 window.addEventListener('load',init);
