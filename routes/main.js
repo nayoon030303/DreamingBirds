@@ -41,8 +41,12 @@ router.get('/study', function (req, res) {
         console.log(err);
         res.redirect('/');
       } else {
+
+        //res.render('selectSubjectPage', { user: user });
+
         let list =  User.find();
-        res.render('studyPage', { user: user, data : list });
+        res.render('selectSubjectPage', { user: user, data : list });
+
       }
     });
   } else {
@@ -166,6 +170,22 @@ router.get('/selectSubject', function (req, res) {
     res.render('main', { user: req.user });
   }
 });
+
+router.get('/addSubject', function (req, res) {
+  if (req.isAuthenticated()) {
+    User.findOne({ id: req.user.id }, function (err, user) {
+      if (err) {
+        console.log(err);
+        res.redirect('/');
+      } else {
+        res.render('addSubjectPage', { user: user });
+      }
+    });
+  } else {
+    res.render('main', { user: req.user });
+  }
+});
+
 
 
 
