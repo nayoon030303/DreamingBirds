@@ -39,7 +39,7 @@ router.get('/study', function (req, res) {
         console.log(err);
         res.redirect('/');
       } else {
-        res.render('studyPage', { user: user });
+        res.render('selectSubjectPage', { user: user });
       }
     });
   } else {
