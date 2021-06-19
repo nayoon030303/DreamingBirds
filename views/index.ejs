@@ -19,7 +19,7 @@
 
 <body>
 	<div id="wrap" class="no-drag">
-		<div id="header" data-user=<%=JSON.stringify(user) %>> </div>
+		<div id="header" data-user=<%= JSON.stringify(user).replaceAll(" ", "&nbsp;") %>> </div>
 		<div id="fullpage">
 			<div class="section" id="intro1">
 				<div id="intro1_box">
