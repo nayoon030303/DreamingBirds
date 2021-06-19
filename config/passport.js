@@ -4,16 +4,13 @@ const { User } = require('../models/User')
 
 require("dotenv").config();
 
-let jwt = require("jsonwebtoken");
-let secretObj = require("../config/jwt");
-
-
 passport.serializeUser(function(user, done) {
   done(null, user);
 });
 passport.deserializeUser(function(user, done) {
   done(null, user);
 });
+
 
 passport.use(new GoogleStrategy(
   {
@@ -33,6 +30,7 @@ passport.use(new GoogleStrategy(
         //=========
         const user = new User({
             "id": profile.sub,
+            "email":profile.email,
             "name": profile.displayName,
             "nickname": profile.displayName,
             "profile_src": profile.picture   

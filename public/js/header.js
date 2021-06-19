@@ -41,8 +41,7 @@ let user = $("#header").data("user");
 //     user += '\"}';
 //     user = JSON.parse(user);
 // }
-console.log(user);
-// console.log(typeof(user));
+// console.log(user);
 
 // 로그인?
 if (!user) {
@@ -114,7 +113,7 @@ if (!user) {
     member_info.appendChild(member_profile);
 
     member_name.className = "member_name";
-    member_name.textContent = user.nickname;
+    member_name.textContent = user.nickname.replaceAll("&nbsp;", " ");
     member_name.style.borderBottom = "1px solid #CFCFCF";
     member_name.style.paddingBottom = "20px";
     member_info.appendChild(member_name);
@@ -126,7 +125,7 @@ if (!user) {
     member_info.appendChild(member_email_title);
 
     member_email.className = "member_email";
-    member_email.textContent = "s2019s09@e-mirim.hs.kr";
+    member_email.textContent = user.email;
     member_email.style.width = "200px";
     member_email.style.fontSize = "15px";
     member_email.style.borderBottom = "1px solid #CFCFCF";

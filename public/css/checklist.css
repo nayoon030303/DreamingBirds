@@ -1,0 +1,254 @@
+.no-drag {-ms-user-select: none; -moz-user-select: -moz-none; -webkit-user-select: none; -khtml-user-select: none; user-select:none;}
+* { 
+    margin: 0; padding: 0; 
+}
+
+.root {
+    width: 100%;
+    height: auto;
+    font-family: 'Nanum Gothic', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    width: 100%;
+    height: 92vh;
+    position: relative;
+    display: flex;
+    flex-direction: row; /*주측: 가로 방향*/
+    margin: 0px;
+    padding: 0px;
+    font-size: 16px;
+    background-color: #F5F5F5;
+    margin-top: 60px;
+}
+
+a{
+    color:#000;
+    text-decoration: none;
+}
+
+input.underline {
+    width:80%;
+    border-left-width:0;
+    border-right:0;
+    border-top:none;
+    color : #C6C6C6;
+}
+   
+clearfix::after{
+    content: ' ';
+    display: block;
+    clear: both;
+}
+
+li{
+    list-style: none;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    width:85%;
+    height:93%;
+}
+
+
+/* main */
+.content .main {
+    width:80%;
+    height:100%;
+    display:flex;
+    background-color: #F5F5F5;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.content .main .checklist {
+    display:flex;
+    flex-direction: column; 
+    align-items: center;
+    
+    width:90%;
+    height:80%;
+    background-color: #FFFFFF;
+    border : #CFCFCF solid 1px;
+
+}
+
+.content .main .checklist-name {
+    width:90%;
+    height:10%;
+    border-radius: 10px 10px 0px 0px;
+    border : 1px solid #CFCFCF;
+    border-bottom:none;
+    background-color: #FFFFFF;
+    color:#606060;
+    display: flex;
+    align-items: center;
+    padding-left : 30px;
+}
+
+.content .main .checklist-date{
+    width:30%;
+    height:10%;
+    display: flex;
+    justify-content: center;
+}
+
+.content .main .checklist .checklist-date .left-btn{
+    width:15%;
+    height:100%;
+    float:left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content .main .checklist .checklist-date .left-btn button{
+    width:50px;
+    height:50px;
+    font-size: 30px;
+    background-color: white;
+    border:0;
+}
+
+.content .main .checklist .checklist-date .right-btn{
+    width:15%;
+    height:100%;
+    float:right;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content .main .checklist .checklist-date .right-btn button{
+    width:50px;
+    height:50px;
+    font-size: 30px;
+    background-color: white;
+    border:0;
+}
+
+.content .main .checklist .today-date {
+    width:50%;
+    height:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color:#606060;
+
+}
+
+.content .main .checklist .js-toDoForm{
+    width:100%;
+    height:5%;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.content .main .checklist .js-toDoForm button{
+    width: 10%;
+    background: #516B7D;
+    border: 1px solid #C6C6C6;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+/* calendar */
+.content .content-calendar{
+    width:20%;
+    background-color: #F9F9F9;
+    border-left: 1px solid #E8E8E8;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 30px;
+}
+
+.content .content-calendar .calendar{
+    background: #E8E8E8;
+    width: 280px;
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px 20px 20px 20px;
+    border: black 1px solid;
+}
+
+.calendar .day{
+    width: 100%;
+    /* overflow: hidden; */
+}
+
+.calendar .day li{
+    float: left;
+    background: white;
+    font-size : 10px;
+    padding: 10px;
+    width: 10px;
+    height: 10px;
+    margin-right: 14px;
+    margin-top: 10px;
+}
+
+.calendar .day li:last-child{
+    margin-right: 0;
+}
+
+.main .day li:hover{
+    cursor: pointer;
+    transition: all .2s;
+    transform: scale(1.08);
+}
+
+.month{
+    color: black;
+    font-size: 22px;
+    text-align:center;
+    margin-bottom: 30px;
+    padding: 10px;
+}
+
+
+.month .fa-chevron-left{
+    float: left;
+    margin-left: 15px;
+}
+
+.month .fa-chevron-right{
+    float: right;
+    margin-right: 15px;
+}
+
+ul.dayCount-list.clearfix {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dayCount .dayCount-list li{
+    border: 1px solid black;
+    font-size: 10px;
+    width: 30px;
+    color: black;
+    display: flex;
+    background:white;
+    justify-content: center;
+    align-items: center;
+}
+
+.sun,.sat{
+    color: red;
+}
+
+.none{
+    display: none;
+}

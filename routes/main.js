@@ -14,6 +14,8 @@ const storage = multer.diskStorage({
 const upload = multer({storage: storage});
 var router = express.Router();
 const { User } = require('../models/User')
+const { Timer } = require('../models/Timer');
+const Todo = require("../models/todo");
 
 router.get('/', function (req, res) {
   if (req.isAuthenticated()) {
@@ -39,13 +41,36 @@ router.get('/study', function (req, res) {
         console.log(err);
         res.redirect('/');
       } else {
-        res.render('selectSubjectPage', { user: user });
+
+        //res.render('selectSubjectPage', { user: user });
+
+        let list =  User.find();
+        res.render('selectSubjectPage', { user: user, data : list });
+
       }
     });
   } else {
     res.render('main', { user: req.user });
   }
 });
+
+
+router.post('/study/timer', function(req, res){
+  let data = {
+    timer: {
+      hour : req.body.user.timer[0].hour,
+      min : req.body.user.timer[0].min,
+      sec : req.body.user.timer[0].sec
+    } 
+  }
+
+  User.findOneAndUpdate({id : req.user.id}, data, function(err, user){
+    if(err){
+      console.log(err);
+    }
+    res.redirect('/');
+  })
+})
 
 router.get('/home', function (req, res) {
   if (req.isAuthenticated()) {
@@ -97,6 +122,39 @@ router.post('/my/:id', upload.single('image'), function (req, res) {
     res.redirect('/my/' + req.params.id);
   });
 });
+
+router.get('/checklist/:id', function (req, res) {
+  if (req.isAuthenticated()) {
+    User.findOne({ id: req.user.id }, function (err, user) {
+      if (err) {
+        console.log(err);
+        res.redirect('/');
+      } else {
+        res.render('checklistPage', { user: user });
+      }
+    });
+  } else {
+    res.render('main', { user: req.user });
+  }
+});
+
+router.post("/checklist/:id", function(req,res){
+  const todo = new Todo();
+  todo.content =req.body.n;
+  todo.date =  req.body.d;
+
+  console.log(todo);
+
+  User.findOneAndUpdate({id:req.user.id}, {$push: { todos : todo}}, function(err, user){
+    if(err){
+      console.log(err);
+      res.redirect("/");
+    }
+    console.log("성공");
+    res.redirect('/checklist/'+req.params.id);
+  });
+});
+
 
 router.get('/selectSubject', function (req, res) {
   if (req.isAuthenticated()) {
