@@ -23,7 +23,8 @@
                         <form method="post" enctype="multipart/form-data">
                             <div id="profile">
                                 <img src="<%= user.profile_src %>" name="profile_src" id="profile_img">
-                                <input type="file" name="image" id="upload_img" accept="image/*">
+                                <label for="upload_img" class="upload_btn">프로필 사진 변경</label>
+                                <input type="file" name="image" id="upload_img" accept="image/*" >
                             </div>
                             <div id="basic-info">
                                 <table>
