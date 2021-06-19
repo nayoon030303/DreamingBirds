@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href = "../css/checklist.css">
+    <link rel="shortcut icon" href="../img/icon.ico">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <title>Dreaming Birds</title>
+</head>
+
+<body>
+    <div class = "root">
+        <div id="header" data-user=<%= JSON.stringify(user) %>> </div>
+        <div class="container">
+            <div id="menu"> </div>
+            <div class = "content">
+                <div class = "main">
+                    <div class = "checklist-name">체크리스트</div> 
+                    <div class = "checklist">
+                        <div class = "checklist-date">
+                            <div class ="left-btn">
+                                <button><</button>
+                            </div>
+                            <div id="calDate" class = "todo-title"></div>
+                            <div class ="right-btn">
+                                <button>></button>
+                            </div>
+                        </div>
+                        <form name = "todoForm" class="js-toDoForm item" action='/checklist/<%= user.id %>' method="post">
+                            <input class = "underline" name ="n" type="text" placeholder = "내용을 입력하세요."/>
+                            <input type ="hidden" name = "d" value= ''/>
+                            <button type="submit" class = "add">추가</button>
+                        </form>
+                
+                        <!-- <div class = "js-toDoList">
+                        </div> -->
+                        <ul class = "js-toDoList">
+                        </ul>
+                    </div>    
+                    <!-- <div class ="company-info">ⓒ 2021 by Team Dreaming Birds</div> -->
+                </div>
+            <div class = "content-calendar">
+                <div class = "calendar">
+                    <div class="month clearfix">
+                        <span class="left">
+                            <i class="fas fa-chevron-left left"><</i>
+                        </span>
+                        <span class="right">
+                            <i class="fas fa-chevron-right right">></i>
+                        </span>
+                        <p class="month-name"></p>
+                    </div>
+                    <div class="dayCount">
+                        <ul class="dayCount-list clearfix">
+                            <li>MON</li>
+                            <li>TUE</li>
+                            <li>WED</li>
+                            <li>THU</li>
+                            <li>FRI</li>
+                            <li>SAT</li>
+                            <li>SUN</li>
+                        </ul>
+                    </div>
+                    <ul class="day clearfix">
+                    
+                    </ul>
+                </div>
+            </div>
+       </div> <!--end of content-->
+       </div>
+    </div> 
+</body>  
+<script type="text/javascript" src="../js/header.js"></script>
+<script type="text/javascript" src="../js/menu.js"></script>
+<script type="text/javascript" src="../js/calendar.js"></script>
+
+</html>

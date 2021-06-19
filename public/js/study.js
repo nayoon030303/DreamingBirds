@@ -116,7 +116,7 @@ function timer() {
             //document.getElementById("warning").innerHTML = "경고 횟수 : " + warning_number;
             console.log("경고 횟수 : " + warning_number);
 
-            beep();
+            // beep();
         } else {
             //document.getElementById("time").innerHTML = "";
         }
@@ -127,6 +127,8 @@ function beep() {
     var audio = new Audio('https://media.geeksforgeeks.org/wp-content/uploads/20190531135120/beep.mp3');
     audio.play();
 }
+
+
 
 init();
 // 로딩페이지 넣을 예정

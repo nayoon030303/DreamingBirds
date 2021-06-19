@@ -1,10 +1,18 @@
 const mongoose = require('mongoose');
 
 var todoSchema = new mongoose.Schema({
-    date: { type: Date },
     content: { type: String, default: '' },
-    completed: false
+    date: {type: String, default:''}
 })
+
+
+var timeSchema = new mongoose.Schema({
+    hour: { type: Number, default: 0 },
+    min : { type: Number, default: 0 },
+    sec : { type: Number, default: 0 }
+})
+
+
 
 const userSchema = mongoose.Schema({
     id: String,
@@ -13,8 +21,12 @@ const userSchema = mongoose.Schema({
     nickname: String,
     profile_src: String,
     intro: { type: String, default: '' },
-    all_focus_time:{ type: String, default: '00:00:00' },
-    todos : [todoSchema]
+    timer: {
+        type: [timeSchema]
+    },
+    todos: {
+        type: [todoSchema]
+    },
 })
 
 const User = mongoose.model('User', userSchema)

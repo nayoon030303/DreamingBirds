@@ -1,11 +1,8 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
 var todoSchema = new mongoose.Schema({
-    date: { type: Date },
-    contents : { type: String, default: '' },
-    completed: false
+    content: { type: String, default: '' },
+    date: {type: String, default:''}
 })
 
-const todo = mongoose.model('todo', todoSchema)
-
-module.exports = { todo }
+module.exports = mongoose.model('todo', todoSchema);
