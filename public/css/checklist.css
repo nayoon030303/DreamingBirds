@@ -1,0 +1,290 @@
+.no-drag {-ms-user-select: none; -moz-user-select: -moz-none; -webkit-user-select: none; -khtml-user-select: none; user-select:none;}
+* { 
+    margin: 0; padding: 0; 
+    box-sizing: border-box;
+}
+.container {
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+}
+
+a{
+    color:#000;
+    text-decoration: none;
+}
+
+input.underline {
+    width:80%;
+    border-left-width:0;
+    border-right:0;
+    border-top:none;
+    color : #C6C6C6;
+}
+    
+header {
+    position: relative;
+    height: 7%;
+    background-color: white;
+    box-shadow : 2px 2px 5px #999;
+}
+
+
+header #logo {
+    height: 40px;
+    margin: 5px 0 5px 10px;
+    float: left;
+}
+header #member_name {
+    height: 40px;
+    line-height: 60px;
+    margin: 5px 0 5px 5px;
+    float: right;
+    font-size: 20px;
+}
+header #member_profile {
+    height: 40px;
+    margin: 5px 10px 5px 10px;
+    overflow: hidden;
+    float: right;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+header #member_profile img {
+    height: 100%;
+}
+header #menu {
+    width: 360px;
+    height: 29px;
+    margin-left: 250px;
+}
+header #menu ul li {
+    list-style: none;
+    text-align: center;
+    float: left;
+}
+header #menu ul li a {
+    text-decoration: none;
+    color: black;
+    display: block;
+    width: 90px;
+}
+header #menu ul li a:hover {
+    color: #100A5B;
+}
+.content {
+    display: flex;
+    flex-direction: row;
+    width:100%;
+    height:93%;
+}
+
+.content .menu-bar {
+    width:20%;
+    background-color: #F9F9F9;
+    border-right: 1px solid #E8E8E8;
+}
+
+.content .menu-bar .menu {
+    margin-top:30px;
+    margin-left :30px;
+    width: 160px;
+    height: 300px;
+    display:flex;
+    flex-direction: column;    
+    justify-content:space-between;
+}
+
+.content .menu-bar .menu .menu-content{
+    height:40px;
+}
+
+.menu-img{
+    float:left;
+    width : 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.menu-img img{
+    width : 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
+.menu-name {
+    margin-left: 70px;
+    display: flex;
+    align-items: center;
+    height:100%;
+}
+
+/* main */
+.content .main {
+    width:60%;
+    height:100%;
+    display:flex;
+    background-color: #F5F5F5;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.content .main .checklist {
+    display:flex;
+    flex-direction: column; 
+    align-items: center;
+    
+    width:90%;
+    height:80%;
+    background-color: #FFFFFF;
+    border : #CFCFCF solid 1px;
+
+}
+
+.content .main .checklist-name {
+    width:90%;
+    height:10%;
+    border-radius: 10px 10px 0px 0px;
+    border : 1px solid #CFCFCF;
+    border-bottom:none;
+    background-color: #FFFFFF;
+    color:#606060;
+    display: flex;
+    align-items: center;
+    padding-left : 30px;
+}
+
+.content .main .checklist-date{
+    width:30%;
+    height:10%;
+    display: flex;
+    justify-content: center;
+}
+
+.content .main .checklist .checklist-date .left-btn{
+    width:15%;
+    height:100%;
+    float:left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content .main .checklist .checklist-date .left-btn button{
+    width:50px;
+    height:50px;
+    font-size: 30px;
+    background-color: white;
+    border:0;
+}
+
+.content .main .checklist .checklist-date .right-btn{
+    width:15%;
+    height:100%;
+    float:right;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content .main .checklist .checklist-date .right-btn button{
+    width:50px;
+    height:50px;
+    font-size: 30px;
+    background-color: white;
+    border:0;
+}
+
+.content .main .checklist .today-date {
+    width:50%;
+    height:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color:#606060;
+
+}
+
+.content .main .checklist .js-toDoForm{
+    width:100%;
+    height:5%;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.content .main .checklist .js-toDoForm button{
+    width: 10%;
+    background: #516B7D;
+    border: 1px solid #C6C6C6;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+/* ranking */
+.content .ranking{
+    width:20%;
+    background-color: #F9F9F9;
+    border-left: 1px solid #E8E8E8;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 30px;
+}
+
+.content .ranking .user{
+    margin-bottom:5%;
+    width:80%;
+    height: 70px;
+    background-color: white;
+    border: 1px solid #E5E5E5;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.content .ranking .user .user-info .user-name{
+    float:left;
+    font-weight: bold;
+    font-size:16px;
+    color:#282828;
+}
+
+.content .ranking .user .user-info .user-time{
+    font-size:12px;
+    color: #848484;
+}
+
+.content .ranking .user .user-profile{
+    float:left;
+    width : 40px;
+    height: 40px;
+    margin-right: 15px;
+}
+
+.content .ranking .user .user-profile img{
+    width : 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #E5E5E5;
+}
+
+.content .ranking .user .user-bird{
+    width : 40px;
+    height: 40px;
+}
+
+.content .ranking .user .user-bird img{
+    width : 40px;
+    height: 40px;
+    border: 1px solid black;
+}

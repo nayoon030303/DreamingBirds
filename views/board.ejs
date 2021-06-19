@@ -1,0 +1,12 @@
+<h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+      <h1>제목 : <%=hser.name%> </h1>
+      <h3>작성자 : <%=board.author%> </h3>
+      <h3>내용 : <%=board.contents%> </h3>
+    <hr>
+    <% if (user.comments !== null) {
+        var comment = user.comments;
+          for(var i = 0; i < user.comments.length; i++) {%>
+    <h4>내용 : <%=comment[i].contents%></h4>
+    <hr>
+    <%}}%>
