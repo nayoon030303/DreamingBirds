@@ -1,44 +1,15 @@
 
-// {
-//     id:1,
-//     name:'커뮤니케이션 문학',
-//     time:'00:30:08'
-// },{
-//     id:2,
-//     name:'JavaScipt',
-//     time:'00:30:08'
-// },{
-//     id:3,
-//     name:'웹에 대한 이해',
-//     time:'00:30:08'
-// },{
-//     id:4,
-//     name:'어플리케이션 구축',
-//     time:'00:30:08'
-// },{
-//     id:5,
-//     name:'프로그래밍 수학',
-//     time:'00:30:08'
-// },{
-//     id:6,
-//     name:'C++',
-//     time:'00:30:08'
-// },{
-//     id:7,
-//     name:'Java',
-//     time:'00:30:08'
-// },{
-//     id:8,
-//     name:'Node.js',
-//     time:'00:30:08'
-// }
-
-const subject_data = []
+let subject_data = []
 const select = document.querySelector('.select');
 //let header = document.getElementById('header');
 
-function getUserData(){
+function getUserData(user){
+   
     
+    if(user.subjects != undefined){
+        console.log(user.subjects);
+        subject_data = user.subjects;
+    }
 }
 
 function createSubject(){
@@ -52,13 +23,34 @@ function createSubject(){
         name.classList.add('name');
 
         const time = document.createElement('span');
-        time.innerText = data.time;
+        //시간 정리 
+        let data_t = data.time;
+
+        let hour = Math.floor(data_t/3600);
+        data_t = data_t%3600;
+        let minute = Math.floor(data_t/60);
+        let second = data_t%60; 
+
+        //console.log(hour,minute,second);
+
+        if(hour<10){
+            hour = '0'+hour;
+        }
+        if(minute<10){
+            minute = '0'+minute;
+        }
+        if(second<10){
+            second = '0'+second;
+        }
+
+
+        time.innerText = `${hour}:${minute}:${second}`;
         time.classList.add('time');
 
         select.append(content);
         content.append(name);
         content.append(time);
-        content.id = data.id;
+        content.id = data._id;
 
         content.addEventListener('click',function(){clickSubject(event,content.id)});
 
@@ -67,11 +59,8 @@ function createSubject(){
 }
 
 function clickSubject(event,id){
-    //학습하기로 이동
-    console.log('click Subject');
     console.log(id);
 }
-
 
 function drawView(){
     //if(subject_data.length<=0){
@@ -108,7 +97,8 @@ function drawView(){
 function init(){
     const addBtn = document.querySelector('.add-btn');
     let user = $("#header").data("user");
-    console.log(user);
+    getUserData(user);
+ 
     addBtn.href = '/addSubject/'+user.id;
     drawView();
 
