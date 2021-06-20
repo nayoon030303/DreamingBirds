@@ -38,10 +38,11 @@ function checkInput(){
 
 function init(){
     createRecommend();
+    let user = $("#header").data("user");
     const input = document.querySelector('.input-direct');
-    const xbtn = document.querySelector('.x-btn');
-    const backbtn = document.querySelector('.back-btn');
-
+    
+    const backbtn = document.querySelector('.back-btnA');
+    backbtn.href =  '/selectSubject/'+user.id;
     input.addEventListener('keyup', checkInput);
     
 }
