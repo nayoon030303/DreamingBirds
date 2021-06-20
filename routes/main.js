@@ -40,17 +40,15 @@ router.get('/', function (req, res) {
 
 router.get('/study/:id', function (req, res) {
   if (req.isAuthenticated()) {
-    User.findOne({ id: req.user.id }, function (err, user) {
+    User.findOne({ id: req.user.id, }, function (err, user) {
       if (err) {
         console.log(err);
         res.redirect('/');
       } else {
-
         //res.render('selectSubjectPage', { user: user });
-
         let list =  User.find();
-        res.render('selectSubjectPage', { user: user, data : list });
-
+        res.render('studyPage', { user: user, data : list, subject_id: req.query.id});
+        console.log(req.query.id);
       }
     });
   } else {

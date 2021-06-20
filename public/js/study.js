@@ -4,6 +4,7 @@
 // the link to your model provided by Teachable Machine export panel
 const pose_URL = "https://teachablemachine.withgoogle.com/models/g1PdVKZIH/";
 const sleep_URL = "https://teachablemachine.withgoogle.com/models/7GiCXf879/";
+const subject_id = '';
 
 let pose_model, webcam, labelContainer, pose_maxPredictions;
 let sleep_model, sleep_maxPredictions;
@@ -128,6 +129,9 @@ function beep() {
     audio.play();
 }
 
+function getDdata(){
+    let subId = $("#subject-id").data("subject_id");
+}
 
 
 init();
