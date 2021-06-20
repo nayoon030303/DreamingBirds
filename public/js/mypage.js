@@ -20,27 +20,8 @@ number.textContent = count;
 
 button.addEventListener('click', addSubject);
 
-function addSubject(){
-    let box = document.createElement("div");
-    let content = document.createElement("span");
-    let btn = document.createElement("button");
-
-    box.className = "subject-box";
-    box.id = "box-" + count;
-    content.textContent = "커뮤니케이션 문학";   // input.value;0
-    btn.textContent = "×";
-    btn.addEventListener("click", function() {
-        deleteSubject(box.id);
-    });
-
-    box.appendChild(content);
-    box.appendChild(btn);
-    list.appendChild(box);
-
-    count++;
-
-    number.textContent++;
-    // console.log("add " + (box.id));
+function addSubject() {
+    location.href = '/addSubject/' + user.id + '?mypage=true';
 }
 
 function deleteSubject(id) {
@@ -49,4 +30,43 @@ function deleteSubject(id) {
 
     number.textContent--;
     // console.log("delete " + id);
+
+    fetch('/deleteSubject/'+user.id+'/' + id, {method: 'POST'})
+    .then(function(response) {
+      if(response.ok) {
+        console.log('click was recorded');
+        return;
+      }
+      throw new Error('Request failed.');
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
 }
+
+function updateSubject() {
+    for (var i = 0; i < user.subjects.length; i++) {
+        let box = document.createElement("div");
+        let content = document.createElement("span");
+        let btn = document.createElement("button");
+
+        box.className = "subject-box";
+        box.id = "box-" + user.subjects[i]._id;
+        content.textContent = user.subjects[i].name;   // input.value;0
+        btn.textContent = "×";
+        btn.addEventListener("click", function () {
+            deleteSubject(box.id);
+        });
+
+        box.appendChild(content);
+        box.appendChild(btn);
+        list.appendChild(box);
+
+        count++;
+
+        number.textContent++;
+        console.log("add " + (box.id));
+    }
+}
+
+updateSubject();
