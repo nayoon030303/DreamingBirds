@@ -15,8 +15,10 @@ function getUserData(user){
 function createSubject(){
 
     subject_data.forEach((data,i)=>{
+        const a = document.createElement('a');
         const content = document.createElement('div');
         content.classList.add('content');
+        a.classList.add('contentA');
 
         const name = document.createElement('span');
         name.innerText = data.name;
@@ -47,20 +49,22 @@ function createSubject(){
         time.innerText = `${hour}:${minute}:${second}`;
         time.classList.add('time');
 
-        select.append(content);
+        a.append(content);
+        select.append(a);
         content.append(name);
         content.append(time);
-        content.id = data._id;
+    
 
-        content.addEventListener('click',function(){clickSubject(event,content.id)});
+        let user = $("#header").data("user");
+        content.id = data._id;
+        a.href = `/study/${user.id}?id=${content.id}`;
+       
 
     })
 
 }
 
-function clickSubject(event,id){
-    console.log(id);
-}
+
 
 function drawView(){
     //if(subject_data.length<=0){
