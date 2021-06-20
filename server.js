@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser');
 const config = require('./config/key');
 const { User } = require("./models/User");
 const session = require('express-session');
+const errorController = require("./controllers/errorController");
 
 app.use(session({
     secret: 'secretWords',
@@ -43,3 +44,7 @@ var server = app.listen(3000, function(){
 });
 
 app.use(express.static('public'));
+
+// error
+app.use(errorController.pageNotFoundError);
+app.use(errorController.respondInternalError);

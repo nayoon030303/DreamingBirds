@@ -258,9 +258,4 @@ router.get('/login', function (req, res) {
   res.render('login')
 });
 
-router.get('/error', function (req, res) {
-  res.render('errorPage');
-});
-
-
 module.exports = router;
