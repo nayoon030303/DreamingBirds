@@ -34,6 +34,14 @@ function checkInput(){
 
 }
 
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+            results = regex.exec(location.search);
+    return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+
 
 
 function init(){
@@ -44,7 +52,13 @@ function init(){
     const backbtn = document.querySelector('.back-btnA');
     backbtn.href =  '/selectSubject/'+user.id;
     input.addEventListener('keyup', checkInput);
-    
+
+    var mypage = getParameterByName('mypage');
+    if(mypage && mypage == "true") {
+        document.querySelector('#mypage').value = "true";
+        backbtn.style.display = "none";
+        document.querySelector('.x-btnA').href = "/my/" + user.id;
+    }
 }
 
 window.addEventListener('load',init);

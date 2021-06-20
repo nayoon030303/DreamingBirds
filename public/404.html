@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dreaming Birds</title>
+</head>
+<style>
+    * {
+        margin: 0; padding: 0;
+    }
+
+    #content {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #left {
+        width: 600px;
+        height: 200px;
+        float: left;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    #left h1 {
+        font-size: 60px;
+    }
+    #left p {
+        font-size: 40px;
+    }
+    #left #buttondiv {
+        text-align: center;
+    }
+    #left button {
+        font-size: 15px;
+        background-color: white;
+        border: 1px solid black;
+        padding: 1% 5%;
+    }
+    #right {
+        float: right;
+    }
+    #right img {
+        width: 200px;
+    }
+</style>
+
+<body>
+    <div id="content">
+        <div id="left">
+            <div>
+                <h1>404</h1>
+                <p>페이지를 찾을 수 없습니다.</p>
+            </div>
+            <div id="buttondiv">
+                <button onclick="location.href='/'">메인페이지</button>
+            </div>
+        </div>
+        <div id="right">
+            <img src="./img/birds/sadchick.png">
+        </div>
+    </div>
+</body>
+
+</html>
