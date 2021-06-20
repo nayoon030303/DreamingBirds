@@ -2,6 +2,7 @@ var express = require('express');
 const { session } = require('passport');
 const path = require('path');
 const multer = require('multer');
+
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, './public/uploads')
@@ -16,6 +17,9 @@ var router = express.Router();
 const { User } = require('../models/User')
 const { Timer } = require('../models/Timer');
 const Todo = require("../models/todo");
+const Subject = require('../models/Subjects');
+
+
 
 router.get('/', function (req, res) {
   if (req.isAuthenticated()) {
@@ -34,7 +38,7 @@ router.get('/', function (req, res) {
   }
 });
 
-router.get('/study', function (req, res) {
+router.get('/study/:id', function (req, res) {
   if (req.isAuthenticated()) {
     User.findOne({ id: req.user.id }, function (err, user) {
       if (err) {
@@ -103,6 +107,7 @@ router.get('/my/:id', function (req, res) {
     res.render('main', { user: req.user });
   }
 });
+
 router.post('/my/:id', upload.single('image'), function (req, res) {
   let data;
   if(req.file) {
@@ -156,7 +161,7 @@ router.post("/checklist/:id", function(req,res){
 });
 
 
-router.get('/selectSubject', function (req, res) {
+router.get('/selectSubject/:id', function (req, res) {
   if (req.isAuthenticated()) {
     User.findOne({ id: req.user.id }, function (err, user) {
       if (err) {
@@ -171,13 +176,32 @@ router.get('/selectSubject', function (req, res) {
   }
 });
 
-router.get('/addSubject', function (req, res) {
+router.post("/selectSubject/:id", function(req,res){
+  const todo = new Todo();
+  todo.content =req.body.n;
+  todo.date =  req.body.d;
+
+  console.log(todo);
+
+  User.findOneAndUpdate({id:req.user.id}, {$push: { todos : todo}}, function(err, user){
+    if(err){
+      console.log(err);
+      res.redirect("/");
+    }
+    console.log("성공");
+    console.log(user);
+    res.redirect('/selectSubjectPage/'+req.params.id);
+  });
+});
+
+router.get('/addSubject/:id', function (req, res) {
   if (req.isAuthenticated()) {
     User.findOne({ id: req.user.id }, function (err, user) {
       if (err) {
         console.log(err);
         res.redirect('/');
       } else {
+        console.log(user);
         res.render('addSubjectPage', { user: user });
       }
     });
@@ -186,7 +210,22 @@ router.get('/addSubject', function (req, res) {
   }
 });
 
+router.post("/addSubject/:id", function(req,res){
+  
+  const subject = new Subject();
+  subject.name = req.body.n;
+  subject.time = 0;
 
+  User.findOneAndUpdate({id:req.user.id}, {$push: { subjects : subject}}, function(err, user){
+    if(err){
+      console.log(err);
+      res.redirect("/");
+    }
+    console.log("성공");
+    res.redirect('/addSubject/'+req.params.id);
+  });
+  
+});
 
 
 

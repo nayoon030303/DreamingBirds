@@ -15,6 +15,7 @@ app.use(session({
 
 // var router = require('./routes/auth')(app);     // 라우터 모듈인 main.js 를 불러와서 app 에 전달
 
+// app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());

@@ -36,6 +36,7 @@ h2{
 }
 
 .main{
+    
     width: 64%;
     display: flex;
     justify-content: center;
@@ -48,6 +49,7 @@ h2{
 }
 
 .center{
+    margin-top: 50px;
     width: 800px;
     display: flex;
     justify-content: center;
@@ -80,7 +82,7 @@ h2{
     border-style: none;
     color: rgba(135, 165, 186, 0.726);
     margin: 10px 0px 30px 0px;
-
+    cursor: pointer;
 }
 
 .currentDate{
@@ -103,6 +105,7 @@ h2{
 }
 
 .day{
+    
     width: calc(100% / 7 );
     display: flex;
     justify-content: center;
@@ -117,6 +120,7 @@ h2{
 }
 
 .date{
+    cursor: pointer;
     width: calc(100%/7 - 3px);
     height: 90px;
     text-align: center;
@@ -168,6 +172,7 @@ h2{
 }
 
 .filter-btn{
+    cursor: pointer;
     font-size: 4rem;
     margin-top: 10px;
     width: 100px;
