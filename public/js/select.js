@@ -1,39 +1,45 @@
-const subject_data = [{
-    id:1,
-    name:'커뮤니케이션 문학',
-    time:'00:30:08'
-},{
-    id:2,
-    name:'JavaScipt',
-    time:'00:30:08'
-},{
-    id:3,
-    name:'웹에 대한 이해',
-    time:'00:30:08'
-},{
-    id:4,
-    name:'어플리케이션 구축',
-    time:'00:30:08'
-},{
-    id:5,
-    name:'프로그래밍 수학',
-    time:'00:30:08'
-},{
-    id:6,
-    name:'C++',
-    time:'00:30:08'
-},{
-    id:7,
-    name:'Java',
-    time:'00:30:08'
-},{
-    id:8,
-    name:'Node.js',
-    time:'00:30:08'
-}]
 
+// {
+//     id:1,
+//     name:'커뮤니케이션 문학',
+//     time:'00:30:08'
+// },{
+//     id:2,
+//     name:'JavaScipt',
+//     time:'00:30:08'
+// },{
+//     id:3,
+//     name:'웹에 대한 이해',
+//     time:'00:30:08'
+// },{
+//     id:4,
+//     name:'어플리케이션 구축',
+//     time:'00:30:08'
+// },{
+//     id:5,
+//     name:'프로그래밍 수학',
+//     time:'00:30:08'
+// },{
+//     id:6,
+//     name:'C++',
+//     time:'00:30:08'
+// },{
+//     id:7,
+//     name:'Java',
+//     time:'00:30:08'
+// },{
+//     id:8,
+//     name:'Node.js',
+//     time:'00:30:08'
+// }
 
+const subject_data = []
 const select = document.querySelector('.select');
+//let header = document.getElementById('header');
+
+function getUserData(){
+    
+}
 
 function createSubject(){
 
@@ -60,19 +66,12 @@ function createSubject(){
 
 }
 
-
 function clickSubject(event,id){
     //학습하기로 이동
     console.log('click Subject');
     console.log(id);
 }
 
-
-
-function clickAddBtn(event){
-    //추가하기 페이지로 이동
-   
-}
 
 function drawView(){
     //if(subject_data.length<=0){
@@ -108,11 +107,11 @@ function drawView(){
 
 function init(){
     const addBtn = document.querySelector('.add-btn');
-    const xBtn = document.querySelector('.x-btnA');
-
+    let user = $("#header").data("user");
+    console.log(user);
+    addBtn.href = '/addSubject/'+user.id;
     drawView();
-    // addBtn.addEventListener('click',clickAddBtn);
-    // xBtn.addEventListener('click',clickXBtn);
+
 }
 
 window.addEventListener('load',init);
