@@ -54,6 +54,7 @@ function updateSubject() {
         box.id = "box-" + user.subjects[i]._id;
         content.textContent = user.subjects[i].name;   // input.value;0
         btn.textContent = "×";
+        btn.style.cursor = "pointer";
         btn.addEventListener("click", function () {
             deleteSubject(box.id);
         });

@@ -17,6 +17,7 @@ logo.style.height = '70%';
 logo.style.marginTop = '9px';
 logo.style.marginLeft = '30px';
 logo.style.float = 'left';
+logo.style.cursor = 'pointer';
 header.appendChild(logo);
 
 // 헤더의 왼쪽
@@ -69,6 +70,7 @@ if (!user) {
     member_more.style.marginRight = "15px";
     member_more.style.float = "right";
     member_more.style.padding = "0";
+    member_more.style.cursor = "pointer";
     header.appendChild(member_more);
 
     member.className = 'member';
@@ -79,6 +81,7 @@ if (!user) {
     member.style.borderRadius = '50%';
     member.style.overflow = 'hidden';
     member.style.float = 'right';
+    member.style.cursor = "pointer";
     header.appendChild(member);
 
     member_img.className = 'member_img';
@@ -142,6 +145,7 @@ if (!user) {
     mypage_btn.style.border = "none";
     mypage_btn.style.borderBottom = "1px solid #CFCFCF";
     mypage_btn.style.padding = "10px 0";
+    mypage_btn.style.cursor = "pointer";
     member_info.appendChild(mypage_btn);
 
     logout_btn.className = "logout_btn";
@@ -153,6 +157,7 @@ if (!user) {
     logout_btn.style.border = "none";
     logout_btn.style.borderBottom = "1px solid #CFCFCF";
     logout_btn.style.padding = "10px 0";
+    logout_btn.style.cursor = "pointer";
     member_info.appendChild(logout_btn);
 }
 
@@ -181,6 +186,11 @@ $(document).ready(function () {
             && !$(e.target).hasClass("member_name") && !$(e.target).hasClass("member_email_title") && !$(e.target).hasClass("member_email")) {
             if (member_info.style.display == "inline") {
                 member_info.style.display = "none";
+                member_more.style.border = "none";
+                member_more.style.borderTop = "10px solid #C4C4C4";
+                member_more.style.borderBottom = "10px solid none";
+                member_more.style.borderLeft = "7px solid transparent";
+                member_more.style.borderRight = "7px solid transparent";
             }
         }
         // console.log(e.target.className);

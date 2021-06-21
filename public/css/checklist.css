@@ -124,6 +124,7 @@ li{
     background-color: white;
     color: #606060;
     border:0;
+    cursor: pointer;
 }
 
 .content .main .checklist .checklist-date .right-btn{
@@ -141,6 +142,7 @@ li{
     background-color: white;
     color: #606060;
     border:0;
+    cursor: pointer;
 }
 
 .content .main .checklist .today-date {
@@ -167,6 +169,7 @@ li{
     font-size: 20px;
     text-align: center;
     color: #FFFFFF;
+    cursor: pointer;
 }
 
 .content .main .checklist .js-toDoList {
@@ -184,6 +187,7 @@ li{
     width: 30px;
     font-size: 20px;
     border: 1px solid #D5D5D5;
+    cursor: pointer;
 }
 .content .main .checklist .js-toDoList li span {
     font-size: 25px;
@@ -224,6 +228,7 @@ li{
     width: 14.2%;
     border-bottom: 1px solid black;
     height: 40%;
+    cursor: pointer;
 }
 
 .calendar .day li:last-child{
@@ -247,11 +252,13 @@ li{
 .month .fa-chevron-left{
     float: left;
     margin-left: 15px;
+    cursor: pointer;
 }
 
 .month .fa-chevron-right{
     float: right;
     margin-right: 15px;
+    cursor: pointer;
 }
 
 ul.dayCount-list.clearfix {

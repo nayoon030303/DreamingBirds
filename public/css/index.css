@@ -38,6 +38,7 @@ a:visited { text-decoration: none; color: white; }
 #intro1 #start {
 	font-size: 30px;
 	display: inline-block;
+	cursor: pointer;
 }
 #intro1 #start #arrow {
 	transition:  0.4s;
@@ -177,6 +178,7 @@ a:visited { text-decoration: none; color: white; }
 #intro5 #go_top {
 	font-size: 30px;
 	margin-top: 100px;
+	cursor: pointer;
 }
 #intro5 #corp {
 	width: 100%;

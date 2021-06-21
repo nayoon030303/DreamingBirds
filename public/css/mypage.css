@@ -74,6 +74,7 @@ html, body {
     color: #959595;
     text-align: center;
     font-size: 12px;
+    cursor: pointer;
 }
 #profile input {
     font-size: 10px;
@@ -129,6 +130,7 @@ form {
     background: #EFEFEF;
     border: 1px solid #CFCFCF;
     width: 70px;
+    cursor: pointer;
 }
 
 #dream-content {
@@ -153,6 +155,7 @@ form {
     position: absolute;
     bottom: 15px;
     right: 15px;
+    cursor: pointer;
 }
 #dream-content #dream-info:hover #tooltip {
     display: inline;
@@ -236,4 +239,5 @@ form {
     border: none;
     background: white;
     font-size: 20px;
+    cursor: pointer;
 }
