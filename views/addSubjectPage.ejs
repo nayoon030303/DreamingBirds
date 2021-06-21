@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,17 +9,20 @@
     <title>DreamingBirds</title>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
+
 <body>
     <div class="root">
-		<div id="header"> </div>
-		<div class="line"></div>
-		<div class="container">
+        <div id="header"> </div>
+        <div class="line"></div>
+        <div class="container">
             <div class="main">
                 <div class="head">
-					<a class="x-btnA" href="/home"><img class="x-btn" src="../img/icon/x-button.png"></a>
+                    <a class="x-btnA" href="/home"><img class="x-btn" src="../img/icon/x-button.png"></a>
                 </div>
-                <div class="title"> <h1>추가하실 과목을 입력해 주십시오</h1></div>
-                <a class="back-btnA" ><img class="back-btn" src="../img/icon/back-button.png"></a>
+                <div class="title">
+                    <h1>추가하실 과목을 입력해 주십시오</h1>
+                </div>
+                <a class="back-btnA"><img class="back-btn" src="../img/icon/back-button.png"></a>
 
                 <div class="add-div">
                     <span class="sub-title">추천 과목</span>
@@ -31,7 +35,8 @@
                 <form method="post">
                     <div class="direct-input">
                         <div class="sub-title"><span>직접 입력</span></div>
-                        <div><input class="input-direct" type = "text" name="n" placeholder='직접 입력해주세요' value="" id="name"></div>
+                        <div><input class="input-direct" type="text" name="n" placeholder='직접 입력해주세요' value=""
+                                id="name"></div>
                         <input type="text" name="mypage" id="mypage" style="display: none;">
                     </div>
                     <div class="foot">
@@ -39,15 +44,20 @@
                     </div>
                 </form>
 
-                
-                
-            </div>
-		</div>
 
-		<div class="overlay"></div>
-        <div id="user-info" data-user=<%= JSON.stringify(user).replaceAll(" ", "&nbsp;") %>></div>
-	</div>
-	<script type="text/javascript" src="../js/header.js"></script>
-	<script src="../js/addsubject.js"></script>
+
+            </div>
+        </div>
+
+        <div class="overlay"></div>
+    </div>
+    <script>
+        let user = "<%=JSON.stringify(user)%> ";
+        user = user.replaceAll("&#34;", "\"");
+        user = JSON.parse(user);
+    </script>
+    <script type="text/javascript" src="../js/header.js"></script>
+    <script src="../js/addsubject.js"></script>
 </body>
+
 </html>

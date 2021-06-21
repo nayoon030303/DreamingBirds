@@ -13,7 +13,7 @@
 
 <body>
     <div class="root">
-		<div id="header"> </div>
+        <div id="header"> </div>
         <div class="container">
             <div id="menu"></div>
             <div class="main">
@@ -24,7 +24,7 @@
                             <div id="profile">
                                 <img src="<%= user.profile_src %>" name="profile_src" id="profile_img">
                                 <label for="upload_img" class="upload_btn">프로필 사진 변경</label>
-                                <input type="file" name="image" id="upload_img" accept="image/*" >
+                                <input type="file" name="image" id="upload_img" accept="image/*">
                             </div>
                             <div id="basic-info">
                                 <table>
@@ -76,7 +76,7 @@
                                 <span id="subject-number"></span>
                             </div>
                             <div id="subject-list">
-                                
+
                             </div>
                             <div id="subject-add">
                                 <button> + 추가하기 </button>
@@ -86,10 +86,15 @@
                 </div>
             </div>
         </div>
-		<div id="user-info" data-user=<%= JSON.stringify(user).replaceAll(" ", "&nbsp;") %>></div>
     </div>
+    <script>
+        let user = "<%=JSON.stringify(user)%> ";
+        user = user.replaceAll("&#34;", "\"");
+        user = JSON.parse(user);
+    </script>
     <script type="text/javascript" src="../js/header.js"></script>
     <script type="text/javascript" src="../js/menu.js"></script>
     <script type="text/javascript" src="../js/mypage.js"></script>
 </body>
+
 </html>

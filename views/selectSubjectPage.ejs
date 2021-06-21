@@ -27,9 +27,12 @@
 		</div>
 
 		<div class="overlay"></div>
-		<div id="user-info" data-user=<%= JSON.stringify(user).replaceAll(" ", "&nbsp;") %>></div>
-		
 	</div>
+	<script>
+		let user = "<%=JSON.stringify(user)%> ";
+		user = user.replaceAll("&#34;", "\"");
+		user = JSON.parse(user);
+	</script>
 	<script type="text/javascript" src="../js/header.js"></script>
 	<script src="../js/select.js"></script>
 </body>

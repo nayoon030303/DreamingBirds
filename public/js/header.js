@@ -36,7 +36,6 @@ let member_email = document.createElement("p");
 let mypage_btn = document.createElement("button");
 let logout_btn = document.createElement("button");
 
-let user = $("#user-info").data("user");
 // if(user) {
 //     user = user.replaceAll('\\', '');
 //     user += '\"}';

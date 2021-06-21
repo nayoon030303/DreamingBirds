@@ -46,7 +46,6 @@ function getParameterByName(name) {
 
 function init(){
     createRecommend();
-    let user = $("#user-info").data("user");
     const input = document.querySelector('.input-direct');
     
     const backbtn = document.querySelector('.back-btnA');
