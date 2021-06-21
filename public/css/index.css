@@ -48,6 +48,9 @@ a:visited { text-decoration: none; color: white; }
 #intro1 #start:hover #arrow {
 	transform: translateX(25px);
 }
+#intro1 #time {
+	display: none;
+}
 
 #intro2 {
 	background-image: url("../img/index/intro3.jpg");

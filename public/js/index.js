@@ -1,13 +1,25 @@
 $(function () {
+    let time = $("#time").data("time");
+
+    let sum = 0;
+
+    if(typeof(time) == "number") {
+        sum = time;
+    } else {
+        for(var i  = 0; i < time.length; i++) {
+            sum += time[i].time;
+        }
+    }
+
+    // console.log(time);
+    // console.log(typeof(time));
+    // console.log(sum);
+
     let day_count = hour_count = minute_count = 0;
-    let day = 99, hour = 88, minute = 77;
+    let day = sum / (3600 * 24), hour = (sum % (3600 * 24)) / 3600, minute = (sum / 60) % 60;
 
-    timeCounter();
-
-    function timeCounter() {
-
-        id0 = setInterval(count_day, 35);
-
+    setTimeout(function() {
+        id0 = setInterval(count_day, 25);
         function count_day() {
             day_count++;
             if (day_count > day) {
@@ -18,8 +30,7 @@ $(function () {
 
         }
 
-        id1 = setInterval(count_hour, 35);
-
+        id1 = setInterval(count_hour, 25);
         function count_hour() {
             hour_count++;
             if (hour_count > hour) {
@@ -29,8 +40,7 @@ $(function () {
             }
         }
 
-        id2 = setInterval(count_minute, 35);
-
+        id2 = setInterval(count_minute, 25);
         function count_minute() {
             minute_count++;
             if (minute_count > minute) {
@@ -39,12 +49,5 @@ $(function () {
                 $(".time").eq(2).text(minute_count + "분");
             }
         }
-    }
+    }, 1500);
 });
-
-
-$(".hover").mouseleave(
-    function () {
-        $(this).removeClass("hover");
-    }
-);

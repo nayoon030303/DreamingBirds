@@ -34,7 +34,20 @@ router.get('/', function (req, res) {
     });
   } else {
     console.log("세션이 유효하지 않습니다.");
-    res.render('index', { user: null });
+    User.find({}, function(err, users) {
+      if(err) {
+        console.log(err);
+        res.redirect('/');
+      } else {
+        var sum = 0;
+        for(var i = 0; i < users.length; i++) {
+          for(var j = 0; j < users[i].subjects.length; j++) {
+            sum += users[i].subjects[j].time;
+          }
+        }
+        res.render('index', { user: null, whole: sum});
+      }
+    });
   }
 });
 

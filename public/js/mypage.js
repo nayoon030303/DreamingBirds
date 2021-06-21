@@ -9,6 +9,19 @@ document.getElementById("upload_img").addEventListener("change", function (e) {
     }
 });
 
+// 꿈을 꾼 시간
+function updateTime() {
+    let sum = 0;
+    for (var i = 0; i < user.subjects.length; i++) {
+        sum += user.subjects[i].time;
+    }
+    let time = parseInt(sum / (3600 * 24)) + "일 ";
+    time += parseInt((sum % (3600 * 24)) / 3600) + "시간 ";
+    time += parseInt((sum / 60) % 60) + "분 ";
+    time += parseInt(sum % 60) + "초";
+    document.getElementById("dream-time").textContent = time;
+}
+
 // 과목 리스트
 let button = document.getElementById("subject-add").getElementsByTagName("button")[0];
 let list = document.getElementById("subject-list");
@@ -31,17 +44,19 @@ function deleteSubject(id) {
     number.textContent--;
     // console.log("delete " + id);
 
-    fetch('/deleteSubject/'+user.id+'/' + id, {method: 'POST'})
-    .then(function(response) {
-      if(response.ok) {
-        console.log('click was recorded');
-        return;
-      }
-      throw new Error('Request failed.');
-    })
-    .catch(function(error) {
-      console.log(error);
-    });
+    fetch('/deleteSubject/' + user.id + '/' + id, { method: 'POST' })
+        .then(function (response) {
+            if (response.ok) {
+                // console.log('click was recorded');
+                return;
+            }
+            throw new Error('Request failed.');
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+
+    updateTime();
 }
 
 function updateSubject() {
@@ -52,7 +67,7 @@ function updateSubject() {
 
         box.className = "subject-box";
         box.id = "box-" + user.subjects[i]._id;
-        content.textContent = user.subjects[i].name;   // input.value;0
+        content.textContent = user.subjects[i].name.replace("&nbsp;", " ");
         btn.textContent = "×";
         btn.style.cursor = "pointer";
         btn.addEventListener("click", function () {
@@ -66,8 +81,9 @@ function updateSubject() {
         count++;
 
         number.textContent++;
-        console.log("add " + (box.id));
+        // console.log("add " + (box.id));
     }
 }
 
 updateSubject();
+updateTime();

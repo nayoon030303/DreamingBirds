@@ -25,15 +25,17 @@
 				<div id="intro1_box">
 					<div id="intro_sentence" data-aos="fade-zoom-in" data-aos-easing="ease-in-back"
 						data-aos-duration="1500">
-						<b>지금 당신의 공부 시간을 측정하세요 </b>
+						<b>지금 당신의 공부 시간을 측정하세요</b>
 					</div>
 					<div id="dream_time_box">
 						<div class="dream_time" data-aos="fade-zoom-in" data-aos-easing="ease-in-back"
 							data-aos-duration="1500" data-aos-delay="750">
 							<% if(!user) { %>
 								<b>모든 새들이 꿈을 꾼 시간</b>
+								<div id="time" data-time="<%= whole %>"></div>
 							<% } else { %>
 								<b>당신이 꿈을 꾼 시간</b>
+								<div id="time" data-time="<%= JSON.stringify(user.subjects).replaceAll(" ", "&nbsp;") %>"></div>
 							<% } %>
 							<br>
 							<b>
