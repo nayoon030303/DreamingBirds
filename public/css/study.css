@@ -496,7 +496,12 @@ html, body {
     justify-content: center;
     align-items: center;
     background: white;
+    flex-direction: column;
 }
 #loader-wrapper img {
     width: 15%;
+}
+#loader-wrapper #famous-saying {
+    text-align: center;
+    font-size: 20px;
 }

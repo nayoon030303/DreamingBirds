@@ -115,7 +115,7 @@ function timer() {
 
             warning_number++;
             //document.getElementById("warning").innerHTML = "경고 횟수 : " + warning_number;
-            console.log("경고 횟수 : " + warning_number);
+            console.log("경고 횟수 : " + warning_number + " - " + pose_status);
 
             // beep();
         } else {
@@ -135,7 +135,6 @@ function getDdata(){
 
 
 init();
-// 로딩페이지 넣을 예정
 
 var cam = document.getElementById('webcam-container');
 

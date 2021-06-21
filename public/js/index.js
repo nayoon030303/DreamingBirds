@@ -19,7 +19,7 @@ $(function () {
     let day = sum / (3600 * 24), hour = (sum % (3600 * 24)) / 3600, minute = (sum / 60) % 60;
 
     setTimeout(function() {
-        id0 = setInterval(count_day, 25);
+        id0 = setInterval(count_day, 1000 / day);
         function count_day() {
             day_count++;
             if (day_count > day) {
@@ -30,7 +30,7 @@ $(function () {
 
         }
 
-        id1 = setInterval(count_hour, 25);
+        id1 = setInterval(count_hour, 1000 / hour);
         function count_hour() {
             hour_count++;
             if (hour_count > hour) {
@@ -40,7 +40,7 @@ $(function () {
             }
         }
 
-        id2 = setInterval(count_minute, 25);
+        id2 = setInterval(count_minute, 1000 / minute);
         function count_minute() {
             minute_count++;
             if (minute_count > minute) {
