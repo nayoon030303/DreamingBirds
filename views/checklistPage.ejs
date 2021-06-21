@@ -10,7 +10,7 @@
 
 <body>
     <div class = "root">
-		<div id="header" data-user=<%= JSON.stringify(user).replaceAll(" ", "&nbsp;") %>> </div>
+		<div id="header"> </div>
         <div class="container">
             <div id="menu"> </div>
             <div class = "content">
@@ -70,6 +70,7 @@
             </div>
        </div> <!--end of content-->
        </div>
+		<div id="user-info" data-user=<%= JSON.stringify(user).replaceAll(" ", "&nbsp;") %>></div>
     </div> 
 </body>  
 <script type="text/javascript" src="../js/header.js"></script>

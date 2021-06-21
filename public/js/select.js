@@ -21,7 +21,7 @@ function createSubject(){
         a.classList.add('contentA');
 
         const name = document.createElement('span');
-        name.innerText = data.name;
+        name.innerText = data.name.replaceAll("&nbsp;", " ");
         name.classList.add('name');
 
         const time = document.createElement('span');
@@ -55,7 +55,7 @@ function createSubject(){
         content.append(time);
     
 
-        let user = $("#header").data("user");
+        let user = $("#user-info").data("user");
         content.id = data._id;
         a.href = `/study/${user.id}?id=${content.id}`;
        
@@ -100,7 +100,7 @@ function drawView(){
 
 function init(){
     const addBtn = document.querySelector('.add-btn');
-    let user = $("#header").data("user");
+    let user = $("#user-info").data("user");
     getUserData(user);
  
     addBtn.href = '/addSubject/'+user.id;

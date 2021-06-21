@@ -19,7 +19,7 @@
 
 <body>
 	<div id="wrap" class="no-drag">
-		<div id="header" data-user=<%= JSON.stringify(user).replaceAll(" ", "&nbsp;") %>> </div>
+		<div id="header"> </div>
 		<div id="fullpage">
 			<div class="section" id="intro1">
 				<div id="intro1_box">
@@ -133,6 +133,7 @@
 				<span id="corp">ⓒ 2021 by Team Dreaming Birds</span>
 			</div>
 		</div>
+		<div id="user-info" data-user=<%= JSON.stringify(user).replaceAll(" ", "&nbsp;") %>></div>
 	</div>
 </body>
 <script>

@@ -46,7 +46,7 @@ function getParameterByName(name) {
 
 function init(){
     createRecommend();
-    let user = $("#header").data("user");
+    let user = $("#user-info").data("user");
     const input = document.querySelector('.input-direct');
     
     const backbtn = document.querySelector('.back-btnA');
@@ -58,6 +58,7 @@ function init(){
         document.querySelector('#mypage').value = "true";
         backbtn.style.display = "none";
         document.querySelector('.x-btnA').href = "/my";
+        console.log("mypage");
     }
 }
 
