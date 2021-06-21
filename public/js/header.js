@@ -191,7 +191,7 @@ $(document).ready(function () {
         location.href = "/";
     });
     $(".mypage_btn").on("click", function (e) {
-        location.href = "/my/" + user.id;
+        location.href = "/my";
     });
     $(".logout_btn").on("click", function (e) {
         location.href = "/googlelogin";

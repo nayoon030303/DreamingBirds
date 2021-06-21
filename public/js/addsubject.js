@@ -57,7 +57,7 @@ function init(){
     if(mypage && mypage == "true") {
         document.querySelector('#mypage').value = "true";
         backbtn.style.display = "none";
-        document.querySelector('.x-btnA').href = "/my/" + user.id;
+        document.querySelector('.x-btnA').href = "/my";
     }
 }
 

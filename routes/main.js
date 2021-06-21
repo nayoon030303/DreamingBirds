@@ -93,7 +93,7 @@ router.get('/home', function (req, res) {
   }
 });
 
-router.get('/my/:id', function (req, res) {
+router.get('/my', function (req, res) {
   if (req.isAuthenticated()) {
     // console.log(req.params.id);
     User.findOne({ id: req.user.id }, function (err, user) {
@@ -110,7 +110,7 @@ router.get('/my/:id', function (req, res) {
   }
 });
 
-router.post('/my/:id', upload.single('image'), function (req, res) {
+router.post('/my', upload.single('image'), function (req, res) {
   let data;
   if (req.file) {
     data = {
@@ -126,7 +126,7 @@ router.post('/my/:id', upload.single('image'), function (req, res) {
   }
 
   User.findOneAndUpdate({ id: req.user.id }, data, function (err) {
-    res.redirect('/my/' + req.params.id);
+    res.redirect('/my');
   });
 });
 
@@ -230,17 +230,13 @@ router.post("/addSubject/:id", function (req, res) {
     }
     console.log("성공");
     if (req.body.mypage) {
-      res.redirect('/my/' + req.params.id);
+      res.redirect('/my');
     } else {
       res.redirect('/addSubject/' + req.params.id);
     }
   });
 
 });
-
-
-
-
 
 
 router.get('/googlelogin', function (req, res) {

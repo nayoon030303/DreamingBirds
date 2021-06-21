@@ -1,6 +1,7 @@
 .no-drag {-ms-user-select: none; -moz-user-select: -moz-none; -webkit-user-select: none; -khtml-user-select: none; user-select:none;}
 * { 
     margin: 0; padding: 0; 
+    
 }
 
 .root {
@@ -19,7 +20,6 @@
     margin: 0px;
     padding: 0px;
     font-size: 16px;
-    background-color: #F5F5F5;
     margin-top: 60px;
 }
 
@@ -30,11 +30,13 @@ a{
 
 input.underline {
     width:80%;
-    border-left-width:0;
-    border-right:0;
-    border-top:none;
-    color : #C6C6C6;
+    height: 40px;
+    border: none;
+    border-bottom: 1px solid #C6C6C6;
+    color : black;
+    font-size: 20px;
 }
+input.underline:focus { outline:none; }
    
 clearfix::after{
     content: ' ';
@@ -57,24 +59,12 @@ li{
 /* main */
 .content .main {
     width:80%;
-    height:100%;
+    height:92vh;
     display:flex;
     background-color: #F5F5F5;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.content .main .checklist {
-    display:flex;
-    flex-direction: column; 
-    align-items: center;
-    
-    width:90%;
-    height:80%;
-    background-color: #FFFFFF;
-    border : #CFCFCF solid 1px;
-
 }
 
 .content .main .checklist-name {
@@ -87,14 +77,36 @@ li{
     color:#606060;
     display: flex;
     align-items: center;
-    padding-left : 30px;
+    padding : 0 10px;
 }
+.content .main .checklist-name p {
+    margin-left: 2%;
+}
+.content .main .checklist {
+    display:flex;
+    flex-direction: column; 
+    align-items: center;
+    width:90%;
+    height:80%;
+    background-color: #FFFFFF;
+    border : #CFCFCF solid 1px;
+    padding : 0 10px;
+    border-radius: 0px 0px 10px 10px;
+}
+
 
 .content .main .checklist-date{
     width:30%;
     height:10%;
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+
+.content .main .checklist .checklist-date .todo-title {
+    padding: 0 5%;
+    font-size: 25px;
+    color: #606060;
 }
 
 .content .main .checklist .checklist-date .left-btn{
@@ -105,12 +117,12 @@ li{
     align-items: center;
     justify-content: center;
 }
-
 .content .main .checklist .checklist-date .left-btn button{
     width:50px;
     height:50px;
     font-size: 30px;
     background-color: white;
+    color: #606060;
     border:0;
 }
 
@@ -122,12 +134,12 @@ li{
     align-items: center;
     justify-content: center;
 }
-
 .content .main .checklist .checklist-date .right-btn button{
     width:50px;
     height:50px;
     font-size: 30px;
     background-color: white;
+    color: #606060;
     border:0;
 }
 
@@ -137,55 +149,71 @@ li{
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 24px;
-    color:#606060;
-
 }
 
 .content .main .checklist .js-toDoForm{
-    width:100%;
-    height:5%;
+    width:90%;
     display:flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
+    margin-top: 30px;
 }
 
 .content .main .checklist .js-toDoForm button{
-    width: 10%;
+    width: 15%;
+    height: 40px;
     background: #516B7D;
     border: 1px solid #C6C6C6;
     font-size: 20px;
-    display: flex;
-    align-items: center;
     text-align: center;
     color: #FFFFFF;
 }
 
+.content .main .checklist .js-toDoList {
+    width: 90%;
+    margin-top: 20px;
+}
+.content .main .checklist .js-toDoList li {
+    padding: 1% 2%;
+    border-bottom: 1px solid #CFCFCF;
+    display: flex;
+    align-items: center;
+}
+.content .main .checklist .js-toDoList li button {
+    height: 30px;
+    width: 30px;
+    font-size: 20px;
+    border: 1px solid #D5D5D5;
+}
+.content .main .checklist .js-toDoList li span {
+    font-size: 25px;
+    line-height: 30px;
+    margin-left: 10px;
+}
+
 /* calendar */
 .content .content-calendar{
-    width:20%;
-    background-color: #F9F9F9;
-    border-left: 1px solid #E8E8E8;
+    width:22%;
+    height: 92vh;
+    background-color: #F5F5F5;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding-top: 30px;
+    padding-right: 2%;
 }
 
 .content .content-calendar .calendar{
     background: #E8E8E8;
-    width: 280px;
-    height: 320px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 20px 20px 20px 20px;
+    width: 100%;
+    margin-top: 30px;
+    padding: 5%;
     border: black 1px solid;
 }
 
 .calendar .day{
     width: 100%;
+    height: 70px;
     /* overflow: hidden; */
 }
 
@@ -193,11 +221,9 @@ li{
     float: left;
     background: white;
     font-size : 10px;
-    padding: 10px;
-    width: 10px;
-    height: 10px;
-    margin-right: 14px;
-    margin-top: 10px;
+    width: 14.2%;
+    border-bottom: 1px solid black;
+    height: 40%;
 }
 
 .calendar .day li:last-child{
@@ -214,8 +240,7 @@ li{
     color: black;
     font-size: 22px;
     text-align:center;
-    margin-bottom: 30px;
-    padding: 10px;
+    margin-bottom: 10px;
 }
 
 
@@ -232,17 +257,15 @@ li{
 ul.dayCount-list.clearfix {
     display: flex;
     justify-content: space-between;
+    border-bottom: 1px solid black;
 }
 
 .dayCount .dayCount-list li{
-    border: 1px solid black;
     font-size: 10px;
-    width: 30px;
     color: black;
-    display: flex;
-    background:white;
-    justify-content: center;
-    align-items: center;
+    width: 12%;
+    padding: 1% 0;
+    text-align: center;
 }
 
 .sun,.sat{
