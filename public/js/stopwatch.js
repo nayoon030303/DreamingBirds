@@ -101,15 +101,15 @@ function buttonEvt() {
       }, 1000);
 
       fetch('/study/timeline?sid=' + $("#subject-id").data("subject_id") + "&status=start", { method: 'POST' })
-      .then(function (response) {
+        .then(function (response) {
           if (response.ok) {
-              return;
+            return;
           }
           throw new Error('Request failed.');
-      })
-      .catch(function (error) {
+        })
+        .catch(function (error) {
           console.log(error);
-      });
+        });
     } else if (this.textContent == "휴식") {
       this.textContent = "시작";
       if (time != 0) {
@@ -120,18 +120,26 @@ function buttonEvt() {
         n_sec = 0;
         document.getElementById("now-focus-time").innerHTML = "00:00:00";
       }
+    }
+  });
 
-      fetch('/study/timeline?sid=' + $("#subject-id").data("subject_id") + "&status=pause", { method: 'POST' })
+  $("#chgbtn").click(function () {
+    if (time != 0) {
+      clearInterval(timer);
+      time = 0;
+    }
+
+    fetch('/study/timeline?sid=' + $("#subject-id").data("subject_id") + "&status=chg", { method: 'POST' })
       .then(function (response) {
-          if (response.ok) {
-              return;
-          }
-          throw new Error('Request failed.');
+        if (response.ok) {
+          return;
+        }
+        throw new Error('Request failed.');
       })
       .catch(function (error) {
-          console.log(error);
+        console.log(error);
       });
-    }
+    location.href = '/selectSubject/' + user.id;
   });
 
   // stop btn
@@ -140,5 +148,16 @@ function buttonEvt() {
       clearInterval(timer);
       time = 0;
     }
+
+    fetch('/study/timeline?sid=' + $("#subject-id").data("subject_id") + "&status=stop", { method: 'POST' })
+      .then(function (response) {
+        if (response.ok) {
+          return;
+        }
+        throw new Error('Request failed.');
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   });
 }

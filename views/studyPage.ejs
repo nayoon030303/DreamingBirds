@@ -42,7 +42,7 @@
                                     <div id="webcam-container"></div>
                                     <div id="label-container"></div>
                                 </div>
-                                <form action="/study/timer?sid=<%=subject_id%>" id="timer" class="timer" method="post">
+                                <form id="timer" class="timer" method="post">
                                     <input id="all-focus-time" class="all-focus-time" name="all_focus_time" value="00:00:00" readonly>
                                     <div id="detail-box">
                                         <div class="detail-time">
@@ -59,8 +59,8 @@
                                         </div>
                                         <div class=timer-controll>
                                             <button id="startbtn" class="start-btn" type="button">시작</button>
-                                            <button id="chgbtn" class="change-sub" type="button">과목 변경</button>
-                                            <button type="submit" id="stopbtn" class="finish">종료</button>
+                                            <button id="chgbtn" class="change-sub" type="submit" onclick="javascript: form.action='/study/timer?sid=<%=subject_id%>&sub=chg'">과목 변경</button>
+                                            <button type="submit" id="stopbtn" class="finish" onclick="javascript: form.action='/study/timer?sid=<%=subject_id%>&sub=stp'">종료</button>
                                         </div>
                                     </div>
                                 </form>

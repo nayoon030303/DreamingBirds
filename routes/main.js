@@ -63,9 +63,6 @@ router.get('/study/:id', function (req, res) {
         let list = User.find();
         res.render('studyPage', { user: user, data: list, subject_id: req.query.id });
         console.log(req.query.id);
-
-
-
       }
     });
   } else {
@@ -75,6 +72,7 @@ router.get('/study/:id', function (req, res) {
 
 
 router.post('/study/timer', function (req, res) {
+  console.log(req.body.all_focus_time);
   let time = req.body.all_focus_time.split(':');
   var today = new Date();
   let data = {
@@ -99,42 +97,53 @@ router.post('/study/timer', function (req, res) {
           'subjects.$.time': second
         }
       }, function (err) { if (err) console.log(err) });
-      res.redirect('/home');
+      if(req.query.sub == 'stp') {
+        res.redirect('/home');
+      } else {
+        res.redirect('/selectSubject/'+req.user.id);
+      }
     }
   });
 });
 
 router.post('/study/timeline', function (req, res) {
+  let today = new Date();
+
   if (req.query.status == "start") {
-    // console.log("타임라인 - 시작");
-    // let today = new Date();
-    // let timeline = {
-    //   subject: req.query.sid.slice(1, -1),
-    //   startTime: today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(),
-    //   endTime: "00:00:00",
-    //   date: today.toLocaleDateString()
-    // }
-    // User.findOneAndUpdate({ id: req.user.id }, { $push: { timeLines: timeline } }, function (err, user) {
-    //   if (err) {
-    //     console.log(err);
-    //     res.redirect("/");
-    //   }
-    // });
+    console.log("타임라인 - 시작");
+    let timeline = {
+      subject: req.query.sid.slice(1, -1),
+      startTime: today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(),
+      endTime: "00:00:00",
+      date: today.toLocaleDateString()
+    }
+    User.findOneAndUpdate({ id: req.user.id }, { $push: { timeLines: timeline } }, function (err, user) {
+      if (err) {
+        console.log(err);
+        res.redirect("/");
+      }
+    });
   } else {
-    // console.log("타임라인 - 끝");
-    // User.findOne({id: req.user.id}, function(err, user) {
-    //   if(err) {
-    //     console.log(err);
-    //     res.redirect('/');
-    //   } else {
-    //     let timeline = {
-    //       subject: req.query.sid.slice(1, -1),
-    //       startTime: today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(),
-    //       endTime: today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(),
-    //       date: today.toLocaleDateString()
-    //     }
-    //   }
-    // });
+    console.log("타임라인 - 끝");
+    User.findOne({id: req.user.id}, function(err, user) {
+      if(err) {
+        console.log(err);
+        res.redirect('/');
+      } else {
+        let timeline = {
+          subject: user.timeLines[user.timeLines.length - 1].subject,
+          startTime: user.timeLines[user.timeLines.length - 1].startTime,
+          endTime: today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(),
+          date: user.timeLines[user.timeLines.length - 1].date
+        }
+
+        User.updateOne({ 'timeLines.startTime': timeline.startTime }, {
+          '$set': {
+            'timeLines.$.endTime': timeline.endTime
+          }
+        }, function (err) { if (err) console.log(err) });
+      }
+    });
   }
   res.redirect("/study/" + req.user.id + "?id=" + req.query.sid);
 });
