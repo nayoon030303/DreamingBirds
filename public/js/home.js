@@ -216,7 +216,7 @@ function checkDaily(){
     AlldisplayNone();
 
     descibe.classList.remove("none");
-    circleChart.classList.remove("none");
+    //circleChart.classList.remove("none");
     timeChart.classList.remove("none");
     
     const user_ = document.querySelector('.user_');
@@ -265,7 +265,10 @@ function make_stimeChart(){
     let view = `${viewYear}.${viewMonth}.${viewDate}`;
     let timer = user.timer;
     let totalTime = '00:00:00';
+   
     timer.forEach((t)=>{
+        console.log(t.date);
+        console.log(view);
         if(t.date == view){
             totalTime = `${String(t.hour).padStart(2,'0')}.${String(t.min).padStart(2,'0')}.${String(t.sec).padStart(2,'0')}`;
             
