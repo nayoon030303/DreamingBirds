@@ -11,9 +11,9 @@
 
 <body>
     <div class="root">
-        <div id="header"> </div>
-        <p id="subject-id" data-subject_id=<%=JSON.stringify(subject_id).replaceAll(" ", " &nbsp;") %>> </p>
 
+		<div id="header"> </div>
+  
         <div class="container">
             <div id="menu"> </div>
             <div class="content">
@@ -114,10 +114,18 @@
         </div>
     </div>
 </body>
+<p id="subject-id" data-subject_id=<%= JSON.stringify(subject_id).replaceAll(" ", "&nbsp;")  %>> </p>
 <script>
     let user = "<%=JSON.stringify(user)%> ";
-    user = user.replaceAll("&#34;", "\"");
-    user = JSON.parse(user);
+	user = user.replaceAll("&#34;", "\"");
+	user = JSON.parse(user);
+
+    let subjectId = "<%= JSON.stringify(subject_id) %>";
+    subjectId = subjectId.replaceAll("&#34;","\"");
+    subjectId = JSON.parse(subjectId);
+    console.log(subjectId);
+
+
 </script>
 <script type="text/javascript" src="../js/header.js"></script>
 <script type="text/javascript" src="../js/menu.js"></script>
