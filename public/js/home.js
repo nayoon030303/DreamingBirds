@@ -184,6 +184,9 @@ function clickFilter(event){
     event.target.classList.add(CHECK_FILTER);
 }
 
+/**
+ * 통계
+ */
 const ALL_STIME = '11:30';
 const MAX_CONTIME = '02:23';
 const MAX_SUBJECT = '수학';
@@ -251,31 +254,118 @@ function checkUserClick(){
 
     }else if(isCheck(montly)){
         checkMontly();
-
     }
     
 }
 
 
+//1 study타임 통계 
 function make_stimeChart(){
+    //총 학습시간
+    let view = `${viewYear}.${viewMonth}.${viewDate}`;
+    let timer = user.timer;
+    let totalTime = '00:00:00';
+    timer.forEach((t)=>{
+        if(t.date == view){
+            totalTime = `${String(t.hour).padStart(2,'0')}.${String(t.min).padStart(2,'0')}.${String(t.sec).padStart(2,'0')}`;
+            
+        } 
+    });
+    document.querySelector('.all-stime').innerText = totalTime;
+
+    //최대 집중 시간
+    document.querySelector('.max-contime').innerText = MAX_CONTIME ;
+
+
+    //
+    
+
+    let maxConcentrateTime = '학습을 시작하지 않았습니다.'; //최다 학습 과목
+    let minConcentrateTime = '학습을 시작하지 않았습니다.'; //최저 학습 과목
+    let t_subject = [];
+    let timesum = 0;
+    let subjects = user.subjects;
+    subjects.forEach((subject)=>{ //name과 time만 추출
+        if(subject.date == view){
+            timesum+=subject.time;
+            t_subject.push({
+                name: subject.name,
+                time: subject.time
+            });
+        }
+    });
+
+    t_subject.sort((a,b)=>{ //내림차순
+        if(a.time>b.time){
+            return -1;
+        }else{
+            return 1;
+        }
+    });
+    maxConcentrateTime = t_subject[0].name;
+    minConcentrateTime = t_subject[t_subject.length-1].name;
+    document.querySelector('.max-subject').innerText = maxConcentrateTime;
+    document.querySelector('.min-subject').innerText = minConcentrateTime;
+
+    console.log(user.subjects);
+
+    //과목별 공부량
+    
+    //비율 만들기
+    t_subject.forEach((data)=>{
+        createRate(data.name,data.time/timesum*100);
+    })
+    console.log();
+    
+    
+}
+
+let stimeGraph = document.querySelector('.stime-graph');
+
+function createRate(name, rate)
+{   
+   
+    let bar = document.createElement('div');
+    bar.classList.add('zt-skill-bar');
+    let data = document.createElement('div');
+
+    if(rate<10){
+        data.dataset.width = `10`;
+    }else{
+        data.dataset.width = `${rate}`;
+    }
+    data.innerText = name;
+    let ratio = document.createElement('span');
+    ratio.innerText = `${rate}%`;
+
+    data.append(ratio);
+    bar.append(data);
+    stimeGraph.append(bar);
+    console.log(bar);
+}
+
+
+//2 study타임 경고 비율
+function make_wraningchart(){
+
+}
+
+//3 타임라인
+function make_timeline(){
+
+}
+
+
+
+function chart_init(){
+
     const filterBtns = document.querySelectorAll('.filter-btn');
 
     filterBtns.forEach((btn,i)=>{
         btn.addEventListener('click',checkUserClick);
     });
 
-
-
     checkUserClick();
-     document.querySelector('.all-stime').innerText = ALL_STIME;
-     document.querySelector('.max-contime').innerText = MAX_CONTIME ;
-     document.querySelector('.max-subject').innerText = MAX_SUBJECT;
-     document.querySelector('.min-subject').innerText = MIN_SUBJECT;
-}
-
-
-
-function chart_init(){
 
     make_stimeChart();
     (function( $ ) {
