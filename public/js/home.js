@@ -267,7 +267,6 @@ function make_stimeChart(){
     let totalTime = '00:00:00';
     timer.forEach((t)=>{
         if(t.date == view){
-            console.log(String(t.hour).padStart(2,'0'));
             totalTime = `${String(t.hour).padStart(2,'0')}.${String(t.min).padStart(2,'0')}.${String(t.sec).padStart(2,'0')}`;
             
         } 
@@ -280,13 +279,15 @@ function make_stimeChart(){
 
     //
     
-    console.log(view);
+
     let maxConcentrateTime = '학습을 시작하지 않았습니다.'; //최다 학습 과목
     let minConcentrateTime = '학습을 시작하지 않았습니다.'; //최저 학습 과목
     let t_subject = [];
+    let timesum = 0;
     let subjects = user.subjects;
     subjects.forEach((subject)=>{ //name과 time만 추출
         if(subject.date == view){
+            timesum+=subject.time;
             t_subject.push({
                 name: subject.name,
                 time: subject.time
@@ -305,7 +306,44 @@ function make_stimeChart(){
     minConcentrateTime = t_subject[t_subject.length-1].name;
     document.querySelector('.max-subject').innerText = maxConcentrateTime;
     document.querySelector('.min-subject').innerText = minConcentrateTime;
+
+    console.log(user.subjects);
+
+    //과목별 공부량
+    
+    //비율 만들기
+    t_subject.forEach((data)=>{
+        createRate(data.name,data.time/timesum*100);
+    })
+    console.log();
+    
+    
 }
+
+let stimeGraph = document.querySelector('.stime-graph');
+
+function createRate(name, rate)
+{   
+   
+    let bar = document.createElement('div');
+    bar.classList.add('zt-skill-bar');
+    let data = document.createElement('div');
+
+    if(rate<10){
+        data.dataset.width = `10`;
+    }else{
+        data.dataset.width = `${rate}`;
+    }
+    data.innerText = name;
+    let ratio = document.createElement('span');
+    ratio.innerText = `${rate}%`;
+
+    data.append(ratio);
+    bar.append(data);
+    stimeGraph.append(bar);
+    console.log(bar);
+}
+
 
 //2 study타임 경고 비율
 function make_wraningchart(){
