@@ -3,7 +3,7 @@ const PREV = 'prev-date';
 const NEXT = 'next-date;'
 const CHECK_DATE = 'userCheck';
 const CURRENT_DATES = 'current_dates';
-const userName = '김이름';
+const userName = user.nickname;
 const CHECK_FILTER = 'userClickFilter';
 
 

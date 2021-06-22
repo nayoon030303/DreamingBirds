@@ -67,7 +67,7 @@ function updateSubject() {
 
         box.className = "subject-box";
         box.id = "box-" + user.subjects[i]._id;
-        content.textContent = user.subjects[i].name.replace("&nbsp;", " ");
+        content.textContent = user.subjects[i].name;
         btn.textContent = "×";
         btn.style.cursor = "pointer";
         btn.addEventListener("click", function () {

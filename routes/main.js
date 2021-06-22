@@ -34,18 +34,18 @@ router.get('/', function (req, res) {
     });
   } else {
     console.log("세션이 유효하지 않습니다.");
-    User.find({}, function(err, users) {
-      if(err) {
+    User.find({}, function (err, users) {
+      if (err) {
         console.log(err);
         res.redirect('/');
       } else {
         var sum = 0;
-        for(var i = 0; i < users.length; i++) {
-          for(var j = 0; j < users[i].subjects.length; j++) {
+        for (var i = 0; i < users.length; i++) {
+          for (var j = 0; j < users[i].subjects.length; j++) {
             sum += users[i].subjects[j].time;
           }
         }
-        res.render('index', { user: null, whole: sum});
+        res.render('index', { user: null, whole: sum });
       }
     });
   }
@@ -60,8 +60,8 @@ router.get('/study/:id', function (req, res) {
       } else {
         //res.render('selectSubjectPage', { user: user });
 
-        let list =  User.find();
-        res.render('studyPage', { user: user, data : list, subject_id: req.query.id});
+        let list = User.find();
+        res.render('studyPage', { user: user, data: list, subject_id: req.query.id });
         console.log(req.query.id);
 
 
@@ -75,19 +75,30 @@ router.get('/study/:id', function (req, res) {
 
 
 router.post('/study/timer', function (req, res) {
+  let time = req.body.all_focus_time.split(':');
   let data = {
     timer: {
-      hour: req.body.user.timer[0].hour,
-      min: req.body.user.timer[0].min,
-      sec: req.body.user.timer[0].sec
+      hour: parseInt(time[0]),
+      min: parseInt(time[1]),
+      sec: parseInt(time[2])
     }
   }
-
+  // console.log(data);
   User.findOneAndUpdate({ id: req.user.id }, data, function (err, user) {
     if (err) {
       console.log(err);
+    } else {
+      // 초 계산 후 과목 id가 맞는 과목에 초 더하기
+      let subject_time = req.body.sub_time.split(':');
+      let second = parseInt(subject_time[0] * 3600) + parseInt(subject_time[1] * 60) + parseInt(subject_time[2]);
+      // console.log(second);
+      User.updateOne({'subjects._id': req.query.sid }, {
+        '$set': {
+          'subjects.$.time': second
+        }
+      }, function (err) { console.log(err) });
+      res.redirect('/home');
     }
-    res.redirect('/');
   })
 })
 
