@@ -38,6 +38,7 @@ async function init() {
     webcam = new tmImage.Webcam(200, 200, flip); // width, height, flip
     await webcam.setup(); // request access to the webcam
     await webcam.play();
+    clearInterval(view_saying);
     document.getElementById("loader-wrapper").style.display = "none";
     window.requestAnimationFrame(loop);
 
