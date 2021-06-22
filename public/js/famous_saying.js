@@ -18,7 +18,6 @@ person.textContent = "- " + famous_saying[index].person + " -";
 let view_saying = setInterval(test, 5000);
 async function test() {
     index = (index + 1) % famous_saying.length;
-    console.log(index);
     saying.textContent = famous_saying[index].saying;
     person.textContent = "- " + famous_saying[index].person + " -";
 }

@@ -138,4 +138,3 @@ function getDdata(){
 init();
 
 var cam = document.getElementById('webcam-container');
-

@@ -4,16 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/study.css">
-	<link rel="shortcut icon" href="../img/icon.ico">
+    <link rel="shortcut icon" href="../img/icon.ico">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <title>Dreaming Birds</title>
 </head>
 
 <body>
     <div class="root">
-		<div id="header"> </div>
-        <p id="subject-id" data-subject_id=<%= JSON.stringify(subject_id).replaceAll(" ", "&nbsp;")  %>> </p>
-       
+        <div id="header"> </div>
+        <p id="subject-id" data-subject_id=<%=JSON.stringify(subject_id).replaceAll(" ", " &nbsp;") %>> </p>
+
         <div class="container">
             <div id="menu"> </div>
             <div class="content">
@@ -27,11 +27,12 @@
                                 <button> &gt; </button>
                             </div>
                             <div class="group-content">
-                                <div class="group-name">고양이가 세상을 지배한다</div>
-                                <div class="group-now">18/95</div>
-                            </div>
-                            <div class="entrance-btn">
-                                <button>입장하기</button>
+                                <div class="warning">
+                                    <img src="../img/icon/warning.png">
+                                    <span>경고</span>
+                                </div>
+                                <div class="group-name">한 눈 팔다 먹이가 도망가도 전 몰라요!</div>
+                                <div class="group-now">1/1</div>
                             </div>
                         </div>
                         <div class="mid">
@@ -41,23 +42,26 @@
                                     <div id="webcam-container"></div>
                                     <div id="label-container"></div>
                                 </div>
-                                <form action ="study/timer" id ="timer" class ="timer" method = "post" data-user = <%= JSON.stringify(user) %>>
-                                    <div id = "all-focus-time" class="all-focus-time" name = "all-focus-time">00:00:00</div>
-                                    <div class="detail-time">
-                                        <div class="inner-timer sub-timer">
-                                            <div class="sub-name">수학</div>
-                                            <div class="sub-time">00:00:00</div>
+                                <form action="/study/timer?sid=<%=subject_id%>" id="timer" class="timer" method="post">
+                                    <input id="all-focus-time" class="all-focus-time" name="all_focus_time" value="00:00:00" readonly>
+                                    <div id="detail-box">
+                                        <div class="detail-time">
+                                            <div class="inner-timer sub-timer">
+                                                <div class="sub-name">수학</div>
+                                                <div class="sub-time">
+                                                    <input id="sub-time" name="sub_time" value="00:00:00" readonly>
+                                                </div>
+                                            </div>
+                                            <div class="inner-timer now-focus-timer">
+                                                <div class="now-focus-ment">현재 집중 시간</div>
+                                                <div id="now-focus-time" class="now-focus-time"></div>
+                                            </div>
                                         </div>
-                                        <div class="inner-timer now-focus-timer">
-                                            <div class="now-focus-ment">현재 집중 시간</div>
-                                            <div id = "now-focus-time" class="now-focus-time">00:00:00</div>
+                                        <div class=timer-controll>
+                                            <button id="startbtn" class="start-btn" type="button">시작</button>
+                                            <button id="chgbtn" class="change-sub" type="button">과목 변경</button>
+                                            <button type="submit" id="stopbtn" class="finish">종료</button>
                                         </div>
-                                    </div>
-                                    <div class=timer-controll>
-                                        <button id = "startbtn" class="start-btn" type = "button">시작</button>
-                                        <button id = "pausebtn" class="rest-btn" type ="button">휴식</button>
-                                        <button id = "chgbtn" class="change-sub" type = "button">과목 변경</button>
-                                        <button type = "submit" id = "stopbtn" class="finish">종료</button>
                                     </div>
                                 </form>
                             </div>
@@ -84,12 +88,14 @@
                     </div>
                 </div>
                 <div class="ranking">
-                    
+
                     <div class="user">
                         <div class="user-info">
                             <div class="user-profile"><img src="<%= user.profile_src %>" name="profile_src"></div>
 
-                            <div class="user-name"><%= user.nickname %></div>
+                            <div class="user-name">
+                                <%= user.nickname %>
+                            </div>
                             <div class="user-time">13:26</div>
                         </div>
                         <div class="user-bird"><img src="../img/study/bird.png"></div>
@@ -110,16 +116,17 @@
 </body>
 <script>
     let user = "<%=JSON.stringify(user)%> ";
-	user = user.replaceAll("&#34;", "\"");
-	user = JSON.parse(user);
+    user = user.replaceAll("&#34;", "\"");
+    user = JSON.parse(user);
 </script>
 <script type="text/javascript" src="../js/header.js"></script>
 <script type="text/javascript" src="../js/menu.js"></script>
-<script type="text/javascript" src = "../js/famous_saying.js"></script>
-<script type ="text/javascript" src = "../js/stopwatch.js"></script>
+<script type="text/javascript" src="../js/famous_saying.js"></script>
+<script type="text/javascript" src="../js/stopwatch.js"></script>
 
 <!-- teachable machine -->
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
 <script type="text/javascript" src="../js/study.js"></script>
+
 </html>
