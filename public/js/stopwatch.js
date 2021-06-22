@@ -52,7 +52,6 @@ function buttonEvt() {
     if (this.textContent == "시작") {
       this.textContent = "휴식";
       timer = setInterval(function () {
-        console.log(time);
         time++;
         n_time++;
         s_time++;
@@ -100,6 +99,17 @@ function buttonEvt() {
         document.getElementById("all-focus-time").value = th + ":" + tm + ":" + ts;
         document.getElementById("sub-time").value = s_th + ":" + s_tm + ":" + s_ts;
       }, 1000);
+
+      fetch('/study/timeline?sid=' + $("#subject-id").data("subject_id") + "&status=start", { method: 'POST' })
+      .then(function (response) {
+          if (response.ok) {
+              return;
+          }
+          throw new Error('Request failed.');
+      })
+      .catch(function (error) {
+          console.log(error);
+      });
     } else if (this.textContent == "휴식") {
       this.textContent = "시작";
       if (time != 0) {
@@ -110,6 +120,17 @@ function buttonEvt() {
         n_sec = 0;
         document.getElementById("now-focus-time").innerHTML = "00:00:00";
       }
+
+      fetch('/study/timeline?sid=' + $("#subject-id").data("subject_id") + "&status=pause", { method: 'POST' })
+      .then(function (response) {
+          if (response.ok) {
+              return;
+          }
+          throw new Error('Request failed.');
+      })
+      .catch(function (error) {
+          console.log(error);
+      });
     }
   });
 

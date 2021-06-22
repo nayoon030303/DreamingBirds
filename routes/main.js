@@ -76,8 +76,10 @@ router.get('/study/:id', function (req, res) {
 
 router.post('/study/timer', function (req, res) {
   let time = req.body.all_focus_time.split(':');
+  var today = new Date();
   let data = {
     timer: {
+      date: today.toLocaleDateString(),
       hour: parseInt(time[0]),
       min: parseInt(time[1]),
       sec: parseInt(time[2])
@@ -92,15 +94,51 @@ router.post('/study/timer', function (req, res) {
       let subject_time = req.body.sub_time.split(':');
       let second = parseInt(subject_time[0] * 3600) + parseInt(subject_time[1] * 60) + parseInt(subject_time[2]);
       // console.log(second);
-      User.updateOne({'subjects._id': req.query.sid }, {
+      User.updateOne({ 'subjects._id': req.query.sid }, {
         '$set': {
           'subjects.$.time': second
         }
-      }, function (err) { console.log(err) });
+      }, function (err) { if (err) console.log(err) });
       res.redirect('/home');
     }
-  })
-})
+  });
+});
+
+router.post('/study/timeline', function (req, res) {
+  if (req.query.status == "start") {
+    // console.log("타임라인 - 시작");
+    // let today = new Date();
+    // let timeline = {
+    //   subject: req.query.sid.slice(1, -1),
+    //   startTime: today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(),
+    //   endTime: "00:00:00",
+    //   date: today.toLocaleDateString()
+    // }
+    // User.findOneAndUpdate({ id: req.user.id }, { $push: { timeLines: timeline } }, function (err, user) {
+    //   if (err) {
+    //     console.log(err);
+    //     res.redirect("/");
+    //   }
+    // });
+  } else {
+    // console.log("타임라인 - 끝");
+    // User.findOne({id: req.user.id}, function(err, user) {
+    //   if(err) {
+    //     console.log(err);
+    //     res.redirect('/');
+    //   } else {
+    //     let timeline = {
+    //       subject: req.query.sid.slice(1, -1),
+    //       startTime: today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(),
+    //       endTime: today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(),
+    //       date: today.toLocaleDateString()
+    //     }
+    //   }
+    // });
+  }
+  res.redirect("/study/" + req.user.id + "?id=" + req.query.sid);
+});
+
 
 router.get('/home', function (req, res) {
   if (req.isAuthenticated()) {
@@ -244,8 +282,10 @@ router.get('/addSubject/:id', function (req, res) {
 router.post("/addSubject/:id", function (req, res) {
 
   const subject = new Subject();
+  var today = new Date();
   subject.name = req.body.n;
   subject.time = 0;
+  subject.date = today.toLocaleDateString();
 
   User.findOneAndUpdate({ id: req.user.id }, { $push: { subjects: subject } }, function (err, user) {
     if (err) {

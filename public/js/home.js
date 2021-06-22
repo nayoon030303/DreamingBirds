@@ -262,7 +262,8 @@ function checkUserClick(){
 //1 study타임 통계 
 function make_stimeChart(){
     //총 학습시간
-    let view = `${viewYear}.${viewMonth}.${viewDate}`;
+    let view = `${viewYear}. ${viewMonth}. ${viewDate}.`;
+    console.log(view);
     let timer = user.timer;
     let totalTime = '00:00:00';
    
@@ -316,7 +317,11 @@ function make_stimeChart(){
     
     //비율 만들기
     t_subject.forEach((data)=>{
-        createRate(data.name,data.time/timesum*100);
+        if(timesum == 0) {
+            createRate(data.name, 0);
+        } else {
+            createRate(data.name,data.time/timesum*100);
+        }
     })
     console.log();
     

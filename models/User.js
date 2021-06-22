@@ -22,13 +22,11 @@ let SubjectSchema = new mongoose.Schema({
 })
 
 let TimeLineSchema = new mongoose.Schema({
-    id : { type: Number, default: 0},
     subject: String,
-    startTime: {type: Number, default: 0},
-    endTime: {type: Number, default: 0},
+    startTime: {type: String, default: 0},
+    endTime: {type: String, default: 0},
     date: {type: String, default:''}
 })
-
 
 const userSchema = mongoose.Schema({
     id: String,
