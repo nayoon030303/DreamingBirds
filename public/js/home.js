@@ -306,8 +306,10 @@ function make_stimeChart(){
             return 1;
         }
     });
-    maxConcentrateTime = t_subject[0].name;
-    minConcentrateTime = t_subject[t_subject.length-1].name;
+    if(subjects.length>0){
+        maxConcentrateTime = t_subject[0].name;
+        minConcentrateTime = t_subject[t_subject.length-1].name;
+    }
     document.querySelector('.max-subject').innerText = maxConcentrateTime;
     document.querySelector('.min-subject').innerText = minConcentrateTime;
 
@@ -316,13 +318,21 @@ function make_stimeChart(){
     //과목별 공부량
     
     //비율 만들기
-    t_subject.forEach((data)=>{
-        if(timesum == 0) {
-            createRate(data.name, 0);
-        } else {
-            createRate(data.name,data.time/timesum*100);
-        }
-    })
+    if(t_subject.length>0){
+        t_subject.forEach((data)=>{
+            if(timesum == 0) {
+                createRate(data.name, 0);
+            } else {
+                createRate(data.name,data.time/timesum*100);
+            }
+        })
+    }else{
+        let span = document.createElement('span');
+        span.classList.add('aspan');
+        span.innerText = '아직 학습을 시작 하지 않았습니다.';
+        stimeGraph.append(span);
+    }
+  
     console.log();
     
     
@@ -332,7 +342,7 @@ let stimeGraph = document.querySelector('.stime-graph');
 
 function createRate(name, rate)
 {   
-   
+    rate = Math.floor(rate);
     let bar = document.createElement('div');
     bar.classList.add('zt-skill-bar');
     let data = document.createElement('div');

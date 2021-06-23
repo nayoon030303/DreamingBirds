@@ -29,6 +29,64 @@ router.get('/', function (req, res) {
         console.log(err);
         res.redirect('/');
       } else {
+        console.log('a',user);
+
+        var today = new Date();
+        const timer = new Timer();
+        timer.hour = 0;
+        timer.min = 0;
+        timer.sec = 0;
+        timer.date = today.toLocaleDateString();
+      
+        let isInsert = true;
+        let ut = user.timer;
+        ut.forEach((t)=>{
+          if(t.date == timer.date ){
+            console.log(t.date);
+            console.log(timer.date);
+            isInsert = false;
+          }
+        });
+        // console.log(timer);
+        // console.log(isInsert);
+        // console.log(ut.length);
+        if(isInsert || ut.length<=0)
+        {
+          User.findOneAndUpdate({ id: req.user.id }, { $push: { timer: timer } }, function (err, user) {
+            if(err){
+              console.log('에러난다!');
+            }else{
+              console.log('성공..?');
+            }
+          });
+        }
+        // if(isInsert){
+        //   User.findOneAndUpdate({ id: req.user.id }, { $push: { timer: timer } }, function (err, user) {
+        //     if (err) {
+        //       console.log(err);
+        //       res.redirect("/");
+        //     }
+        //     console.log("push timer 성공");
+        //     res.redirect("/");
+        //   });
+        // }else{
+        //   User.find({}, function (err, users) {
+        //     if (err) {
+        //       console.log(err);
+        //       res.redirect('/');
+        //     } else {
+        //       var sum = 0;
+        //       for (var i = 0; i < users.length; i++) {
+        //         for (var j = 0; j < users[i].subjects.length; j++) {
+        //           sum += users[i].subjects[j].time;
+        //         }
+        //       }
+        //       res.render('index', { user: null, whole: sum });
+        //     }
+        //   });
+        // }
+
+
         res.render('index', { user: user });
       }
     });
@@ -50,6 +108,12 @@ router.get('/', function (req, res) {
     });
   }
 });
+
+// router.post("/", function (req, res) {
+
+ 
+
+// });
 
 router.get('/study/:id', function (req, res) {
   if (req.isAuthenticated()) {
@@ -312,9 +376,9 @@ router.post("/addSubject/:id", function (req, res) {
 });
 
 
-router.get('/googlelogin', function (req, res) {
-  res.render('main', { user: req.user });
-});
+// router.get('/googlelogin', function (req, res) {
+//   res.render('main', { user: req.user });
+// });
 
 
 // router.get('/logout', function(req, res) {
@@ -325,8 +389,8 @@ router.get('/googlelogin', function (req, res) {
 //   })
 // });
 
-router.get('/login', function (req, res) {
-  res.render('login')
-});
+// router.get('/login', function (req, res) {
+//   res.render('login')
+// });
 
 module.exports = router;
