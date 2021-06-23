@@ -73,7 +73,7 @@ html, body {
 }
 
 .content .main .mode .top .left-btn{
-    width:15%;
+    width:5%;
     height:100%;
     float:left;
     display: flex;
@@ -91,7 +91,7 @@ html, body {
 }
 
 .content .main .mode .top .right-btn{
-    width:15%;
+    width:5%;
     height:100%;
     float:right;
     display: flex;
@@ -109,13 +109,14 @@ html, body {
 }
 
 .content .main .mode .top .group-content{
-    width:50%;
+    width:70%;
     height:100%;
     float:left;
     margin-left: 10%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    word-break: keep-all;
 }
 
 .content .main .mode .top .group-content .warning {

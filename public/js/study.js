@@ -126,7 +126,8 @@ function timer() {
 
             warning_number++;
             //document.getElementById("warning").innerHTML = "경고 횟수 : " + warning_number;
-            console.log("경고 횟수 : " + warning_number + " - " + status);
+            document.getElementsByClassName("group-now")[0].innerHTML = "누적 " + warning_number + "회";
+            // console.log("경고 횟수 : " + warning_number + " - " + status);
 
             fetch('/study/warning?warning=' + status + '&sid=' + $("#subject-id").data("subject_id"), { method: 'POST' })
             .then(function (response) {

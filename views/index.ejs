@@ -35,7 +35,7 @@
 								<div id="time" data-time="<%= whole %>"></div>
 							<% } else { %>
 								<b>당신이 꿈을 꾼 시간</b>
-								<div id="time" data-time="<%= JSON.stringify(user.subjects).replaceAll(" ", "&nbsp;") %>"></div>
+								<div id="time" data-time="<%= JSON.stringify(user.subjects) %>"></div>
 							<% } %>
 							<br>
 							<b>

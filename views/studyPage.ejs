@@ -21,18 +21,18 @@
                     <div class="mode">
                         <div class="top">
                             <div class="left-btn">
-                                <button> &lt; </button>
+                                <button>  </button>
                             </div>
                             <div class="right-btn">
-                                <button> &gt; </button>
+                                <button>  </button>
                             </div>
                             <div class="group-content">
                                 <div class="warning">
                                     <img src="../img/icon/warning.png">
                                     <span>경고</span>
                                 </div>
-                                <div class="group-name">한 눈 팔다 먹이가 도망가도 전 몰라요!</div>
-                                <div class="group-now">1/1</div>
+                                <div class="group-name"></div>
+                                <div class="group-now"></div>
                             </div>
                         </div>
                         <div class="mid">
@@ -114,7 +114,7 @@
         </div>
     </div>
 </body>
-<p id="subject-id" data-subject_id=<%= JSON.stringify(subject_id).replaceAll(" ", "&nbsp;")  %>> </p>
+<p id="subject-id" data-subject_id=<%= JSON.stringify(subject_id)  %>> </p>
 <script>
     let user = "<%=JSON.stringify(user)%> ";
 	user = user.replaceAll("&#34;", "\"");

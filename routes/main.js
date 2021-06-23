@@ -28,9 +28,9 @@ router.get('/', function (req, res) {
       if (err) {
         console.log(err);
         res.redirect('/');
+      
       } else {
-        console.log('a',user);
-
+      
         var today = new Date();
         const timer = new Timer();
         timer.hour = 0;
@@ -173,7 +173,7 @@ router.post('/study/timeline', function (req, res) {
   let today = new Date();
 
   if (req.query.status == "start") {
-    console.log("타임라인 - 시작");
+    // console.log("타임라인 - 시작");
     let timeline = {
       subject: req.query.sid.slice(1, -1),
       startTime: today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(),
@@ -187,7 +187,7 @@ router.post('/study/timeline', function (req, res) {
       }
     });
   } else {
-    console.log("타임라인 - 끝");
+    // console.log("타임라인 - 끝");
     User.findOne({id: req.user.id}, function(err, user) {
       if(err) {
         console.log(err);
@@ -212,7 +212,7 @@ router.post('/study/timeline', function (req, res) {
 });
 
 router.post('/study/warning', function (req, res) {
-  console.log(req.query.warning);
+  // console.log(req.query.warning);
   let today = new Date();
 
   User.findOne({ id: req.user.id }, function (err, user) {
@@ -224,7 +224,7 @@ router.post('/study/warning', function (req, res) {
       var i = 0;
       for(i = 0; i < user.warning.length; i++) {
         if(user.warning[i].date == today.toLocaleDateString()) {
-          console.log('존재함');
+          // console.log('존재함');
           break;
         }
       }
