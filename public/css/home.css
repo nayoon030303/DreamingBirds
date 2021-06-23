@@ -239,9 +239,16 @@ h2{
    height: auto;
    background-color: rgb(255, 255, 244);
    margin: auto;
-  
 }
 
+.aspan{
+    display: block;
+    font-size: 3.5rem;
+    width: 400px;
+  
+    margin: auto;
+    text-align: center;
+}
 
 
 .rs-contain{
