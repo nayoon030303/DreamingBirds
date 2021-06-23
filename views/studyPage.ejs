@@ -12,8 +12,8 @@
 <body>
     <div class="root">
 
-		<div id="header"> </div>
-  
+        <div id="header"> </div>
+
         <div class="container">
             <div id="menu"> </div>
             <div class="content">
@@ -21,18 +21,18 @@
                     <div class="mode">
                         <div class="top">
                             <div class="left-btn">
-                                <button> &lt; </button>
+                                <button> </button>
                             </div>
                             <div class="right-btn">
-                                <button> &gt; </button>
+                                <button> </button>
                             </div>
                             <div class="group-content">
                                 <div class="warning">
                                     <img src="../img/icon/warning.png">
                                     <span>경고</span>
                                 </div>
-                                <div class="group-name">한 눈 팔다 먹이가 도망가도 전 몰라요!</div>
-                                <div class="group-now">1/1</div>
+                                <div class="group-name"></div>
+                                <div class="group-now"></div>
                             </div>
                         </div>
                         <div class="mid">
@@ -43,11 +43,12 @@
                                     <div id="label-container"></div>
                                 </div>
                                 <form id="timer" class="timer" method="post">
-                                    <input id="all-focus-time" class="all-focus-time" name="all_focus_time" value="00:00:00" readonly>
+                                    <input id="all-focus-time" class="all-focus-time" name="all_focus_time"
+                                        value="00:00:00" readonly>
                                     <div id="detail-box">
                                         <div class="detail-time">
                                             <div class="inner-timer sub-timer">
-                                                <div class="sub-name">수학</div>
+                                                <div class="sub-name"></div>
                                                 <div class="sub-time">
                                                     <input id="sub-time" name="sub_time" value="00:00:00" readonly>
                                                 </div>
@@ -59,8 +60,11 @@
                                         </div>
                                         <div class=timer-controll>
                                             <button id="startbtn" class="start-btn" type="button">시작</button>
-                                            <button id="chgbtn" class="change-sub" type="submit" onclick="javascript: form.action='/study/timer?sid=<%=subject_id%>&sub=chg'">과목 변경</button>
-                                            <button type="submit" id="stopbtn" class="finish" onclick="javascript: form.action='/study/timer?sid=<%=subject_id%>&sub=stp'">종료</button>
+                                            <button id="chgbtn" class="change-sub" type="submit"
+                                                onclick="javascript: form.action='/study/timer?sid=<%=subject_id%>&sub=chg'">과목
+                                                변경</button>
+                                            <button type="submit" id="stopbtn" class="finish"
+                                                onclick="javascript: form.action='/study/timer?sid=<%=subject_id%>&sub=stp'">종료</button>
                                         </div>
                                     </div>
                                 </form>
@@ -68,11 +72,11 @@
                             <div class="right">
                                 <div class="level">
                                     <div class="level-img">
-                                        <img src="../img/birds/chick.png">
+                                        <img src="../img/birds/egg.png">
                                     </div>
                                     <div class="level-content">
-                                        <div class="level-name">1단계 새알</div>
-                                        <div class="level-info">01:43:25</div>
+                                        <div class="level-name"></div>
+                                        <div class="level-info"></div>
                                     </div>
                                 </div>
                                 <div class="checklist">
@@ -89,18 +93,6 @@
                 </div>
                 <div class="ranking">
 
-                    <div class="user">
-                        <div class="user-info">
-                            <div class="user-profile"><img src="<%= user.profile_src %>" name="profile_src"></div>
-
-                            <div class="user-name">
-                                <%= user.nickname %>
-                            </div>
-                            <div class="user-time">13:26</div>
-                        </div>
-                        <div class="user-bird"><img src="../img/study/bird.png"></div>
-                    </div>
-
                 </div>
             </div>
             <!--end of content-->
@@ -114,14 +106,14 @@
         </div>
     </div>
 </body>
-<p id="subject-id" data-subject_id=<%= JSON.stringify(subject_id).replaceAll(" ", "&nbsp;")  %>> </p>
+<p id="subject-id" data-subject_id=<%=JSON.stringify(subject_id) %>> </p>
 <script>
     let user = "<%=JSON.stringify(user)%> ";
-	user = user.replaceAll("&#34;", "\"");
-	user = JSON.parse(user);
+    user = user.replaceAll("&#34;", "\"");
+    user = JSON.parse(user);
 
     let subjectId = "<%= JSON.stringify(subject_id) %>";
-    subjectId = subjectId.replaceAll("&#34;","\"");
+    subjectId = subjectId.replaceAll("&#34;", "\"");
     subjectId = JSON.parse(subjectId);
     console.log(subjectId);
 
@@ -130,7 +122,9 @@
 <script type="text/javascript" src="../js/header.js"></script>
 <script type="text/javascript" src="../js/menu.js"></script>
 <script type="text/javascript" src="../js/famous_saying.js"></script>
+<script type="text/javascript" src="../js/subjectname.js"></script>
 <script type="text/javascript" src="../js/stopwatch.js"></script>
+<script type="text/javascript" src="../js/ranking.js"></script>
 
 <!-- teachable machine -->
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>

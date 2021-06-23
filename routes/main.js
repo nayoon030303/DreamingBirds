@@ -28,8 +28,8 @@ router.get('/', function (req, res) {
       if (err) {
         console.log(err);
         res.redirect('/');
+
       } else {
-        console.log('a',user);
 
         var today = new Date();
         const timer = new Timer();
@@ -37,8 +37,9 @@ router.get('/', function (req, res) {
         timer.min = 0;
         timer.sec = 0;
         timer.date = today.toLocaleDateString();
-      
+
         let isInsert = true;
+
         let ut =-1;
         if(user.timer != null){
           ut = user.timer;
@@ -56,10 +57,12 @@ router.get('/', function (req, res) {
         // console.log(ut.length);
         if(isInsert || ut ==-1)
         {
+       
+
           User.findOneAndUpdate({ id: req.user.id }, { $push: { timer: timer } }, function (err, user) {
-            if(err){
+            if (err) {
               console.log('에러난다!');
-            }else{
+            } else {
               console.log('성공..?');
             }
           });
@@ -115,7 +118,7 @@ router.get('/', function (req, res) {
 
 // router.post("/", function (req, res) {
 
- 
+
 
 // });
 
@@ -164,10 +167,12 @@ router.post('/study/timer', function (req, res) {
           'subjects.$.time': second
         }
       }, function (err) { if (err) console.log(err) });
-      if(req.query.sub == 'stp') {
+      if (req.query.sub == 'stp') {
         res.redirect('/home');
+      } else if(req.query.sub == 'rest') {
+        res.redirect("/study/" + req.user.id + "?id=" + req.query.sid);
       } else {
-        res.redirect('/selectSubject/'+req.user.id);
+        res.redirect('/selectSubject/' + req.user.id);
       }
     }
   });
@@ -177,7 +182,7 @@ router.post('/study/timeline', function (req, res) {
   let today = new Date();
 
   if (req.query.status == "start") {
-    console.log("타임라인 - 시작");
+    // console.log("타임라인 - 시작");
     let timeline = {
       subject: req.query.sid.slice(1, -1),
       startTime: today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(),
@@ -191,9 +196,9 @@ router.post('/study/timeline', function (req, res) {
       }
     });
   } else {
-    console.log("타임라인 - 끝");
-    User.findOne({id: req.user.id}, function(err, user) {
-      if(err) {
+    // console.log("타임라인 - 끝");
+    User.findOne({ id: req.user.id }, function (err, user) {
+      if (err) {
         console.log(err);
         res.redirect('/');
       } else {
@@ -216,7 +221,7 @@ router.post('/study/timeline', function (req, res) {
 });
 
 router.post('/study/warning', function (req, res) {
-  console.log(req.query.warning);
+  // console.log(req.query.warning);
   let today = new Date();
 
   User.findOne({ id: req.user.id }, function (err, user) {
@@ -226,34 +231,75 @@ router.post('/study/warning', function (req, res) {
     } else {
       let today = new Date();
       var i = 0;
-      for(i = 0; i < user.warning.length; i++) {
-        if(user.warning[i].date == "2021. 6. 24.") {
-          console.log('존재함');
+      for (i = 0; i < user.warning.length; i++) {
+        if (user.warning[i].date == today.toLocaleDateString()) {
+          // console.log('존재함');
           break;
         }
       }
-      if(user.warning.length == i) {
+      if (user.warning.length == i) {    // 오늘 처음 경고 받았을 때
+        var w = new Array(0, 0, 0, 0);
+        switch (req.query.warning) {
+          case "focus_out": w[0]++; break;
+          case "phone": w[1]++; break;
+          case "sleep": w[2]++; break;
+          case "leave": w[3]++; break;
+        }
         let warning = {
           date: today.toLocaleDateString(),
+          focus_out: w[0],
+          phone: w[1],
+          sleep: w[2],
+          leave: w[3]
         }
         User.findOneAndUpdate({ id: req.user.id }, { $push: { warning: warning } }, function (err, user) {
           if (err) {
             console.log(err);
             res.redirect("/");
-          } else {
-            console.log(user.warning);
           }
         });
-      } else {
-        
+      } else {  // 이전에도 경고를 받았음
+        var w = new Array(0, 0, 0, 0);
+        for (var i = 0; i < user.warning.length; i++) {
+          if (user.warning[i].date == today.toLocaleDateString()) {
+            w[0] = user.warning[i].focus_out;
+            w[1] = user.warning[i].phone;
+            w[2] = user.warning[i].sleep;
+            w[3] = user.warning[i].leave;
+            break;
+          }
+        }
+        switch (req.query.warning) {
+          case "focus_out": w[0]++; break;
+          case "phone": w[1]++; break;
+          case "sleep": w[2]++; break;
+          case "leave": w[3]++; break;
+        }
+
+        User.updateOne({ 'warning.date': today.toLocaleDateString() }, {
+          '$set': {
+            'warning.$.focus_out': w[0],
+            'warning.$.phone': w[1],
+            'warning.$.sleep': w[2],
+            'warning.$.leave': w[3]
+          }
+        }, function (err) { if (err) console.log(err) });
       }
-      
+
     }
   });
 
   res.redirect("/study/" + req.user.id + "?id=" + req.query.sid);
 });
-
+router.get('/ranking', function (req, res) {
+  User.find({}, function (err, users) {
+    if (err) {
+      return; console.log(err);
+    } else {
+      res.send(users);
+    }
+  });
+});
 
 
 router.get('/home', function (req, res) {
@@ -419,9 +465,9 @@ router.post("/addSubject/:id", function (req, res) {
 });
 
 
-router.get('/googlelogin', function (req, res) {
-  res.render('main', { user: req.user });
-});
+// router.get('/googlelogin', function (req, res) {
+//   res.render('main', { user: req.user });
+// });
 
 
 // router.get('/logout', function(req, res) {
@@ -432,8 +478,8 @@ router.get('/googlelogin', function (req, res) {
 //   })
 // });
 
-router.get('/login', function (req, res) {
-  res.render('login')
-});
+// router.get('/login', function (req, res) {
+//   res.render('login')
+// });
 
 module.exports = router;

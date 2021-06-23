@@ -20,8 +20,6 @@ passport.use(new GoogleStrategy(
     passReqToCallback: true
   }, function (req, accessToken, refreshToken, profile, done) {
     console.log('profile: ', profile);
-    var user = profile;
-    done(null, user);
 
     User.findOne({ id: profile.sub }, (err, user) => {
       //user가 없다면
@@ -43,12 +41,11 @@ passport.use(new GoogleStrategy(
           console.log(user);
           console.log("회원가입을 완료했습니다")
         })
-        //=========
       } else {
         console.log('이미 가입된 계정입니다')
       }
     })
-    done(null, profile.sub);
+    done(null, profile);
   }
 ));
 

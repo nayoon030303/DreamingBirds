@@ -1,32 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <title>Dreaming Birds</title>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" href="../img/icon.ico">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dreaming Birds account</title>
     <link rel="stylesheet" href="../css/login.css" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
-
 <body>
     <div class="root">
         <div id="header"></div>
         <div class="container">
-            <div class="login_text">
-                <h2>소셜 로그인</h2>
-            </div>
-            <div class = "login_btns">
-                <a href="google">
-                    <img src="../img/login/btn_google_signin_dark_normal_web.png">
-                </a>
-                <br>
-                <a href="kakaotalk">
-                    <img src="../img/login/kakao_login_medium_narrow.png">
-                </a>
-            </div>
+            <p>구글 로그인으로 간편히 로그인 해보세요</p>
+            <a href="google">
+                <img class="googleBtn" src="../img/login/btn_google_signin_dark_normal_web.png"
+                    onmouseover="this.src='../img/login/btn_google_signin_dark_focus_web.png'" ,onmouseout="this.src='../img/login/btn_google_signin_dark_normal_web.png'">
+            </a>
         </div>
     </div>
-    <script type="text/javascript" src="../js/header.js"></script>
 </body>
+<script>
+    let user = null;
+</script>
+<script type="text/javascript" src="../js/header.js"></script>
 </html>

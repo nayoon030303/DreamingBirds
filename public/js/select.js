@@ -78,7 +78,7 @@ function drawView(){
         pleaseAdd.classList.add('add-title');
 
         const img = document.createElement('img');
-        img.src = '../img/birds/chick.png';
+        img.src = '../img/birds/egg.png';
         img.width = 230;
         img.classList.add('add-img');
 
