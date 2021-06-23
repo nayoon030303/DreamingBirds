@@ -1,5 +1,5 @@
 setInterval(function () {
-    console.log("update");
+    // console.log("update");
     var list = []
     var today = new Date();
     fetch('/ranking', { method: 'GET' })

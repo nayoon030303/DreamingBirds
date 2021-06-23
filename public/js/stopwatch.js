@@ -64,7 +64,7 @@ function buttonEvt() {
   var s_min = 0;
   var s_sec = 0;
 
-  console.log(user);
+  // console.log(user);
 
   var hour = user.timer[0].hour;
   var min = user.timer[0].min;
