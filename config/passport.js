@@ -21,7 +21,7 @@ passport.use(new GoogleStrategy(
   }, function (req, accessToken, refreshToken, profile, done) {
     console.log('profile: ', profile);
     var user = profile;
-    done(null, user);
+    // done(null, user);
 
     User.findOne({ id: profile.sub }, (err, user) => {
       //user가 없다면
