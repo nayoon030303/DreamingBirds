@@ -88,8 +88,8 @@ function buttonEvt() {
       var text = document.getElementsByClassName("level-name")[0];
       var rest = document.getElementsByClassName("level-info")[0];
       timer = setInterval(function () {
-        console.log("status : " + (current_status));
-        if(current_status != "basic") {
+        // console.log("status : " + (current_status));
+        if (current_status != "basic") {
           return;
         }
         time++;
@@ -187,6 +187,17 @@ function buttonEvt() {
         n_sec = 0;
         document.getElementById("now-focus-time").innerHTML = "00:00:00";
       }
+
+      fetch('/study/timeline?sid=' + $("#subject-id").data("subject_id") + "&status=rest", { method: 'POST' })
+        .then(function (response) {
+          if (response.ok) {
+            return;
+          }
+          throw new Error('Request failed.');
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
     }
   });
 
