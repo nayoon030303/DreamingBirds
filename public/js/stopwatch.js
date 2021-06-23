@@ -5,6 +5,8 @@ var starFlag = true;
 
 var subject_second = 0;
 
+var level = "egg";
+
 let isStudy = false;
 
 $(document).ready(function () {
@@ -23,6 +25,34 @@ function stopwatchinit() {
   }
   let subject_time = ("0" + parseInt((subject_second % (3600 * 24)) / 3600)).slice(-2) + ":" + ("0" + parseInt((subject_second / 60) % 60)).slice(-2) + ":" + ("0" + parseInt(subject_second % 60)).slice(-2);
   document.getElementById("sub-time").value = subject_time;
+
+  var image = document.getElementsByClassName("level-img")[0].getElementsByTagName("img")[0];
+  var text = document.getElementsByClassName("level-name")[0];
+  var rest = document.getElementsByClassName("level-info")[0];
+  var rest_time = -1;
+  var all_time = (user.timer[0].hour * 3600) + (user.timer[0].min * 60) + user.timer[0].sec;
+  if (all_time > 18000) {
+    level = "king";
+    text.innerHTML = "4단계 왕비둘기";
+  } else if (all_time > 10800) {
+    level = "dove";
+    text.innerHTML = "3단계 비둘기";
+    rest_time = 18000 - all_time;
+  } else if (all_time > 7200) {
+    level = "chick";
+    text.innerHTML = "2단계 병아리";
+    rest_time = 10800 - all_time;
+  } else {
+    level = "egg";
+    text.innerHTML = "1단계 새알";
+    rest_time = 7200 - all_time;
+  }
+
+  if (rest_time == -1)
+    rest.innerHTML = "최고 레벨에 도달했습니다.";
+  else
+    rest.innerHTML = hhmmss(rest_time);
+  image.setAttribute("src", "../img/birds/" + level + ".png");
 }
 
 function buttonEvt() {
@@ -54,7 +84,14 @@ function buttonEvt() {
     if (this.textContent == "시작") {
       isStudy = true;
       this.textContent = "휴식";
+      var image = document.getElementsByClassName("level-img")[0].getElementsByTagName("img")[0];
+      var text = document.getElementsByClassName("level-name")[0];
+      var rest = document.getElementsByClassName("level-info")[0];
       timer = setInterval(function () {
+        console.log("status : " + (current_status));
+        if(current_status != "basic") {
+          return;
+        }
         time++;
         n_time++;
         s_time++;
@@ -101,6 +138,32 @@ function buttonEvt() {
         document.getElementById("now-focus-time").innerHTML = n_th + ":" + n_tm + ":" + n_ts;
         document.getElementById("all-focus-time").value = th + ":" + tm + ":" + ts;
         document.getElementById("sub-time").value = s_th + ":" + s_tm + ":" + s_ts;
+
+        var rest_time = -1;
+        if (time > 18000) {
+          level = "king";
+          text.innerHTML = "4단계 왕비둘기";
+        } else if (time > 10800) {
+          level = "dove";
+          text.innerHTML = "3단계 비둘기";
+          rest_time = 18000 - time;
+        } else if (time > 7200) {
+          level = "chick";
+          text.innerHTML = "2단계 병아리";
+          rest_time = 10800 - time;
+        } else {
+          level = "egg";
+          text.innerHTML = "1단계 새알";
+          rest_time = 7200 - time;
+        }
+        // console.log(level);
+
+        if (rest_time == -1)
+          rest.innerHTML = "최고 레벨에 도달했습니다.";
+        else
+          rest.innerHTML = hhmmss(rest_time);
+        image.setAttribute("src", "../img/birds/" + level + ".png");
+
       }, 1000);
 
       fetch('/study/timeline?sid=' + $("#subject-id").data("subject_id") + "&status=start", { method: 'POST' })
@@ -164,4 +227,16 @@ function buttonEvt() {
         console.log(error);
       });
   });
+}
+
+function hhmmss(num) {
+  var sec_num = parseInt(num, 10);
+  var hours = Math.floor(sec_num / 3600);
+  var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
+  var seconds = sec_num - (hours * 3600) - (minutes * 60);
+
+  if (hours < 10) { hours = "0" + hours; }
+  if (minutes < 10) { minutes = "0" + minutes; }
+  if (seconds < 10) { seconds = "0" + seconds; }
+  return hours + ':' + minutes + ':' + seconds;
 }

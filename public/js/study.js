@@ -14,8 +14,10 @@ let second = 0;
 let pose_status = "basic";
 let sleep_status = "open";
 let basic = false, focus_out = false, phone = false, leave = false;
+let current_status = "";
 
 let warning_number = 0;
+
 
 // Load the image model and setup the webcam
 async function init() {
@@ -86,6 +88,10 @@ async function predict() {
     }
 
     // console.log(pose_status + " - " + sleep_status);
+    current_status = pose_status;
+    if(current_status == "basic" && sleep_status != "open" && sleep_status != "close") {
+        current_status = "sleep";
+    }
 }
 
 function timer() {
@@ -106,8 +112,6 @@ function timer() {
 
         // document.getElementById("stopwatch").innerHTML = "딴 짓을 한 시간 : " + (second % 5) + "초";
         // console.log(second);
-
-        var status = pose_status;
 
         if ((second % 5) + 1 >= 5) {
             if (pose_status == "focus_out") {
