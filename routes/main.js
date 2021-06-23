@@ -223,25 +223,58 @@ router.post('/study/warning', function (req, res) {
       let today = new Date();
       var i = 0;
       for(i = 0; i < user.warning.length; i++) {
-        if(user.warning[i].date == "2021. 6. 24.") {
+        if(user.warning[i].date == today.toLocaleDateString()) {
           console.log('존재함');
           break;
         }
       }
-      if(user.warning.length == i) {
+      if(user.warning.length == i) {    // 오늘 처음 경고 받았을 때
+        var w = new Array(0, 0, 0, 0);
+        switch(req.query.warning) {
+          case "focus_out": w[0]++; break;
+          case "phone": w[1]++; break;
+          case "sleep": w[2]++; break;
+          case "leave": w[3]++; break;
+        }
         let warning = {
           date: today.toLocaleDateString(),
+          focus_out: w[0],
+          phone: w[1],
+          sleep: w[2],
+          leave: w[3]
         }
         User.findOneAndUpdate({ id: req.user.id }, { $push: { warning: warning } }, function (err, user) {
           if (err) {
             console.log(err);
             res.redirect("/");
-          } else {
-            console.log(user.warning);
           }
         });
-      } else {
-        
+      } else {  // 이전에도 경고를 받았음
+        var w = new Array(0, 0, 0, 0);
+        for(var i = 0; i < user.warning.length; i++) {
+          if(user.warning[i].date == today.toLocaleDateString()) {
+            w[0] = user.warning[i].focus_out;
+            w[1] = user.warning[i].phone;
+            w[2] = user.warning[i].sleep;
+            w[3] = user.warning[i].leave;
+            break;
+          }
+        }
+        switch(req.query.warning) {
+          case "focus_out": w[0]++; break;
+          case "phone": w[1]++; break;
+          case "sleep": w[2]++; break;
+          case "leave": w[3]++; break;
+        }
+
+        User.updateOne({ 'warning.date': today.toLocaleDateString() }, {
+          '$set': {
+            'warning.$.focus_out': w[0],
+            'warning.$.phone': w[1],
+            'warning.$.sleep': w[2],
+            'warning.$.leave': w[3]
+          }
+        }, function (err) { if (err) console.log(err) });
       }
       
     }

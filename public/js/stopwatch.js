@@ -70,7 +70,7 @@ function buttonEvt() {
         n_min = n_min % 60;
 
         s_min = Math.floor(s_time / 60);
-        s_hour = Math.floor(s_time / 60);
+        s_hour = Math.floor(s_min / 60);
         s_sec = s_time % 60;
         s_min = s_min % 60;
 
