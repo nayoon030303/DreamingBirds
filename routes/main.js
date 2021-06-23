@@ -39,18 +39,22 @@ router.get('/', function (req, res) {
         timer.date = today.toLocaleDateString();
       
         let isInsert = true;
-        let ut = user.timer;
-        ut.forEach((t)=>{
-          if(t.date == timer.date ){
-            console.log(t.date);
-            console.log(timer.date);
-            isInsert = false;
-          }
-        });
+        let ut =-1;
+        if(user.timer != null){
+          ut = user.timer;
+          ut.forEach((t)=>{
+            if(t.date == timer.date ){
+              console.log(t.date);
+              console.log(timer.date);
+              isInsert = false;
+            }
+          });
+        }
+        
         // console.log(timer);
         // console.log(isInsert);
         // console.log(ut.length);
-        if(isInsert || ut.length<=0)
+        if(isInsert || ut ==-1)
         {
           User.findOneAndUpdate({ id: req.user.id }, { $push: { timer: timer } }, function (err, user) {
             if(err){
