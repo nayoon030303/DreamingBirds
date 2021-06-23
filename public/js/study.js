@@ -93,6 +93,10 @@ function timer() {
     let status;
 
     time = setInterval(function () {
+        if(!isStudy) {
+            return;
+        }
+
         if ((pose_status == "focus_out" || pose_status == "phone" || pose_status == "leave") ||
             (sleep_status == "close" || sleep_status == "neck" || sleep_status == "top")) {
             second++;
@@ -103,20 +107,38 @@ function timer() {
         // document.getElementById("stopwatch").innerHTML = "딴 짓을 한 시간 : " + (second % 5) + "초";
         // console.log(second);
 
+        var status = pose_status;
+
         if ((second % 5) + 1 >= 5) {
             if (pose_status == "focus_out") {
                 document.getElementsByClassName("group-name")[0].innerHTML = "한 눈 팔다 먹이가 도망가도 전 몰라요!";
+                status = "focus_cout";
             } else if (pose_status == "phone") {
                 document.getElementsByClassName("group-name")[0].innerHTML = "짹짹!! 네? 못알아듣겠다고요? 지금 놀고있냐 물었어요!!";
+                status = "phone";
             } else if (pose_status == "leave") {
                 document.getElementsByClassName("group-name")[0].innerHTML = "제 눈에는 의자밖에 안보이는거같은데 기분탓인가요?";
+                status = "leave";
             } else if (sleep_status == "close" || sleep_status == "neck" || sleep_status == "top") {
                 document.getElementsByClassName("group-name")[0].innerHTML = "지금 자면 꿈을 꿀수있지만 꿈처럼 환상적인 먹이는 못먹어요!";
+                status = "sleep";
             }
 
             warning_number++;
             //document.getElementById("warning").innerHTML = "경고 횟수 : " + warning_number;
             console.log("경고 횟수 : " + warning_number + " - " + pose_status);
+
+            fetch('/study/warning?warning=' + status + '&sid=' + $("#subject-id").data("subject_id"), { method: 'POST' })
+            .then(function (response) {
+              if (response.ok) {
+                return;
+              }
+              throw new Error('Request failed.');
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
+
 
             // beep();
         } else {

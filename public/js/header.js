@@ -47,7 +47,7 @@ let logout_btn = document.createElement("button");
 if (!user) {
     login.className = "login";
     login.textContent = "로그인";
-    login.href = "/auth/login";
+    login.href = "/googlelogin";
     login.style.marginTop = '20px';
     login.style.marginRight = '20px';
     login.style.float = "right";
@@ -203,7 +203,7 @@ $(document).ready(function () {
         location.href = "/my";
     });
     $(".logout_btn").on("click", function (e) {
-        location.href = "/logout";
+        location.href = "/googlelogin";
     });
 
     // 버튼들 마우스오버시 색이 회색으로 바뀌게

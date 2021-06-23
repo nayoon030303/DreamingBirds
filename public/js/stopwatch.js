@@ -5,6 +5,8 @@ var starFlag = true;
 
 var subject_second = 0;
 
+let isStudy = false;
+
 $(document).ready(function () {
   stopwatchinit();
   buttonEvt();
@@ -50,6 +52,7 @@ function buttonEvt() {
   // start btn
   $("#startbtn").click(function () {
     if (this.textContent == "시작") {
+      isStudy = true;
       this.textContent = "휴식";
       timer = setInterval(function () {
         time++;
@@ -111,6 +114,7 @@ function buttonEvt() {
           console.log(error);
         });
     } else if (this.textContent == "휴식") {
+      isStudy = false;
       this.textContent = "시작";
       if (time != 0) {
         clearInterval(timer);

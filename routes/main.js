@@ -126,7 +126,6 @@ router.get('/study/:id', function (req, res) {
 
         let list = User.find();
         res.render('studyPage', { user: user, data: list, subject_id: req.query.id });
-        console.log(req.query.id);
       }
     });
   } else {
@@ -211,6 +210,46 @@ router.post('/study/timeline', function (req, res) {
   }
   res.redirect("/study/" + req.user.id + "?id=" + req.query.sid);
 });
+
+router.post('/study/warning', function (req, res) {
+  console.log(req.query.warning);
+  let today = new Date();
+
+  User.findOne({ id: req.user.id }, function (err, user) {
+    if (err) {
+      console.log(err);
+      res.redirect('/');
+    } else {
+      let today = new Date();
+      var i = 0;
+      for(i = 0; i < user.warning.length; i++) {
+        if(user.warning[i].date == "2021. 6. 24.") {
+          console.log('존재함');
+          break;
+        }
+      }
+      if(user.warning.length == i) {
+        let warning = {
+          date: today.toLocaleDateString(),
+        }
+        User.findOneAndUpdate({ id: req.user.id }, { $push: { warning: warning } }, function (err, user) {
+          if (err) {
+            console.log(err);
+            res.redirect("/");
+          } else {
+            console.log(user.warning);
+          }
+        });
+      } else {
+        
+      }
+      
+    }
+  });
+
+  res.redirect("/study/" + req.user.id + "?id=" + req.query.sid);
+});
+
 
 
 router.get('/home', function (req, res) {
@@ -376,9 +415,9 @@ router.post("/addSubject/:id", function (req, res) {
 });
 
 
-// router.get('/googlelogin', function (req, res) {
-//   res.render('main', { user: req.user });
-// });
+router.get('/googlelogin', function (req, res) {
+  res.render('main', { user: req.user });
+});
 
 
 // router.get('/logout', function(req, res) {
@@ -389,8 +428,8 @@ router.post("/addSubject/:id", function (req, res) {
 //   })
 // });
 
-// router.get('/login', function (req, res) {
-//   res.render('login')
-// });
+router.get('/login', function (req, res) {
+  res.render('login')
+});
 
 module.exports = router;
