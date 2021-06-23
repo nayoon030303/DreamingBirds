@@ -448,9 +448,9 @@ router.post("/addSubject/:id", function (req, res) {
 });
 
 
-router.get('/googlelogin', function (req, res) {
-  res.render('main', { user: req.user });
-});
+// router.get('/googlelogin', function (req, res) {
+//   res.render('main', { user: req.user });
+// });
 
 
 // router.get('/logout', function(req, res) {
@@ -461,8 +461,8 @@ router.get('/googlelogin', function (req, res) {
 //   })
 // });
 
-router.get('/login', function (req, res) {
-  res.render('login')
-});
+// router.get('/login', function (req, res) {
+//   res.render('login')
+// });
 
 module.exports = router;
