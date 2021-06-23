@@ -9,6 +9,19 @@ var level = "egg";
 
 let isStudy = false;
 
+let user_hour = 0;
+let user_min = 0;
+let user_sec = 0;
+
+var today = new Date();
+for(var i = 0; i < user.timer.length; i++) {
+  if(user.timer[i].date == today.toLocaleDateString()) {
+    user_hour = user.timer[i].hour;
+    user_min = user.timer[i].min;
+    user_sec = user.timer[i].sec;
+  }
+}
+
 $(document).ready(function () {
   stopwatchinit();
   buttonEvt();
@@ -16,7 +29,7 @@ $(document).ready(function () {
 
 function stopwatchinit() {
   document.getElementById("now-focus-time").innerHTML = "00:00:00";
-  document.getElementById("all-focus-time").value = ("0" + user.timer[0].hour).slice(-2) + ":" + ("0" + user.timer[0].min).slice(-2) + ":" + ("0" + user.timer[0].sec).slice(-2);
+  document.getElementById("all-focus-time").value = ("0" + user_hour).slice(-2) + ":" + ("0" + user_min).slice(-2) + ":" + ("0" + user_sec).slice(-2);
   for (var i = 0; i < user.subjects.length; i++) {
     if (user.subjects[i]._id === $("#subject-id").data("subject_id").slice(1, -1)) {
       subject_second = user.subjects[i].time;
@@ -30,7 +43,7 @@ function stopwatchinit() {
   var text = document.getElementsByClassName("level-name")[0];
   var rest = document.getElementsByClassName("level-info")[0];
   var rest_time = -1;
-  var all_time = (user.timer[0].hour * 3600) + (user.timer[0].min * 60) + user.timer[0].sec;
+  var all_time = (user_hour * 3600) + (user_min * 60) + user_sec;
   if (all_time > 18000) {
     level = "king";
     text.innerHTML = "4단계 왕비둘기";
@@ -66,9 +79,9 @@ function buttonEvt() {
 
   // console.log(user);
 
-  var hour = user.timer[0].hour;
-  var min = user.timer[0].min;
-  var sec = user.timer[0].sec;
+  var hour = user_hour;
+  var min = user_min;
+  var sec = user_sec;
 
   var subtime = document.getElementById("sub-time").value.split(":");
   var sub_hour = subtime[0];
