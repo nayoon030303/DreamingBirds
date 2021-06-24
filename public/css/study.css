@@ -482,7 +482,7 @@ html, body {
     border-radius: 10px;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    padding-left:30px;
     align-items: center;
 }
 

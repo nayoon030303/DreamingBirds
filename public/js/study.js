@@ -145,7 +145,7 @@ function timer() {
             });
 
 
-            // beep();
+            beep();
         } else {
             //document.getElementById("time").innerHTML = "";
         }
@@ -153,7 +153,7 @@ function timer() {
 }
 
 function beep() {
-    var audio = new Audio('https://media.geeksforgeeks.org/wp-content/uploads/20190531135120/beep.mp3');
+    var audio = new Audio('../mp3/bird.mp3');
     audio.play();
 }
 
