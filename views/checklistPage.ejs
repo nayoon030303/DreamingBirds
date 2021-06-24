@@ -29,14 +29,14 @@
                             </div>
                         </div>
                         <form name = "todoForm" class="js-toDoForm item" action='/checklist/<%= user.id %>' method="post">
-                            <input class = "underline" name ="n" type="text" placeholder = "내용을 입력하세요."/>
+                            <input id = "todo" class = "underline" name ="n" type="text" placeholder = "내용을 입력하세요."/>
                             <input type ="hidden" name = "d" value= ''/>
-                            <button type="submit" class = "add">추가</button>
+                            <button id ="submit" type="submit" class = "add">추가</button>
                         </form>
                 
                         <!-- <div class = "js-toDoList">
                         </div> -->
-                        <ul class = "js-toDoList">
+                        <ul class = "js-toDoList" style="height:70%; overFlow : auto;">
                         </ul>
                     </div>    
                     <!-- <div class ="company-info">ⓒ 2021 by Team Dreaming Birds</div> -->

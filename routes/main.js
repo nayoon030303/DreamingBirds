@@ -365,6 +365,41 @@ router.post("/checklist/:id", function (req, res) {
   });
 });
 
+router.post('/checked', function (req, res) {
+  console.log("checkcheckcheckcheckcheck");
+    var idx = req.query.idx; 
+    var chk = req.query.ischeck;
+    console.log(idx);
+    console.log(`=======todo=======`);
+    User.findOne({id:req.user.id}, function(err, user){
+      if(err){
+        console.log(err);
+        res.redirect('/');
+      }else{
+        var todo_id = user.todos[idx]._id;
+        console.log("id : " + todo_id);
+        User.updateOne({'todos._id': todo_id}, {
+          '$set' : {
+            'todos.$.checked':chk
+          }
+        }, function(err){if(err) console.log(err)});
+      }
+    })
+
+    console.log(`성공적인가?`);
+});
+// router.get('/checked', function (req, res) {
+//   User.findOne({id:req.user.id}, function(err, user){
+//     if(err){
+//       console.log(err);
+//       res.redirect('/');
+//     }else{
+//       res.send(user);
+//     }
+//   })
+// });
+
+
 
 router.get('/selectSubject/:id', function (req, res) {
   if (req.isAuthenticated()) {
