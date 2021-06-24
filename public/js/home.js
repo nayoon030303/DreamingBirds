@@ -69,6 +69,11 @@ function ChangekDate(year,month,date){
     }
     let userClickDate = `<h2 class="user_">${year}.${month}.${date} ${userName}님의 학습 통계 입니다.</h2>`
     document.querySelector('.write-date').innerHTML = userClickDate;
+
+    console.log('a');
+    make_stimeChart();
+    make_wraningchart();
+    make_timeline();
 }
 
 function checkCorrectkDate(){
@@ -221,6 +226,8 @@ function checkDaily(){
     
     const user_ = document.querySelector('.user_');
     user_.innerText=`${viewYear}.${viewMonth}.${viewDate} ${userName}님의 학습통계 입니다.`;
+
+   
 }
 
 function checkWeekly(){
@@ -261,6 +268,21 @@ function checkUserClick(){
 
 //1 study타임 통계 
 function make_stimeChart(){
+
+
+    //데이터 삭제 
+    let bars = document.querySelectorAll('.zt-skill-bar');
+    bars.forEach((bar)=>{
+        bar.remove();
+    });
+    let span = document.querySelectorAll('.aspan');
+    span.forEach((s)=>{
+        s.remove();
+    })
+
+    //자동 증가
+    
+
     //총 학습시간
     let view = `${viewYear}. ${viewMonth}. ${viewDate}.`;
     console.log(view);
@@ -268,8 +290,7 @@ function make_stimeChart(){
     let totalTime = '00:00:00';
    
     timer.forEach((t)=>{
-        console.log(t.date);
-        console.log(view);
+
         if(t.date == view){
             totalTime = `${String(t.hour).padStart(2,'0')}.${String(t.min).padStart(2,'0')}.${String(t.sec).padStart(2,'0')}`;
             
@@ -281,14 +302,13 @@ function make_stimeChart(){
     document.querySelector('.max-contime').innerText = MAX_CONTIME ;
 
 
-    //
-    
 
     let maxConcentrateTime = '학습을 시작하지 않았습니다.'; //최다 학습 과목
     let minConcentrateTime = '학습을 시작하지 않았습니다.'; //최저 학습 과목
     let t_subject = [];
     let timesum = 0;
     let subjects = user.subjects;
+   
     subjects.forEach((subject)=>{ //name과 time만 추출
         if(subject.date == view){
             timesum+=subject.time;
@@ -298,7 +318,7 @@ function make_stimeChart(){
             });
         }
     });
-
+ 
     t_subject.sort((a,b)=>{ //내림차순
         if(a.time>b.time){
             return -1;
@@ -306,20 +326,21 @@ function make_stimeChart(){
             return 1;
         }
     });
-    if(subjects.length>0){
+    if(t_subject.length>0){
         maxConcentrateTime = t_subject[0].name;
         minConcentrateTime = t_subject[t_subject.length-1].name;
     }
     document.querySelector('.max-subject').innerText = maxConcentrateTime;
     document.querySelector('.min-subject').innerText = minConcentrateTime;
 
-    console.log(user.subjects);
-
+    console.log('user',user.subjects);
+    console.log('t',t_subject);
     //과목별 공부량
     
     //비율 만들기
     if(t_subject.length>0){
         t_subject.forEach((data)=>{
+            console.log('d',data);
             if(timesum == 0) {
                 createRate(data.name, 0);
             } else {
@@ -331,11 +352,32 @@ function make_stimeChart(){
         span.classList.add('aspan');
         span.innerText = '아직 학습을 시작 하지 않았습니다.';
         stimeGraph.append(span);
-    }
-  
-    console.log();
+    }    
+ 
     
+    //js
+    (function( $ ) {
+        "use strict";
+        $(function() {
+            function animated_contents() {
+                $(".zt-skill-bar > div ").each(function (i) {
+                    var $this  = $(this),
+                        skills = $this.data('width');
     
+                    $this.css({'width' : skills + '%'});
+    
+                });
+            }
+            
+            if(jQuery().appear) {
+                $('.zt-skill-bar').appear().on('appear', function() {
+                    animated_contents();
+                });
+            } else {
+                animated_contents();
+            }
+        });
+    }(jQuery));
 }
 
 let stimeGraph = document.querySelector('.stime-graph');
@@ -370,7 +412,72 @@ function make_wraningchart(){
 
 //3 타임라인
 function make_timeline(){
+    let view = `${viewYear}. ${viewMonth}. ${viewDate}.`;
+    //데이터 삭제하기
+    let delul = document.querySelector('.timeline');
+    if(delul!=null){
+        delul.remove();
+    }
+    //
+    let a= document.querySelector('.nodata_div');
+    if(a!=null){
+        a.remove();
+    }
 
+    let timeline = user.timeLines;
+    let datas = [];
+    timeline.forEach((data)=>{
+        if(data.date == view){
+            datas.push(data);
+        }
+    })
+    let timeDiv = document.querySelector('.time-line');
+    console.log(datas);
+    if(datas.length<=0 || datas == null){ //정보가 없다면
+        console.log('no data');
+
+        let div = document.createElement('div');
+        div.innerText = '데이터가 없습니다.';
+        div.classList.add('nodata_div');
+        timeDiv.append(div);
+    }else{
+       
+        let timeUl = document.createElement('ul');
+        timeUl.classList.add('timeline');
+        timeDiv.append(timeUl);
+
+        datas.forEach((data)=>{
+          
+            let timeLi = document.createElement('li');
+            timeLi.classList.add('content');
+            
+            let h3 = document.createElement('h3');
+            h3.innerText = data.subject;
+
+            for(let i=0; i<user.subjects.length; i++){
+                if(user.subjects[i]._id == data.subject){
+                    h3.innerText = user.subjects[i].name;
+                }
+            }
+
+            let p1 = document.createElement('p');
+            p1.innerText = `${data.startTime}~${data.endTime}`;
+
+            let p2 = document.createElement('p');
+            p2.innerText = '';
+
+            timeLi.append(h3);
+            timeLi.append(p1);
+            timeLi.append(p2);
+
+            timeUl.append(timeLi);
+            
+            
+        })
+      
+    }
+        
+    //let timeline = document.querySelector('.timeline');
 }
 
 
@@ -385,29 +492,11 @@ function chart_init(){
 
     checkUserClick();
 
-    make_stimeChart();
-    (function( $ ) {
-        "use strict";
-        $(function() {
-            function animated_contents() {
-                $(".zt-skill-bar > div ").each(function (i) {
-                    var $this  = $(this),
-                        skills = $this.data('width');
+    // make_stimeChart();
+    // make_wraningchart();
+    // make_timeline();
+
     
-                    $this.css({'width' : skills + '%'});
-    
-                });
-            }
-            
-            if(jQuery().appear) {
-                $('.zt-skill-bar').appear().on('appear', function() {
-                    animated_contents();
-                });
-            } else {
-                animated_contents();
-            }
-        });
-    }(jQuery));
 }
 
 function home_init(){
