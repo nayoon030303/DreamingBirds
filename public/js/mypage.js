@@ -12,8 +12,8 @@ document.getElementById("upload_img").addEventListener("change", function (e) {
 // 꿈을 꾼 시간
 function updateTime() {
     let sum = 0;
-    for (var i = 0; i < user.timer.length; i++) {
-        sum += ((user.timer[i].hour * 3600) + (user.timer[i].min * 60) + (user.timer[i].sec));
+    for (var i = 0; i < user.subjects.length; i++) {
+        sum += user.subjects[i].time;
     }
     let time = parseInt(sum / (3600 * 24)) + "일 ";
     time += parseInt((sum % (3600 * 24)) / 3600) + "시간 ";
