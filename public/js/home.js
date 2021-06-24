@@ -70,9 +70,8 @@ function ChangekDate(year,month,date){
     let userClickDate = `<h2 class="user_">${year}.${month}.${date} ${userName}님의 학습 통계 입니다.</h2>`
     document.querySelector('.write-date').innerHTML = userClickDate;
 
-    console.log('a');
     make_stimeChart();
-    make_wraningchart();
+    make_warningchart();
     make_timeline();
 }
 
@@ -285,7 +284,6 @@ function make_stimeChart(){
 
     //총 학습시간
     let view = `${viewYear}. ${viewMonth}. ${viewDate}.`;
-    console.log(view);
     let timer = user.timer;
     let totalTime = '00:00:00';
    
@@ -333,14 +331,12 @@ function make_stimeChart(){
     document.querySelector('.max-subject').innerText = maxConcentrateTime;
     document.querySelector('.min-subject').innerText = minConcentrateTime;
 
-    console.log('user',user.subjects);
-    console.log('t',t_subject);
     //과목별 공부량
     
     //비율 만들기
     if(t_subject.length>0){
         t_subject.forEach((data)=>{
-            console.log('d',data);
+          
             if(timesum == 0) {
                 createRate(data.name, 0);
             } else {
@@ -401,13 +397,40 @@ function createRate(name, rate)
     data.append(ratio);
     bar.append(data);
     stimeGraph.append(bar);
-    console.log(bar);
+ 
 }
 
 
 //2 study타임 경고 비율
-function make_wraningchart(){
+function make_warningchart(){
+   
+    let focus = document.querySelector('.focus');
+    let phone = document.querySelector('.phone');
+    let sleep = document.querySelector('.sleep');
+    let leave = document.querySelector('.leave');
 
+    let view = `${viewYear}. ${viewMonth}. ${viewDate}.`;
+    let warning = user.warning;
+    let data =-1;
+
+    warning.forEach((war)=>{
+        if(war.date == view){
+            data=war;
+        }
+    })
+
+    if(data==-1){
+        focus.innerText = `0회`; 
+        phone.innerText = `0회`;
+        sleep.innerText = `0회`;      
+        leave.innerText = `0회`;
+    }else{
+    
+        focus.innerText = `${data.focus_out}회`; 
+        phone.innerText = `${data.phone}회`;
+        sleep.innerText = `${data.sleep}회`;      
+        leave.innerText = `${data.leave}회`;
+    }
 }
 
 //3 타임라인
@@ -432,10 +455,9 @@ function make_timeline(){
         }
     })
     let timeDiv = document.querySelector('.time-line');
-    console.log(datas);
-    if(datas.length<=0 || datas == null){ //정보가 없다면
-        console.log('no data');
 
+    if(datas.length<=0 || datas == null){ //정보가 없다면
+    
         let div = document.createElement('div');
         div.innerText = '데이터가 없습니다.';
         div.classList.add('nodata_div');

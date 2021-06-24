@@ -443,3 +443,35 @@ h2{
     display: none;   
 }
 
+.warging-graph{
+    display: flex;
+    /* background-color: red; */
+    justify-content: space-around;
+}
+
+
+.warging-content{
+    display: flex;
+    flex-direction: column;
+}    
+
+.warging-img{
+    display: block;
+    width: 100px;
+}
+
+.warning-name{
+    display: block;
+    /* background-color: skyblue; */
+    width: clac(100%/4);
+    margin: auto;
+    margin-top: 20px;
+    font-size: 3.6rem;
+}
+.warnging-value{
+    display: block;
+    width: auto;
+    margin: auto;
+    margin-top: 40px;
+    
+}
