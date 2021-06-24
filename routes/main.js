@@ -37,7 +37,7 @@ router.get('/', function (req, res) {
         timer.min = 0;
         timer.sec = 0;
         timer.date = today.toLocaleDateString();
-
+        
         let isInsert = true;
 
         let ut =-1;
@@ -52,9 +52,7 @@ router.get('/', function (req, res) {
           });
         }
         
-        // console.log(timer);
-        // console.log(isInsert);
-        // console.log(ut.length);
+       
         if(isInsert || ut ==-1)
         {
        
@@ -67,31 +65,7 @@ router.get('/', function (req, res) {
             }
           });
         }
-        // if(isInsert){
-        //   User.findOneAndUpdate({ id: req.user.id }, { $push: { timer: timer } }, function (err, user) {
-        //     if (err) {
-        //       console.log(err);
-        //       res.redirect("/");
-        //     }
-        //     console.log("push timer 성공");
-        //     res.redirect("/");
-        //   });
-        // }else{
-        //   User.find({}, function (err, users) {
-        //     if (err) {
-        //       console.log(err);
-        //       res.redirect('/');
-        //     } else {
-        //       var sum = 0;
-        //       for (var i = 0; i < users.length; i++) {
-        //         for (var j = 0; j < users[i].subjects.length; j++) {
-        //           sum += users[i].subjects[j].time;
-        //         }
-        //       }
-        //       res.render('index', { user: null, whole: sum });
-        //     }
-        //   });
-        // }
+       
 
 
         res.redirect("/auth/login");
