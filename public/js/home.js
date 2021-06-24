@@ -280,7 +280,7 @@ function make_stimeChart(){
         s.remove();
     })
 
-    //자동 증가
+
     
 
     //총 학습시간
@@ -477,7 +477,6 @@ function make_timeline(){
       
     }
         
-    //let timeline = document.querySelector('.timeline');
 }
 
 
