@@ -15,7 +15,7 @@ let user_sec = 0;
 
 var today = new Date();
 for(var i = 0; i < user.timer.length; i++) {
-  if(user.timer[i].date == today.toLocaleDateString()) {
+  if(user.timer[i].date == `${today.getFullYear()}. ${today.getMonth()+1}. ${today.getDate()}.`) {
     user_hour = user.timer[i].hour;
     user_min = user.timer[i].min;
     user_sec = user.timer[i].sec;

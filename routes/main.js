@@ -36,7 +36,7 @@ router.get('/', function (req, res) {
         timer.hour = 0;
         timer.min = 0;
         timer.sec = 0;
-        timer.date = today.toLocaleDateString();
+        timer.date = `${today.getFullYear()}. ${today.getMonth()+1}. ${today.getDate()}.`;
         
         let isInsert = true;
 
@@ -121,7 +121,7 @@ router.post('/study/timer', function (req, res) {
   var today = new Date();
   let data = {
     timer: {
-      date: today.toLocaleDateString(),
+      date: `${today.getFullYear()}. ${today.getMonth()+1}. ${today.getDate()}.`,
       hour: parseInt(time[0]),
       min: parseInt(time[1]),
       sec: parseInt(time[2])
@@ -161,7 +161,7 @@ router.post('/study/timeline', function (req, res) {
       subject: req.query.sid.slice(1, -1),
       startTime: today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(),
       endTime: "00:00:00",
-      date: today.toLocaleDateString()
+      date: `${today.getFullYear()}. ${today.getMonth()+1}. ${today.getDate()}.`
     }
     User.findOneAndUpdate({ id: req.user.id }, { $push: { timeLines: timeline } }, function (err, user) {
       if (err) {
@@ -206,7 +206,7 @@ router.post('/study/warning', function (req, res) {
       let today = new Date();
       var i = 0;
       for (i = 0; i < user.warning.length; i++) {
-        if (user.warning[i].date == today.toLocaleDateString()) {
+        if (user.warning[i].date == `${today.getFullYear()}. ${today.getMonth()+1}. ${today.getDate()}.`) {
           // console.log('존재함');
           break;
         }
@@ -220,7 +220,7 @@ router.post('/study/warning', function (req, res) {
           case "leave": w[3]++; break;
         }
         let warning = {
-          date: today.toLocaleDateString(),
+          date: `${today.getFullYear()}. ${today.getMonth()+1}. ${today.getDate()}.`,
           focus_out: w[0],
           phone: w[1],
           sleep: w[2],
@@ -234,12 +234,14 @@ router.post('/study/warning', function (req, res) {
         });
       } else {  // 이전에도 경고를 받았음
         var w = new Array(0, 0, 0, 0);
+        var w_id;
         for (var i = 0; i < user.warning.length; i++) {
-          if (user.warning[i].date == today.toLocaleDateString()) {
+          if (user.warning[i].date == `${today.getFullYear()}. ${today.getMonth()+1}. ${today.getDate()}.`) {
             w[0] = user.warning[i].focus_out;
             w[1] = user.warning[i].phone;
             w[2] = user.warning[i].sleep;
             w[3] = user.warning[i].leave;
+            w_id = user.warning[i]._id;
             break;
           }
         }
@@ -250,7 +252,7 @@ router.post('/study/warning', function (req, res) {
           case "leave": w[3]++; break;
         }
 
-        User.updateOne({ 'warning.date': today.toLocaleDateString() }, {
+        User.updateOne({ 'warning._id': w_id }, {
           '$set': {
             'warning.$.focus_out': w[0],
             'warning.$.phone': w[1],
@@ -259,7 +261,6 @@ router.post('/study/warning', function (req, res) {
           }
         }, function (err) { if (err) console.log(err) });
       }
-
     }
   });
 
@@ -456,7 +457,7 @@ router.post("/addSubject/:id", function (req, res) {
   var today = new Date();
   subject.name = req.body.n;
   subject.time = 0;
-  subject.date = today.toLocaleDateString();
+  subject.date = `${today.getFullYear()}. ${today.getMonth()+1}. ${today.getDate()}.`;
 
   User.findOneAndUpdate({ id: req.user.id }, { $push: { subjects: subject } }, function (err, user) {
     if (err) {

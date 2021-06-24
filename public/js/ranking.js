@@ -12,7 +12,7 @@ setInterval(function () {
                 // console.log(i, data[i].nickname, data[i].timer);
                 var j = 0;
                 for (var j = 0; j < data[i].timer.length; j++) {
-                    if (data[i].timer[j].date == today.toLocaleDateString()) {
+                    if (data[i].timer[j].date ==`${today.getFullYear()}. ${today.getMonth()+1}. ${today.getDate()}.`) {
                         break;
                     }
                 }
