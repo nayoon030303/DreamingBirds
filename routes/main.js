@@ -68,7 +68,7 @@ router.get('/', function (req, res) {
        
 
 
-        res.redirect("/auth/login");
+        res.render('index', {user: user});
       }
     });
   } else {
