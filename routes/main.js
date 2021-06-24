@@ -94,7 +94,7 @@ router.get('/', function (req, res) {
         // }
 
 
-        res.render('index', { user: user });
+        res.redirect("/auth/login");
       }
     });
   } else {
@@ -136,7 +136,7 @@ router.get('/study/:id', function (req, res) {
       }
     });
   } else {
-    res.render('main', { user: req.user });
+    res.redirect("/auth/login");
   }
 });
 
@@ -313,7 +313,7 @@ router.get('/home', function (req, res) {
       }
     });
   } else {
-    res.render('main', { user: req.user });
+    res.redirect("/auth/login");
   }
 });
 
@@ -330,7 +330,7 @@ router.get('/my', function (req, res) {
       }
     });
   } else {
-    res.render('main', { user: req.user });
+    res.redirect("/auth/login");
   }
 });
 
@@ -370,7 +370,7 @@ router.get('/checklist/:id', function (req, res) {
       }
     });
   } else {
-    res.render('main', { user: req.user });
+    res.redirect("/auth/login");
   }
 });
 
@@ -403,7 +403,7 @@ router.get('/selectSubject/:id', function (req, res) {
       }
     });
   } else {
-    res.render('main', { user: req.user });
+    res.redirect("/auth/login");
   }
 });
 
@@ -437,7 +437,7 @@ router.get('/addSubject/:id', function (req, res) {
       }
     });
   } else {
-    res.render('main', { user: req.user });
+    res.redirect("/auth/login");
   }
 });
 
