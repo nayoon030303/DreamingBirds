@@ -297,7 +297,7 @@ function make_stimeChart(){
     document.querySelector('.all-stime').innerText = totalTime;
 
     //최대 집중 시간
-    document.querySelector('.max-contime').innerText = MAX_CONTIME ;
+    //document.querySelector('.max-contime').innerText = MAX_CONTIME ;
 
 
 
