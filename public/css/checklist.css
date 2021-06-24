@@ -178,6 +178,7 @@ li{
 }
 .content .main .checklist .js-toDoList li {
     padding: 1% 2%;
+    width: 93%;
     border-bottom: 1px solid #CFCFCF;
     display: flex;
     align-items: center;
