@@ -14,12 +14,40 @@ html, body {
     width: 100%;
     height: auto;
     margin: 0;
+
+    --maincolr:#87a5ba;
+    --graycolor:#cccc;
+
 }
 
 ul {
     list-style: none;
     padding-left: 0px;
+    width: 80%;
 }
+
+li {
+    margin-bottom: 10px;
+}
+
+.todolist button{
+    border: 0.5px solid #C6C6C6;
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
+}
+
+.todolist::-webkit-scrollbar {
+    width: 5px;
+}
+.todolist::-webkit-scrollbar-thumb {
+    background-color: var(--maincolr);
+}
+.todolist::-webkit-scrollbar-track {
+    background-color: var(--graycolor);
+} 
+
+
 .root {
     width: 100%;
     height: auto;
@@ -361,6 +389,7 @@ ul {
 .content .main .mid .right .checklist .check-name{
     font-size: 18px;
     font-weight: bold;
+    margin-top: 10px;
 }
 
 .content .main .mid .right .checklist .check-add{
