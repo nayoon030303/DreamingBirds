@@ -206,26 +206,58 @@ function checkToDo(event){
     });
 }
 
-function delToDo(){
-
-
+function delToDo(event){
+    const btn = event.target;
+    const li = btn.parentNode;
+    const b = li.firstChild.firstChild;
+    var todoIdx = 0;
+    for(let i = 0; i<user.todos.length; i++){
+        if(user.todos[i].content === b.value){
+            todoIdx = i;
+            break;
+        }
+    }
+    console.log("idx="+user.todos[todoIdx]._id);
+    fetch('/deltodo?idxid=' + user.todos[todoIdx]._id, { method: 'POST' })
+        .then(function (response) {
+            if (response.ok) {
+                console.log('click was recorded');
+                return;
+            }
+            throw new Error('Request failed.');
+        })
+        .catch(function (error) {
+            console.log(error);
+    });
+    toDoList.removeChild(li);
 }
+
 function loadToDos() {
     if (user.todos != null) {
         $(".js-toDoList").children().remove();
         for (let i = 0; i < user.todos.length; i++) {
             if (user.todos[i].date === todoTitle.textContent) {
                 const li = document.createElement("li");
+                const chkDiv = document.createElement("div");
                 const statusBtn = document.createElement("button");
                 const delBtn = document.createElement("button");
                 const span = document.createElement("span");
+                
                 statusBtn.style.background = user.todos[i].checked === true ? "#87A5BA" : "white";
                 statusBtn.value = user.todos[i].content.replace("&nbsp;", " ");
-                statusBtn.addEventListener("click", checkToDo);
                 span.innerText = user.todos[i].content.replace("&nbsp;", " ");
+                statusBtn.addEventListener("click", checkToDo);
+                delBtn.style.border = "0px";
+                delBtn.style.float = "left";
+                delBtn.style.background = "none";
+                delBtn.style.color = "#CFCFCF";
+                delBtn.innerText = "X";
                 delBtn.addEventListener("click", delToDo);
-                li.appendChild(statusBtn);
-                li.appendChild(span);
+                
+                chkDiv.appendChild(statusBtn);
+                chkDiv.appendChild(span);
+                li.appendChild(chkDiv);
+                li.appendChild(delBtn);
                 toDoList.appendChild(li);
             }
         }
@@ -241,18 +273,18 @@ function main() {
     document.todoForm.d.value = dateText;
     console.log(`==================`);
 
-    fetch('/checked', {method: 'GET'})
-    .then(function(response) {
-      if(response.ok) return response.json();
-      throw new Error('Request failed.');
-    })
-    .then(function(user) {
+    // fetch('/checked', {method: 'GET'})
+    // .then(function(response) {
+    //   if(response.ok) return response.json();
+    //   throw new Error('Request failed.');
+    // })
+    // .then(function(user) {
 
       
-    })
-    .catch(function(error) {
-      console.log(error);
-    });
+    // })
+    // .catch(function(error) {
+    //   console.log(error);
+    // });
 
 
     loadToDos();

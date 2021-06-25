@@ -367,11 +367,11 @@ router.post("/checklist/:id", function (req, res) {
 });
 
 router.post('/checked', function (req, res) {
-  console.log("checkcheckcheckcheckcheck");
     var idx = req.query.idx; 
     var chk = req.query.ischeck;
-    console.log(idx);
+    //console.log(user);
     console.log(`=======todo=======`);
+    console.log(idx);
     User.findOne({id:req.user.id}, function(err, user){
       if(err){
         console.log(err);
@@ -386,9 +386,53 @@ router.post('/checked', function (req, res) {
         }, function(err){if(err) console.log(err)});
       }
     })
-
-    console.log(`성공적인가?`);
 });
+
+router.post('/deltodo', function (req, res) {
+    var idx = req.query.idxid; 
+    console.log(`=======deltodo=======`);
+    console.log(idx);    
+
+    User.findOne({id:req.user.id}, function(err, user){
+      if(err){
+        console.log(err);
+        res.redirect('/');
+      }else{
+        console.log("id : " + idx);
+        User.updateOne({'todos._id': idx}, {
+          '$set' : {
+            'todos.$.date':0
+          }
+        },function(err){if(err) console.log(err)});
+      }
+    })
+
+    // User.findOne({id:req.user.id}, function(err, user){
+    //   if(err){
+    //     console.log(err);
+    //     res.redirect('/');
+    //   }else{
+    //     console.log("id : " + idx);
+    //     User.findOneAndDelete({"todos" : {'todos._id': idx}}, function(err) {
+    //         if (!err) {
+    //                 console.log('notification!');
+    //         }
+    //         else {
+    //           console.log('error');
+    //         }
+    //     });
+    //   }
+    // })
+   
+    // User.updateOne({ id: req.params.id }, { "$pull": { "todos": { "_id":  idx} } }, { safe: true, multi: true }, function (err, obj) { 
+    //   if(err) coonsole.log(err);
+    // });
+
+    //User.remove({:})
+
+});
+
+
 // router.get('/checked', function (req, res) {
 //   User.findOne({id:req.user.id}, function(err, user){
 //     if(err){

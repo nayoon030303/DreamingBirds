@@ -182,7 +182,15 @@ li{
     border-bottom: 1px solid #CFCFCF;
     display: flex;
     align-items: center;
+    justify-content: space-between;    
 }
+
+.content .main .checklist .js-toDoList li div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;    
+}
+
 .content .main .checklist .js-toDoList li button {
     height: 30px;
     width: 30px;
@@ -190,7 +198,7 @@ li{
     border: 1px solid #D5D5D5;
     cursor: pointer;
 }
-.content .main .checklist .js-toDoList li span {
+.content .main .checklist .js-toDoList li div span {
     font-size: 25px;
     line-height: 30px;
     margin-left: 10px;
