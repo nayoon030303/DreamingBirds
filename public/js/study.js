@@ -18,6 +18,8 @@ let current_status = "";
 
 let warning_number = 0;
 
+const toDoList = document.querySelector('.js-toDoList');
+
 
 // Load the image model and setup the webcam
 async function init() {
@@ -52,6 +54,7 @@ async function init() {
         labelContainer.appendChild(document.createElement("div"));
     }
 
+    loadToDos();
     timer();
 }
 
@@ -161,6 +164,20 @@ function getDdata(){
     let subId = $("#subject-id").data("subject_id");
 }
 
+function loadToDos() {
+    if (user.todos != null) {
+        $(".js-toDoList").children().remove();
+        for (let i = 0; i < user.todos.length; i++) {
+            if (user.todos[i].date === `${today.getFullYear()}.${today.getMonth()+1}.${today.getDate()}`) {
+                const li = document.createElement("li");
+                const span = document.createElement("span");
+                span.innerText = user.todos[i].content.replace("&nbsp;", " ");
+                li.appendChild(span);
+                toDoList.appendChild(li);
+            }
+        }
+    }
+}
 
 init();
 
