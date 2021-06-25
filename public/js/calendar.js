@@ -251,7 +251,7 @@ function loadToDos() {
                 delBtn.style.float = "left";
                 delBtn.style.background = "none";
                 delBtn.style.color = "#CFCFCF";
-                delBtn.innerText = "X";
+                delBtn.innerText = "×";
                 delBtn.addEventListener("click", delToDo);
                 
                 chkDiv.appendChild(statusBtn);

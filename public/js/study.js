@@ -164,14 +164,60 @@ function getDdata(){
     let subId = $("#subject-id").data("subject_id");
 }
 
+function checkToDo(event){
+    const btn = event.target;
+    const text = event.target.value;
+    var todoIdx = 0;
+
+    console.log(event);
+
+    for(let i = 0; i<user.todos.length; i++){
+        if(user.todos[i].content === text){
+            todoIdx = i;
+            break;
+        }
+    }
+    console.log(`idx는 ${todoIdx}`);
+    if(btn.style.background === "white"){
+        btn.style.background = "#87A5BA";
+        user.todos[todoIdx].checked = true;        
+        console.log(`흰색 클릭`);
+
+    }else{
+        btn.style.background = "white";
+        user.todos[todoIdx].checked = false;
+    }
+
+  
+    fetch('/checked?idx=' + todoIdx + "&ischeck=" + user.todos[todoIdx].checked, { method: 'POST' })
+        .then(function (response) {
+            if (response.ok) {
+                console.log('click was recorded');
+                return;
+            }
+            throw new Error('Request failed.');
+        })
+        .catch(function (error) {
+            console.log(error);
+    });
+}
+
+
 function loadToDos() {
     if (user.todos != null) {
         $(".js-toDoList").children().remove();
         for (let i = 0; i < user.todos.length; i++) {
             if (user.todos[i].date === `${today.getFullYear()}.${today.getMonth()+1}.${today.getDate()}`) {
                 const li = document.createElement("li");
+                const statusBtn = document.createElement("button");
                 const span = document.createElement("span");
+                
+                statusBtn.style.background = user.todos[i].checked === true ? "#87A5BA" : "white";
+                statusBtn.value = user.todos[i].content.replace("&nbsp;", " ");
                 span.innerText = user.todos[i].content.replace("&nbsp;", " ");
+                statusBtn.addEventListener("click", checkToDo);
+                
+                li.appendChild(statusBtn);
                 li.appendChild(span);
                 toDoList.appendChild(li);
             }
